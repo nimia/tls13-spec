@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-01-17T01:05:12.125784+00:00",
+  "timestamp": "2021-01-31T00:35:34.898683+00:00",
   "repo": "tlswg/tls13-spec",
   "labels": [
     {
@@ -11316,6 +11316,30 @@
           "body": "Re RFC5705, I think there's a few different things going on here. RFC5705 is the TLS exporter interface, while HkdfLabel is part of the lower-level TLS 1.3 HKDF-Expand-Label function. HKDF-Expand-Label doesn't need to mess with NUL-termination or embedded NULs to maintain injectivity. The HkdfLabel structure already has an embedded length prefix.\r\n\r\nRFC8446's implementation of the RFC5705 interface uses HKDF-Expand-Label and passes the label in directly. RFC8446 imposes no requirements on the label, so that works out fine.\r\n\r\nRFC5705 was originally specified for TLS 1.2 actually messed up and *does* have potential injectivity problems because the construction ultimately concatenates a variable-length label with a variable-length randoms + context string. RFC5705 papers over this by requiring that \"IANA MUST also verify that one label is not a prefix of any other label\". This requirement doesn't apply to HKDF-Expand-Label itself, since that's lower-level than exporters, and it needn't apply since HKDF-Expand-Label's construction doesn't have this problem. (Though I guess it does apply to the exporter interface in RFC8446 by way of using the same registry.)",
           "createdAt": "2021-01-14T22:45:31Z",
           "updatedAt": "2021-01-14T22:45:31Z"
+        }
+      ]
+    },
+    {
+      "number": 1208,
+      "id": "MDU6SXNzdWU3OTY5NDA0ODI=",
+      "title": "Contradition around user_cancelled",
+      "url": "https://github.com/tlswg/tls13-spec/issues/1208",
+      "state": "OPEN",
+      "author": "ekr",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "John Mattsson writes:\r\n\r\nI think Section 6.1 Closure Alerts is a bit unclear:\r\n\r\n> First it is stated the user_canceled SHOULD be followed by close_notify\r\n> \r\n>    \"This alert SHOULD be followed by a \"close_notify\".\"\r\n> \r\n> Then it is stated that it MUST be followed by close_notify\r\n> \r\n>    \"Each party MUST send a \"close_notify\" alert before closing its write side of the connection,\r\n>    unless it has already sent some error alert.\"\r\n> \r\n> And in the same section is is stated that any data folloing user_canceled MUST be ignored.\r\n> \r\n>    \"Any data received after a closure alert has been received MUST be ignored.\"\r\n> \r\n> This seems quite contradicting to me. I don't know what the correct behavior would be,\r\n> but unless I misunderstood something, it looks like it should be addressed in rfc8446bis.\r\n\r\nI think this is a remnant of when we transitioned alerts to error by default. ",
+      "createdAt": "2021-01-29T14:47:50Z",
+      "updatedAt": "2021-01-29T16:14:39Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "davidben",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "We ended up having to ignore user_cancelled alerts as if they were warning alerts (despite warning alerts being nominally removed) because JDK in TLS 1.3 sometimes sends them right before close_notify. I forget the details now, but I think it was some ad-hoc signaling of full-duplex vs. unidirectional close?\r\n\r\n(I think NSS and OpenSSL also ignore them, though it looked like that was less in reaction to someone sending them and more a holdover from warning alert handling.)",
+          "createdAt": "2021-01-29T16:14:39Z",
+          "updatedAt": "2021-01-29T16:14:39Z"
         }
       ]
     }
