@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-02-02T00:33:43.733626+00:00",
+  "timestamp": "2021-02-07T00:28:26.607670+00:00",
   "repo": "tlswg/tls13-spec",
   "labels": [
     {
@@ -11349,6 +11349,22 @@
           "updatedAt": "2021-02-01T00:38:48Z"
         }
       ]
+    },
+    {
+      "number": 1209,
+      "id": "MDU6SXNzdWU4MDI2MDQzODc=",
+      "title": "\"client authentication\" -> \"certificate-based client authentication\"",
+      "url": "https://github.com/tlswg/tls13-spec/issues/1209",
+      "state": "OPEN",
+      "author": "emanjon",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "The document use the term \"client authentication\" in some places where is means \"certificate-based client authentication\" and not PSK-based authentication.\r\n\r\nI think it would be good to spell out when the text only means \"certificate-based client authentication\". I think people can misunderstand. ",
+      "createdAt": "2021-02-06T04:12:21Z",
+      "updatedAt": "2021-02-06T04:12:21Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
