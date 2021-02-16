@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-02-14T00:28:31.120130+00:00",
+  "timestamp": "2021-02-16T00:28:54.884526+00:00",
   "repo": "tlswg/tls13-spec",
   "labels": [
     {
@@ -11378,7 +11378,7 @@
       "labels": [],
       "body": "Some other protocols have a rule to override a specific error with a generic error. It would be nice to define such a rule for TLS 1.3. For instance, `internal_error` MAY be used on any cases where a specific alert is sent.",
       "createdAt": "2021-02-12T00:47:55Z",
-      "updatedAt": "2021-02-12T19:22:34Z",
+      "updatedAt": "2021-02-15T13:54:06Z",
       "closedAt": null,
       "comments": [
         {
@@ -11436,6 +11436,13 @@
           "body": "Regarding RFC8446, the new text came about when NSS was trying to use BoringSSL's test suite. EKR and I found our implementations disagreed on this alert all over the place. (It was added to the draft in September 2016 and ssl/test/PORTING.md in BoringSSL was August 2016.) We clarified it in an attempt to come up with a well-defined criteria to preserve the two alerts. The RFC5246 definitions are:\r\n\r\n>   illegal_parameter\r\n>      A field in the handshake was out of range or inconsistent with\r\n>      other fields.  This message is always fatal.\r\n>\r\n>   decode_error\r\n>      A message could not be decoded because some field was out of the\r\n>      specified range or the length of the message was incorrect.  This\r\n>      message is always fatal and should never be observed in\r\n>      communication between proper implementations (except when messages\r\n>      were corrupted in the network).\r\n\r\nNote that fields being out of range is captured in both. If you had to reverse-engineer a distinction between them, you'd end up with the RFC8446 criteria. (But of course I'd think that, as I had a hand in the RFC8446 text. :-) ) But it was somewhat ambiguous before then. More importantly, it's not really useful. There are two alerts only because we tried to preserve the existence of two alerts.",
           "createdAt": "2021-02-12T19:20:02Z",
           "updatedAt": "2021-02-12T19:20:02Z"
+        },
+        {
+          "author": "tomato42",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "> So, yes, some scenarios are unambiguous and you can coherently test those scenarios. Other scenarios are ambiguous, such as getting an EncryptedExtensions with a syntax error instead of ServerHello. (Is that unexpected_message or decode_error?) And, yes, you can write tests for the unambiguous cases and accept both on the ambiguous ones.\r\n>\r\n> The question is what is this test actually capturing? We care the implementation correctly rejects such-and-such invalid inputs, because that's important to the protocol working. We also care that it correctly reports \"input was invalid\" rather than \"no ciphers in common\", because that distinction is useful _outside the context of the test_.\r\n\r\nAll depends on how you define \"protocol working\"\r\n\r\nIf you ask users, what they care for in a working implementation of TLS, they will tell you that they want it to be secure (though for majority you will most likely need to ask them what they think the lock icon represents)\r\n\r\nNow, I think we can both agree that a \"secure implementation\" means one that has no vulnerabilities; one that the attacker cannot make to reveal secret data, modify secret data, refuse service to legitimate users, and can't use to elevate their privileges.\r\n\r\nOn the code level that translates to code that is _correct._ Not only code that can handle well-formed messages in expected order, one that can decrypt received messages, but one that also _correctly handles error conditions._ When we have multiple distinct error conditions, they need to be implemented as multiple separate checks. Sure, you can write them in a single `if`, but the condition will have multiple checks, not one. If as a tester I can see distinct behaviour for those checks, and I see that they behave correctly on the boundary condition, I can be reasonably sure that that check is implemented correctly. Then I can test each such check in isolation and have high confidence that the combination of all of them will behave well enough that it won't be vulnerable.\r\n\r\n> But why might we care about `decode_error` vs `illegal_parameter`? The distinction being useful for writing tests for the distinction is meaningless. The question whether it's useful for the protocol to have different errors for these cases. My experience is no. The categories are too coarse (which field in which message of my six-message flight upset the peer?) and the ambiguous cases too common that they aren't useful for debugging. Nor would any programmatic check on the receiver care about the difference.\r\n\r\nDoes it help for interoperability? No. Does it help for debugging? Also usually no. Does it help in ensuring that the _implementations_ are secure? Yes.\r\n\r\nWhile you can argue that security of implementations is not something that standards should care about. How easy it is to implement _and verify_ that an implementation is secure is something that end users of those standards care about. Thirty years of RSA PKCS#1 vulnerabilities show what happens if that is not a consideration.\r\n\r\n(side note: I don't think fully parsing a message and only then checking if the type of it matches the expected type is a good idea, I can see it helping the attacker exploit bugs in parsers, especially for features that must be negotiated or manually enabled)",
+          "createdAt": "2021-02-15T13:54:05Z",
+          "updatedAt": "2021-02-15T13:54:05Z"
         }
       ]
     }
