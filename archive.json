@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-02-16T00:28:54.884526+00:00",
+  "timestamp": "2021-02-18T00:32:40.044431+00:00",
   "repo": "tlswg/tls13-spec",
   "labels": [
     {
@@ -11378,7 +11378,7 @@
       "labels": [],
       "body": "Some other protocols have a rule to override a specific error with a generic error. It would be nice to define such a rule for TLS 1.3. For instance, `internal_error` MAY be used on any cases where a specific alert is sent.",
       "createdAt": "2021-02-12T00:47:55Z",
-      "updatedAt": "2021-02-15T13:54:06Z",
+      "updatedAt": "2021-02-17T22:38:35Z",
       "closedAt": null,
       "comments": [
         {
@@ -11443,6 +11443,20 @@
           "body": "> So, yes, some scenarios are unambiguous and you can coherently test those scenarios. Other scenarios are ambiguous, such as getting an EncryptedExtensions with a syntax error instead of ServerHello. (Is that unexpected_message or decode_error?) And, yes, you can write tests for the unambiguous cases and accept both on the ambiguous ones.\r\n>\r\n> The question is what is this test actually capturing? We care the implementation correctly rejects such-and-such invalid inputs, because that's important to the protocol working. We also care that it correctly reports \"input was invalid\" rather than \"no ciphers in common\", because that distinction is useful _outside the context of the test_.\r\n\r\nAll depends on how you define \"protocol working\"\r\n\r\nIf you ask users, what they care for in a working implementation of TLS, they will tell you that they want it to be secure (though for majority you will most likely need to ask them what they think the lock icon represents)\r\n\r\nNow, I think we can both agree that a \"secure implementation\" means one that has no vulnerabilities; one that the attacker cannot make to reveal secret data, modify secret data, refuse service to legitimate users, and can't use to elevate their privileges.\r\n\r\nOn the code level that translates to code that is _correct._ Not only code that can handle well-formed messages in expected order, one that can decrypt received messages, but one that also _correctly handles error conditions._ When we have multiple distinct error conditions, they need to be implemented as multiple separate checks. Sure, you can write them in a single `if`, but the condition will have multiple checks, not one. If as a tester I can see distinct behaviour for those checks, and I see that they behave correctly on the boundary condition, I can be reasonably sure that that check is implemented correctly. Then I can test each such check in isolation and have high confidence that the combination of all of them will behave well enough that it won't be vulnerable.\r\n\r\n> But why might we care about `decode_error` vs `illegal_parameter`? The distinction being useful for writing tests for the distinction is meaningless. The question whether it's useful for the protocol to have different errors for these cases. My experience is no. The categories are too coarse (which field in which message of my six-message flight upset the peer?) and the ambiguous cases too common that they aren't useful for debugging. Nor would any programmatic check on the receiver care about the difference.\r\n\r\nDoes it help for interoperability? No. Does it help for debugging? Also usually no. Does it help in ensuring that the _implementations_ are secure? Yes.\r\n\r\nWhile you can argue that security of implementations is not something that standards should care about. How easy it is to implement _and verify_ that an implementation is secure is something that end users of those standards care about. Thirty years of RSA PKCS#1 vulnerabilities show what happens if that is not a consideration.\r\n\r\n(side note: I don't think fully parsing a message and only then checking if the type of it matches the expected type is a good idea, I can see it helping the attacker exploit bugs in parsers, especially for features that must be negotiated or manually enabled)",
           "createdAt": "2021-02-15T13:54:05Z",
           "updatedAt": "2021-02-15T13:54:05Z"
+        },
+        {
+          "author": "davidben",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "There's no need to act like I don't know about testing or error conditions. Between tlsfuzzer and BoringSSL's test suite, I think you and I have both spent plenty of time thinking about testing TLS. :-)\r\n\r\nOf course the way to test security-critical error conditions is by isolating it in a test. But the alert isn't part of the security requirement, and, when testing, the alert doesn't isolate the error: TLS's alert codes match large classes of errors. The way to isolate it is for the test input to only include one error, with other properties correct. If you've done that, you've isolated it. If you haven't, there is a bug in the test.\r\n\r\nAlerts and implementation-specific error codes _are_ useful to check that you've successfully constructed the test, and indeed we assert on both in BoringSSL's test suite. But this is merely a _rough_ check of the correctness of the _test_. It's not about the implementation, nor is it the only way to get confidence in your test. (You can have a control run without the error that should succeed. You can temporarily intentionally break an implementation and make sure your test notices. You can test the output of your testing framework to make sure it doesn't change unexpectedly.)\r\n\r\nThat means this should be an opportunistic thing, not a requirement: if it's otherwise harmless, sure, use different errors and tests can get a marginal confidence boost. But this one's not harmless. It adds complexity to implementations who need to use different codepaths for some encoding errors vs. others. It more ambiguous cases to the specification, since sometimes multiple alerts apply. It adds fingerprinting vectors because there are now multiple ways to resolve an ambiguity. (Analogously, it would be convenient for testing if error cases in PKCS#1 padding had different error codes. But there are security requirements not to do that. Yet we still can and do isolate parts of PKCS#1 padding in tests.)\r\n\r\nThis is also our strategy with BoringSSL's test suite. We'll happily assert on the internal error code, which are even more fine-grained than alerts. But if we end up folding error codes together or shifting them around, we update the test without a second thought because they're not the important part.",
+          "createdAt": "2021-02-17T21:38:08Z",
+          "updatedAt": "2021-02-17T21:38:08Z"
+        },
+        {
+          "author": "richsalz",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Fine-grained alerts can help with showing the code is correct, but it's outweighed by:\r\n- Fuzzers\r\n- The fact that they constrain the implementation\r\n",
+          "createdAt": "2021-02-17T22:38:35Z",
+          "updatedAt": "2021-02-17T22:38:35Z"
         }
       ]
     }
