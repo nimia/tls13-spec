@@ -191,6 +191,7 @@ Table of Contents
      F.6.  PSK Identity Exposure
      F.7.  Sharing PSKs
      F.8.  Attacks on Static RSA
+   Appendix G.  Changes Since -00
    Contributors
    Author's Address
 
@@ -6546,6 +6547,21 @@ F.8.  Attacks on Static RSA
    accept signatures using keys in certificates that do not have the
    digitalSignature bit set, and many clients do not enforce this
    restriction.
+
+Appendix G.  Changes Since -00
+
+   [[RFC EDITOR: Please remove in final RFC.]]
+
+   *  Update TLS 1.2 terminology
+
+   *  Specify "certificate-based" client authentication
+
+   *  Clarify that privacy guarantees don't apply when you have null
+      encryption
+
+   *  Shorten some names
+
+   *  Address tracking implications of resumption
 
 Contributors
 
