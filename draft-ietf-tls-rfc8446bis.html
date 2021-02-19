@@ -863,7 +863,7 @@ address div.right {
 <a href="https://datatracker.ietf.org/doc/html/rfc5077" class="eref">5077</a>, <a href="https://datatracker.ietf.org/doc/html/rfc5246" class="eref">5246</a>, <a href="https://datatracker.ietf.org/doc/html/rfc6961" class="eref">6961</a>, <a href="https://datatracker.ietf.org/doc/html/rfc8446" class="eref">8446</a> (if approved)</dd>
 <dt class="label-updates">Updates:</dt>
 <dd class="updates">
-<a href="https://datatracker.ietf.org/doc/html/rfc4492" class="eref">4492</a>, <a href="https://datatracker.ietf.org/doc/html/rfc5705" class="eref">5705</a>, <a href="https://datatracker.ietf.org/doc/html/rfc6066" class="eref">6066</a> (if approved)</dd>
+<a href="https://datatracker.ietf.org/doc/html/rfc4492" class="eref">4492</a>, <a href="https://datatracker.ietf.org/doc/html/rfc5705" class="eref">5705</a>, <a href="https://datatracker.ietf.org/doc/html/rfc6066" class="eref">6066</a>, <a href="https://datatracker.ietf.org/doc/html/rfc7627" class="eref">7627</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
 <time datetime="2021-02-19" class="published">19 February 2021</time>
@@ -951,425 +951,428 @@ requirements for TLS 1.2 implementations.<a href="#section-abstract-2" class="pi
         <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
 <a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
         </h2>
-<nav class="toc"><ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.1">
+<nav class="toc"><ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.1">
             <p id="section-toc.1-1.1.1"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a><a href="#section-toc.1-1.1.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.1.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.1.2.1">
                 <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="xref">1.1</a>.  <a href="#name-conventions-and-terminology" class="xref">Conventions and Terminology</a><a href="#section-toc.1-1.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.1.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.1.2.2">
                 <p id="section-toc.1-1.1.2.2.1" class="keepWithNext"><a href="#section-1.2" class="xref">1.2</a>.  <a href="#name-relationship-to-rfc-8446" class="xref">Relationship to RFC 8446</a><a href="#section-toc.1-1.1.2.2.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.1.2.3">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.1.2.3">
                 <p id="section-toc.1-1.1.2.3.1" class="keepWithNext"><a href="#section-1.3" class="xref">1.3</a>.  <a href="#name-major-differences-from-tls-" class="xref">Major Differences from TLS 1.2</a><a href="#section-toc.1-1.1.2.3.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.1.2.4">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.1.2.4">
                 <p id="section-toc.1-1.1.2.4.1"><a href="#section-1.4" class="xref">1.4</a>.  <a href="#name-updates-affecting-tls-12" class="xref">Updates Affecting TLS 1.2</a><a href="#section-toc.1-1.1.2.4.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.2">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.2">
             <p id="section-toc.1-1.2.1"><a href="#section-2" class="xref">2</a>.  <a href="#name-protocol-overview" class="xref">Protocol Overview</a><a href="#section-toc.1-1.2.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.2.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.2.2.1">
                 <p id="section-toc.1-1.2.2.1.1"><a href="#section-2.1" class="xref">2.1</a>.  <a href="#name-incorrect-dhe-share" class="xref">Incorrect DHE Share</a><a href="#section-toc.1-1.2.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.2.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.2.2.2">
                 <p id="section-toc.1-1.2.2.2.1"><a href="#section-2.2" class="xref">2.2</a>.  <a href="#name-resumption-and-pre-shared-k" class="xref">Resumption and Pre-Shared Key (PSK)</a><a href="#section-toc.1-1.2.2.2.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.2.2.3">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.2.2.3">
                 <p id="section-toc.1-1.2.2.3.1"><a href="#section-2.3" class="xref">2.3</a>.  <a href="#name-0-rtt-data" class="xref">0-RTT Data</a><a href="#section-toc.1-1.2.2.3.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.3">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.3">
             <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-presentation-language" class="xref">Presentation Language</a><a href="#section-toc.1-1.3.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.3.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.3.2.1">
                 <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="xref">3.1</a>.  <a href="#name-basic-block-size" class="xref">Basic Block Size</a><a href="#section-toc.1-1.3.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.3.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.3.2.2">
                 <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="xref">3.2</a>.  <a href="#name-miscellaneous" class="xref">Miscellaneous</a><a href="#section-toc.1-1.3.2.2.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.3.2.3">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.3.2.3">
                 <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="xref">3.3</a>.  <a href="#name-numbers" class="xref">Numbers</a><a href="#section-toc.1-1.3.2.3.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.3.2.4">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.3.2.4">
                 <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="xref">3.4</a>.  <a href="#name-vectors" class="xref">Vectors</a><a href="#section-toc.1-1.3.2.4.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.3.2.5">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.3.2.5">
                 <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="xref">3.5</a>.  <a href="#name-enumerateds" class="xref">Enumerateds</a><a href="#section-toc.1-1.3.2.5.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.3.2.6">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.3.2.6">
                 <p id="section-toc.1-1.3.2.6.1"><a href="#section-3.6" class="xref">3.6</a>.  <a href="#name-constructed-types" class="xref">Constructed Types</a><a href="#section-toc.1-1.3.2.6.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.3.2.7">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.3.2.7">
                 <p id="section-toc.1-1.3.2.7.1"><a href="#section-3.7" class="xref">3.7</a>.  <a href="#name-constants" class="xref">Constants</a><a href="#section-toc.1-1.3.2.7.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.3.2.8">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.3.2.8">
                 <p id="section-toc.1-1.3.2.8.1"><a href="#section-3.8" class="xref">3.8</a>.  <a href="#name-variants" class="xref">Variants</a><a href="#section-toc.1-1.3.2.8.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.4">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-handshake-protocol" class="xref">Handshake Protocol</a><a href="#section-toc.1-1.4.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.4.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.4.2.1">
                 <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="xref">4.1</a>.  <a href="#name-key-exchange-messages" class="xref">Key Exchange Messages</a><a href="#section-toc.1-1.4.2.1.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.4.2.1.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.4.2.1.2.1">
                     <p id="section-toc.1-1.4.2.1.2.1.1"><a href="#section-4.1.1" class="xref">4.1.1</a>.  <a href="#name-cryptographic-negotiation" class="xref">Cryptographic Negotiation</a><a href="#section-toc.1-1.4.2.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.1.2.2">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.1.2.2">
                     <p id="section-toc.1-1.4.2.1.2.2.1"><a href="#section-4.1.2" class="xref">4.1.2</a>.  <a href="#name-client-hello" class="xref">Client Hello</a><a href="#section-toc.1-1.4.2.1.2.2.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.1.2.3">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.1.2.3">
                     <p id="section-toc.1-1.4.2.1.2.3.1"><a href="#section-4.1.3" class="xref">4.1.3</a>.  <a href="#name-server-hello" class="xref">Server Hello</a><a href="#section-toc.1-1.4.2.1.2.3.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.1.2.4">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.1.2.4">
                     <p id="section-toc.1-1.4.2.1.2.4.1"><a href="#section-4.1.4" class="xref">4.1.4</a>.  <a href="#name-hello-retry-request" class="xref">Hello Retry Request</a><a href="#section-toc.1-1.4.2.1.2.4.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.2">
                 <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="xref">4.2</a>.  <a href="#name-extensions" class="xref">Extensions</a><a href="#section-toc.1-1.4.2.2.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.4.2.2.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.4.2.2.2.1">
                     <p id="section-toc.1-1.4.2.2.2.1.1"><a href="#section-4.2.1" class="xref">4.2.1</a>.  <a href="#name-supported-versions" class="xref">Supported Versions</a><a href="#section-toc.1-1.4.2.2.2.1.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.2.2.2">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.2.2.2">
                     <p id="section-toc.1-1.4.2.2.2.2.1"><a href="#section-4.2.2" class="xref">4.2.2</a>.  <a href="#name-cookie" class="xref">Cookie</a><a href="#section-toc.1-1.4.2.2.2.2.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.2.2.3">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.2.2.3">
                     <p id="section-toc.1-1.4.2.2.2.3.1"><a href="#section-4.2.3" class="xref">4.2.3</a>.  <a href="#name-signature-algorithms" class="xref">Signature Algorithms</a><a href="#section-toc.1-1.4.2.2.2.3.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.2.2.4">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.2.2.4">
                     <p id="section-toc.1-1.4.2.2.2.4.1"><a href="#section-4.2.4" class="xref">4.2.4</a>.  <a href="#name-certificate-authorities" class="xref">Certificate Authorities</a><a href="#section-toc.1-1.4.2.2.2.4.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.2.2.5">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.2.2.5">
                     <p id="section-toc.1-1.4.2.2.2.5.1"><a href="#section-4.2.5" class="xref">4.2.5</a>.  <a href="#name-oid-filters" class="xref">OID Filters</a><a href="#section-toc.1-1.4.2.2.2.5.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.2.2.6">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.2.2.6">
                     <p id="section-toc.1-1.4.2.2.2.6.1"><a href="#section-4.2.6" class="xref">4.2.6</a>.  <a href="#name-post-handshake-certificate-" class="xref">Post-Handshake Certificate-Based Client Authentication</a><a href="#section-toc.1-1.4.2.2.2.6.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.2.2.7">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.2.2.7">
                     <p id="section-toc.1-1.4.2.2.2.7.1"><a href="#section-4.2.7" class="xref">4.2.7</a>.  <a href="#name-supported-groups" class="xref">Supported Groups</a><a href="#section-toc.1-1.4.2.2.2.7.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.2.2.8">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.2.2.8">
                     <p id="section-toc.1-1.4.2.2.2.8.1"><a href="#section-4.2.8" class="xref">4.2.8</a>.  <a href="#name-key-share" class="xref">Key Share</a><a href="#section-toc.1-1.4.2.2.2.8.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.2.2.9">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.2.2.9">
                     <p id="section-toc.1-1.4.2.2.2.9.1"><a href="#section-4.2.9" class="xref">4.2.9</a>.  <a href="#name-pre-shared-key-exchange-mod" class="xref">Pre-Shared Key Exchange Modes</a><a href="#section-toc.1-1.4.2.2.2.9.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.2.2.10">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.2.2.10">
                     <p id="section-toc.1-1.4.2.2.2.10.1"><a href="#section-4.2.10" class="xref">4.2.10</a>. <a href="#name-early-data-indication" class="xref">Early Data Indication</a><a href="#section-toc.1-1.4.2.2.2.10.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.2.2.11">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.2.2.11">
                     <p id="section-toc.1-1.4.2.2.2.11.1"><a href="#section-4.2.11" class="xref">4.2.11</a>. <a href="#name-pre-shared-key-extension" class="xref">Pre-Shared Key Extension</a><a href="#section-toc.1-1.4.2.2.2.11.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.3">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.3">
                 <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="xref">4.3</a>.  <a href="#name-server-parameters" class="xref">Server Parameters</a><a href="#section-toc.1-1.4.2.3.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.4.2.3.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.4.2.3.2.1">
                     <p id="section-toc.1-1.4.2.3.2.1.1"><a href="#section-4.3.1" class="xref">4.3.1</a>.  <a href="#name-encrypted-extensions" class="xref">Encrypted Extensions</a><a href="#section-toc.1-1.4.2.3.2.1.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.3.2.2">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.3.2.2">
                     <p id="section-toc.1-1.4.2.3.2.2.1"><a href="#section-4.3.2" class="xref">4.3.2</a>.  <a href="#name-certificate-request" class="xref">Certificate Request</a><a href="#section-toc.1-1.4.2.3.2.2.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.4">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.4">
                 <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="xref">4.4</a>.  <a href="#name-authentication-messages" class="xref">Authentication Messages</a><a href="#section-toc.1-1.4.2.4.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.4.2.4.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.4.2.4.2.1">
                     <p id="section-toc.1-1.4.2.4.2.1.1"><a href="#section-4.4.1" class="xref">4.4.1</a>.  <a href="#name-the-transcript-hash" class="xref">The Transcript Hash</a><a href="#section-toc.1-1.4.2.4.2.1.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.4.2.2">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.4.2.2">
                     <p id="section-toc.1-1.4.2.4.2.2.1"><a href="#section-4.4.2" class="xref">4.4.2</a>.  <a href="#name-certificate" class="xref">Certificate</a><a href="#section-toc.1-1.4.2.4.2.2.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.4.2.3">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.4.2.3">
                     <p id="section-toc.1-1.4.2.4.2.3.1"><a href="#section-4.4.3" class="xref">4.4.3</a>.  <a href="#name-certificate-verify" class="xref">Certificate Verify</a><a href="#section-toc.1-1.4.2.4.2.3.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.4.2.4">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.4.2.4">
                     <p id="section-toc.1-1.4.2.4.2.4.1"><a href="#section-4.4.4" class="xref">4.4.4</a>.  <a href="#name-finished" class="xref">Finished</a><a href="#section-toc.1-1.4.2.4.2.4.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.5">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.5">
                 <p id="section-toc.1-1.4.2.5.1"><a href="#section-4.5" class="xref">4.5</a>.  <a href="#name-end-of-early-data" class="xref">End of Early Data</a><a href="#section-toc.1-1.4.2.5.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.6">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.6">
                 <p id="section-toc.1-1.4.2.6.1"><a href="#section-4.6" class="xref">4.6</a>.  <a href="#name-post-handshake-messages" class="xref">Post-Handshake Messages</a><a href="#section-toc.1-1.4.2.6.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.4.2.6.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.4.2.6.2.1">
                     <p id="section-toc.1-1.4.2.6.2.1.1"><a href="#section-4.6.1" class="xref">4.6.1</a>.  <a href="#name-new-session-ticket-message" class="xref">New Session Ticket Message</a><a href="#section-toc.1-1.4.2.6.2.1.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.6.2.2">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.6.2.2">
                     <p id="section-toc.1-1.4.2.6.2.2.1"><a href="#section-4.6.2" class="xref">4.6.2</a>.  <a href="#name-post-handshake-authenticati" class="xref">Post-Handshake Authentication</a><a href="#section-toc.1-1.4.2.6.2.2.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.6.2.3">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.6.2.3">
                     <p id="section-toc.1-1.4.2.6.2.3.1"><a href="#section-4.6.3" class="xref">4.6.3</a>.  <a href="#name-key-and-initialization-vect" class="xref">Key and Initialization Vector Update</a><a href="#section-toc.1-1.4.2.6.2.3.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.5">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-record-protocol" class="xref">Record Protocol</a><a href="#section-toc.1-1.5.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.5.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.5.2.1">
                 <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="xref">5.1</a>.  <a href="#name-record-layer" class="xref">Record Layer</a><a href="#section-toc.1-1.5.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.5.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.5.2.2">
                 <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="xref">5.2</a>.  <a href="#name-record-payload-protection" class="xref">Record Payload Protection</a><a href="#section-toc.1-1.5.2.2.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.5.2.3">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.5.2.3">
                 <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="xref">5.3</a>.  <a href="#name-per-record-nonce" class="xref">Per-Record Nonce</a><a href="#section-toc.1-1.5.2.3.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.5.2.4">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.5.2.4">
                 <p id="section-toc.1-1.5.2.4.1"><a href="#section-5.4" class="xref">5.4</a>.  <a href="#name-record-padding" class="xref">Record Padding</a><a href="#section-toc.1-1.5.2.4.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.5.2.5">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.5.2.5">
                 <p id="section-toc.1-1.5.2.5.1"><a href="#section-5.5" class="xref">5.5</a>.  <a href="#name-limits-on-key-usage" class="xref">Limits on Key Usage</a><a href="#section-toc.1-1.5.2.5.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.6">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.6">
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-alert-protocol" class="xref">Alert Protocol</a><a href="#section-toc.1-1.6.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.6.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.6.2.1">
                 <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-closure-alerts" class="xref">Closure Alerts</a><a href="#section-toc.1-1.6.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.6.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.6.2.2">
                 <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-error-alerts" class="xref">Error Alerts</a><a href="#section-toc.1-1.6.2.2.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.7">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.7">
             <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-cryptographic-computations" class="xref">Cryptographic Computations</a><a href="#section-toc.1-1.7.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.7.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.7.2.1">
                 <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="xref">7.1</a>.  <a href="#name-key-schedule" class="xref">Key Schedule</a><a href="#section-toc.1-1.7.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.7.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.7.2.2">
                 <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="xref">7.2</a>.  <a href="#name-updating-traffic-secrets" class="xref">Updating Traffic Secrets</a><a href="#section-toc.1-1.7.2.2.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.7.2.3">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.7.2.3">
                 <p id="section-toc.1-1.7.2.3.1"><a href="#section-7.3" class="xref">7.3</a>.  <a href="#name-traffic-key-calculation" class="xref">Traffic Key Calculation</a><a href="#section-toc.1-1.7.2.3.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.7.2.4">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.7.2.4">
                 <p id="section-toc.1-1.7.2.4.1"><a href="#section-7.4" class="xref">7.4</a>.  <a href="#name-ecdhe-shared-secret-calcula" class="xref">(EC)DHE Shared Secret Calculation</a><a href="#section-toc.1-1.7.2.4.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.7.2.4.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.7.2.4.2.1">
                     <p id="section-toc.1-1.7.2.4.2.1.1"><a href="#section-7.4.1" class="xref">7.4.1</a>.  <a href="#name-finite-field-diffie-hellman" class="xref">Finite Field Diffie-Hellman</a><a href="#section-toc.1-1.7.2.4.2.1.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.7.2.4.2.2">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.7.2.4.2.2">
                     <p id="section-toc.1-1.7.2.4.2.2.1"><a href="#section-7.4.2" class="xref">7.4.2</a>.  <a href="#name-elliptic-curve-diffie-hellm" class="xref">Elliptic Curve Diffie-Hellman</a><a href="#section-toc.1-1.7.2.4.2.2.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.7.2.5">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.7.2.5">
                 <p id="section-toc.1-1.7.2.5.1"><a href="#section-7.5" class="xref">7.5</a>.  <a href="#name-exporters" class="xref">Exporters</a><a href="#section-toc.1-1.7.2.5.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.8">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.8">
             <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-0-rtt-and-anti-replay" class="xref">0-RTT and Anti-Replay</a><a href="#section-toc.1-1.8.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.8.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.8.2.1">
                 <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="xref">8.1</a>.  <a href="#name-single-use-tickets" class="xref">Single-Use Tickets</a><a href="#section-toc.1-1.8.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.8.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.8.2.2">
                 <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="xref">8.2</a>.  <a href="#name-client-hello-recording" class="xref">Client Hello Recording</a><a href="#section-toc.1-1.8.2.2.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.8.2.3">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.8.2.3">
                 <p id="section-toc.1-1.8.2.3.1"><a href="#section-8.3" class="xref">8.3</a>.  <a href="#name-freshness-checks" class="xref">Freshness Checks</a><a href="#section-toc.1-1.8.2.3.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.9">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.9">
             <p id="section-toc.1-1.9.1"><a href="#section-9" class="xref">9</a>.  <a href="#name-compliance-requirements" class="xref">Compliance Requirements</a><a href="#section-toc.1-1.9.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.9.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.9.2.1">
                 <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="xref">9.1</a>.  <a href="#name-mandatory-to-implement-ciph" class="xref">Mandatory-to-Implement Cipher Suites</a><a href="#section-toc.1-1.9.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.9.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.9.2.2">
                 <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="xref">9.2</a>.  <a href="#name-mandatory-to-implement-exte" class="xref">Mandatory-to-Implement Extensions</a><a href="#section-toc.1-1.9.2.2.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.9.2.3">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.9.2.3">
                 <p id="section-toc.1-1.9.2.3.1"><a href="#section-9.3" class="xref">9.3</a>.  <a href="#name-protocol-invariants" class="xref">Protocol Invariants</a><a href="#section-toc.1-1.9.2.3.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.10">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.10">
             <p id="section-toc.1-1.10.1"><a href="#section-10" class="xref">10</a>. <a href="#name-security-considerations" class="xref">Security Considerations</a><a href="#section-toc.1-1.10.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.11">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.11">
             <p id="section-toc.1-1.11.1"><a href="#section-11" class="xref">11</a>. <a href="#name-iana-considerations" class="xref">IANA Considerations</a><a href="#section-toc.1-1.11.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.12">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.12">
             <p id="section-toc.1-1.12.1"><a href="#section-12" class="xref">12</a>. <a href="#name-references" class="xref">References</a><a href="#section-toc.1-1.12.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.12.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.12.2.1">
                 <p id="section-toc.1-1.12.2.1.1"><a href="#section-12.1" class="xref">12.1</a>.  <a href="#name-normative-references" class="xref">Normative References</a><a href="#section-toc.1-1.12.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.12.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.12.2.2">
                 <p id="section-toc.1-1.12.2.2.1"><a href="#section-12.2" class="xref">12.2</a>.  <a href="#name-informative-references" class="xref">Informative References</a><a href="#section-toc.1-1.12.2.2.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.13">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.13">
             <p id="section-toc.1-1.13.1"><a href="#section-appendix.a" class="xref">Appendix A</a>.  <a href="#name-state-machine" class="xref">State Machine</a><a href="#section-toc.1-1.13.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.13.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.13.2.1">
                 <p id="section-toc.1-1.13.2.1.1"><a href="#section-a.1" class="xref">A.1</a>.  <a href="#name-client" class="xref">Client</a><a href="#section-toc.1-1.13.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.13.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.13.2.2">
                 <p id="section-toc.1-1.13.2.2.1"><a href="#section-a.2" class="xref">A.2</a>.  <a href="#name-server" class="xref">Server</a><a href="#section-toc.1-1.13.2.2.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.14">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.14">
             <p id="section-toc.1-1.14.1"><a href="#section-appendix.b" class="xref">Appendix B</a>.  <a href="#name-protocol-data-structures-an" class="xref">Protocol Data Structures and Constant Values</a><a href="#section-toc.1-1.14.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.14.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.14.2.1">
                 <p id="section-toc.1-1.14.2.1.1"><a href="#section-b.1" class="xref">B.1</a>.  <a href="#name-record-layer-2" class="xref">Record Layer</a><a href="#section-toc.1-1.14.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.14.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.14.2.2">
                 <p id="section-toc.1-1.14.2.2.1"><a href="#section-b.2" class="xref">B.2</a>.  <a href="#name-alert-messages" class="xref">Alert Messages</a><a href="#section-toc.1-1.14.2.2.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.14.2.3">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.14.2.3">
                 <p id="section-toc.1-1.14.2.3.1"><a href="#section-b.3" class="xref">B.3</a>.  <a href="#name-handshake-protocol-2" class="xref">Handshake Protocol</a><a href="#section-toc.1-1.14.2.3.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.14.2.3.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.14.2.3.2.1">
                     <p id="section-toc.1-1.14.2.3.2.1.1"><a href="#section-b.3.1" class="xref">B.3.1</a>.  <a href="#name-key-exchange-messages-2" class="xref">Key Exchange Messages</a><a href="#section-toc.1-1.14.2.3.2.1.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.14.2.3.2.2">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.14.2.3.2.2">
                     <p id="section-toc.1-1.14.2.3.2.2.1"><a href="#section-b.3.2" class="xref">B.3.2</a>.  <a href="#name-server-parameters-messages" class="xref">Server Parameters Messages</a><a href="#section-toc.1-1.14.2.3.2.2.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.14.2.3.2.3">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.14.2.3.2.3">
                     <p id="section-toc.1-1.14.2.3.2.3.1"><a href="#section-b.3.3" class="xref">B.3.3</a>.  <a href="#name-authentication-messages-2" class="xref">Authentication Messages</a><a href="#section-toc.1-1.14.2.3.2.3.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.14.2.3.2.4">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.14.2.3.2.4">
                     <p id="section-toc.1-1.14.2.3.2.4.1"><a href="#section-b.3.4" class="xref">B.3.4</a>.  <a href="#name-ticket-establishment" class="xref">Ticket Establishment</a><a href="#section-toc.1-1.14.2.3.2.4.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.14.2.3.2.5">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.14.2.3.2.5">
                     <p id="section-toc.1-1.14.2.3.2.5.1"><a href="#section-b.3.5" class="xref">B.3.5</a>.  <a href="#name-updating-keys" class="xref">Updating Keys</a><a href="#section-toc.1-1.14.2.3.2.5.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.14.2.4">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.14.2.4">
                 <p id="section-toc.1-1.14.2.4.1"><a href="#section-b.4" class="xref">B.4</a>.  <a href="#name-cipher-suites" class="xref">Cipher Suites</a><a href="#section-toc.1-1.14.2.4.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.15">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.15">
             <p id="section-toc.1-1.15.1"><a href="#section-appendix.c" class="xref">Appendix C</a>.  <a href="#name-implementation-notes" class="xref">Implementation Notes</a><a href="#section-toc.1-1.15.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.15.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.15.2.1">
                 <p id="section-toc.1-1.15.2.1.1"><a href="#section-c.1" class="xref">C.1</a>.  <a href="#name-random-number-generation-an" class="xref">Random Number Generation and Seeding</a><a href="#section-toc.1-1.15.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.15.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.15.2.2">
                 <p id="section-toc.1-1.15.2.2.1"><a href="#section-c.2" class="xref">C.2</a>.  <a href="#name-certificates-and-authentica" class="xref">Certificates and Authentication</a><a href="#section-toc.1-1.15.2.2.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.15.2.3">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.15.2.3">
                 <p id="section-toc.1-1.15.2.3.1"><a href="#section-c.3" class="xref">C.3</a>.  <a href="#name-implementation-pitfalls" class="xref">Implementation Pitfalls</a><a href="#section-toc.1-1.15.2.3.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.15.2.4">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.15.2.4">
                 <p id="section-toc.1-1.15.2.4.1"><a href="#section-c.4" class="xref">C.4</a>.  <a href="#name-client-tracking-prevention" class="xref">Client Tracking Prevention</a><a href="#section-toc.1-1.15.2.4.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.15.2.5">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.15.2.5">
                 <p id="section-toc.1-1.15.2.5.1"><a href="#section-c.5" class="xref">C.5</a>.  <a href="#name-unauthenticated-operation" class="xref">Unauthenticated Operation</a><a href="#section-toc.1-1.15.2.5.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.16">
-            <p id="section-toc.1-1.16.1"><a href="#section-appendix.d" class="xref">Appendix D</a>.  <a href="#name-backward-compatibility" class="xref">Backward Compatibility</a><a href="#section-toc.1-1.16.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.16.2.1">
-                <p id="section-toc.1-1.16.2.1.1"><a href="#section-d.1" class="xref">D.1</a>.  <a href="#name-negotiating-with-an-older-s" class="xref">Negotiating with an Older Server</a><a href="#section-toc.1-1.16.2.1.1" class="pilcrow">¶</a></p>
+          <li class="toc ulEmpty compact" id="section-toc.1-1.16">
+            <p id="section-toc.1-1.16.1"><a href="#section-appendix.d" class="xref">Appendix D</a>.  <a href="#name-updates-to-tls-12" class="xref">Updates to TLS 1.2</a><a href="#section-toc.1-1.16.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.16.2.2">
-                <p id="section-toc.1-1.16.2.2.1"><a href="#section-d.2" class="xref">D.2</a>.  <a href="#name-negotiating-with-an-older-c" class="xref">Negotiating with an Older Client</a><a href="#section-toc.1-1.16.2.2.1" class="pilcrow">¶</a></p>
+          <li class="toc ulEmpty compact" id="section-toc.1-1.17">
+            <p id="section-toc.1-1.17.1"><a href="#section-appendix.e" class="xref">Appendix E</a>.  <a href="#name-backward-compatibility" class="xref">Backward Compatibility</a><a href="#section-toc.1-1.17.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.17.2.1">
+                <p id="section-toc.1-1.17.2.1.1"><a href="#section-e.1" class="xref">E.1</a>.  <a href="#name-negotiating-with-an-older-s" class="xref">Negotiating with an Older Server</a><a href="#section-toc.1-1.17.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.16.2.3">
-                <p id="section-toc.1-1.16.2.3.1"><a href="#section-d.3" class="xref">D.3</a>.  <a href="#name-0-rtt-backward-compatibilit" class="xref">0-RTT Backward Compatibility</a><a href="#section-toc.1-1.16.2.3.1" class="pilcrow">¶</a></p>
+              <li class="toc ulEmpty compact" id="section-toc.1-1.17.2.2">
+                <p id="section-toc.1-1.17.2.2.1"><a href="#section-e.2" class="xref">E.2</a>.  <a href="#name-negotiating-with-an-older-c" class="xref">Negotiating with an Older Client</a><a href="#section-toc.1-1.17.2.2.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.16.2.4">
-                <p id="section-toc.1-1.16.2.4.1"><a href="#section-d.4" class="xref">D.4</a>.  <a href="#name-middlebox-compatibility-mod" class="xref">Middlebox Compatibility Mode</a><a href="#section-toc.1-1.16.2.4.1" class="pilcrow">¶</a></p>
+              <li class="toc ulEmpty compact" id="section-toc.1-1.17.2.3">
+                <p id="section-toc.1-1.17.2.3.1"><a href="#section-e.3" class="xref">E.3</a>.  <a href="#name-0-rtt-backward-compatibilit" class="xref">0-RTT Backward Compatibility</a><a href="#section-toc.1-1.17.2.3.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.16.2.5">
-                <p id="section-toc.1-1.16.2.5.1"><a href="#section-d.5" class="xref">D.5</a>.  <a href="#name-security-restrictions-relat" class="xref">Security Restrictions Related to Backward Compatibility</a><a href="#section-toc.1-1.16.2.5.1" class="pilcrow">¶</a></p>
+              <li class="toc ulEmpty compact" id="section-toc.1-1.17.2.4">
+                <p id="section-toc.1-1.17.2.4.1"><a href="#section-e.4" class="xref">E.4</a>.  <a href="#name-middlebox-compatibility-mod" class="xref">Middlebox Compatibility Mode</a><a href="#section-toc.1-1.17.2.4.1" class="pilcrow">¶</a></p>
 </li>
-            </ul>
-</li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.17">
-            <p id="section-toc.1-1.17.1"><a href="#section-appendix.e" class="xref">Appendix E</a>.  <a href="#name-overview-of-security-proper" class="xref">Overview of Security Properties</a><a href="#section-toc.1-1.17.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.17.2.1">
-                <p id="section-toc.1-1.17.2.1.1"><a href="#section-e.1" class="xref">E.1</a>.  <a href="#name-handshake" class="xref">Handshake</a><a href="#section-toc.1-1.17.2.1.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.17.2.1.2.1">
-                    <p id="section-toc.1-1.17.2.1.2.1.1"><a href="#section-e.1.1" class="xref">E.1.1</a>.  <a href="#name-key-derivation-and-hkdf" class="xref">Key Derivation and HKDF</a><a href="#section-toc.1-1.17.2.1.2.1.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.17.2.1.2.2">
-                    <p id="section-toc.1-1.17.2.1.2.2.1"><a href="#section-e.1.2" class="xref">E.1.2</a>.  <a href="#name-certificate-based-client-au" class="xref">Certificate-Based Client Authentication</a><a href="#section-toc.1-1.17.2.1.2.2.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.17.2.1.2.3">
-                    <p id="section-toc.1-1.17.2.1.2.3.1"><a href="#section-e.1.3" class="xref">E.1.3</a>.  <a href="#name-0-rtt" class="xref">0-RTT</a><a href="#section-toc.1-1.17.2.1.2.3.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.17.2.1.2.4">
-                    <p id="section-toc.1-1.17.2.1.2.4.1"><a href="#section-e.1.4" class="xref">E.1.4</a>.  <a href="#name-exporter-independence" class="xref">Exporter Independence</a><a href="#section-toc.1-1.17.2.1.2.4.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.17.2.1.2.5">
-                    <p id="section-toc.1-1.17.2.1.2.5.1"><a href="#section-e.1.5" class="xref">E.1.5</a>.  <a href="#name-post-compromise-security" class="xref">Post-Compromise Security</a><a href="#section-toc.1-1.17.2.1.2.5.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.17.2.1.2.6">
-                    <p id="section-toc.1-1.17.2.1.2.6.1"><a href="#section-e.1.6" class="xref">E.1.6</a>.  <a href="#name-external-references" class="xref">External References</a><a href="#section-toc.1-1.17.2.1.2.6.1" class="pilcrow">¶</a></p>
-</li>
-                </ul>
-</li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.17.2.2">
-                <p id="section-toc.1-1.17.2.2.1"><a href="#section-e.2" class="xref">E.2</a>.  <a href="#name-record-layer-3" class="xref">Record Layer</a><a href="#section-toc.1-1.17.2.2.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.17.2.2.2.1">
-                    <p id="section-toc.1-1.17.2.2.2.1.1"><a href="#section-e.2.1" class="xref">E.2.1</a>.  <a href="#name-external-references-2" class="xref">External References</a><a href="#section-toc.1-1.17.2.2.2.1.1" class="pilcrow">¶</a></p>
-</li>
-                </ul>
-</li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.17.2.3">
-                <p id="section-toc.1-1.17.2.3.1"><a href="#section-e.3" class="xref">E.3</a>.  <a href="#name-traffic-analysis" class="xref">Traffic Analysis</a><a href="#section-toc.1-1.17.2.3.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.17.2.4">
-                <p id="section-toc.1-1.17.2.4.1"><a href="#section-e.4" class="xref">E.4</a>.  <a href="#name-side-channel-attacks" class="xref">Side Channel Attacks</a><a href="#section-toc.1-1.17.2.4.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.17.2.5">
-                <p id="section-toc.1-1.17.2.5.1"><a href="#section-e.5" class="xref">E.5</a>.  <a href="#name-replay-attacks-on-0-rtt" class="xref">Replay Attacks on 0-RTT</a><a href="#section-toc.1-1.17.2.5.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.17.2.5.2.1">
-                    <p id="section-toc.1-1.17.2.5.2.1.1"><a href="#section-e.5.1" class="xref">E.5.1</a>.  <a href="#name-replay-and-exporters" class="xref">Replay and Exporters</a><a href="#section-toc.1-1.17.2.5.2.1.1" class="pilcrow">¶</a></p>
-</li>
-                </ul>
-</li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.17.2.6">
-                <p id="section-toc.1-1.17.2.6.1"><a href="#section-e.6" class="xref">E.6</a>.  <a href="#name-psk-identity-exposure" class="xref">PSK Identity Exposure</a><a href="#section-toc.1-1.17.2.6.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.17.2.7">
-                <p id="section-toc.1-1.17.2.7.1"><a href="#section-e.7" class="xref">E.7</a>.  <a href="#name-sharing-psks" class="xref">Sharing PSKs</a><a href="#section-toc.1-1.17.2.7.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.17.2.8">
-                <p id="section-toc.1-1.17.2.8.1"><a href="#section-e.8" class="xref">E.8</a>.  <a href="#name-attacks-on-static-rsa" class="xref">Attacks on Static RSA</a><a href="#section-toc.1-1.17.2.8.1" class="pilcrow">¶</a></p>
+              <li class="toc ulEmpty compact" id="section-toc.1-1.17.2.5">
+                <p id="section-toc.1-1.17.2.5.1"><a href="#section-e.5" class="xref">E.5</a>.  <a href="#name-security-restrictions-relat" class="xref">Security Restrictions Related to Backward Compatibility</a><a href="#section-toc.1-1.17.2.5.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.18">
-            <p id="section-toc.1-1.18.1"><a href="#section-appendix.f" class="xref"></a><a href="#name-contributors" class="xref">Contributors</a><a href="#section-toc.1-1.18.1" class="pilcrow">¶</a></p>
+          <li class="toc ulEmpty compact" id="section-toc.1-1.18">
+            <p id="section-toc.1-1.18.1"><a href="#section-appendix.f" class="xref">Appendix F</a>.  <a href="#name-overview-of-security-proper" class="xref">Overview of Security Properties</a><a href="#section-toc.1-1.18.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.18.2.1">
+                <p id="section-toc.1-1.18.2.1.1"><a href="#section-f.1" class="xref">F.1</a>.  <a href="#name-handshake" class="xref">Handshake</a><a href="#section-toc.1-1.18.2.1.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.18.2.1.2.1">
+                    <p id="section-toc.1-1.18.2.1.2.1.1"><a href="#section-f.1.1" class="xref">F.1.1</a>.  <a href="#name-key-derivation-and-hkdf" class="xref">Key Derivation and HKDF</a><a href="#section-toc.1-1.18.2.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.19">
-            <p id="section-toc.1-1.19.1"><a href="#section-appendix.g" class="xref"></a><a href="#name-authors-address" class="xref">Author's Address</a><a href="#section-toc.1-1.19.1" class="pilcrow">¶</a></p>
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.18.2.1.2.2">
+                    <p id="section-toc.1-1.18.2.1.2.2.1"><a href="#section-f.1.2" class="xref">F.1.2</a>.  <a href="#name-certificate-based-client-au" class="xref">Certificate-Based Client Authentication</a><a href="#section-toc.1-1.18.2.1.2.2.1" class="pilcrow">¶</a></p>
+</li>
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.18.2.1.2.3">
+                    <p id="section-toc.1-1.18.2.1.2.3.1"><a href="#section-f.1.3" class="xref">F.1.3</a>.  <a href="#name-0-rtt" class="xref">0-RTT</a><a href="#section-toc.1-1.18.2.1.2.3.1" class="pilcrow">¶</a></p>
+</li>
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.18.2.1.2.4">
+                    <p id="section-toc.1-1.18.2.1.2.4.1"><a href="#section-f.1.4" class="xref">F.1.4</a>.  <a href="#name-exporter-independence" class="xref">Exporter Independence</a><a href="#section-toc.1-1.18.2.1.2.4.1" class="pilcrow">¶</a></p>
+</li>
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.18.2.1.2.5">
+                    <p id="section-toc.1-1.18.2.1.2.5.1"><a href="#section-f.1.5" class="xref">F.1.5</a>.  <a href="#name-post-compromise-security" class="xref">Post-Compromise Security</a><a href="#section-toc.1-1.18.2.1.2.5.1" class="pilcrow">¶</a></p>
+</li>
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.18.2.1.2.6">
+                    <p id="section-toc.1-1.18.2.1.2.6.1"><a href="#section-f.1.6" class="xref">F.1.6</a>.  <a href="#name-external-references" class="xref">External References</a><a href="#section-toc.1-1.18.2.1.2.6.1" class="pilcrow">¶</a></p>
+</li>
+                </ul>
+</li>
+              <li class="toc ulEmpty compact" id="section-toc.1-1.18.2.2">
+                <p id="section-toc.1-1.18.2.2.1"><a href="#section-f.2" class="xref">F.2</a>.  <a href="#name-record-layer-3" class="xref">Record Layer</a><a href="#section-toc.1-1.18.2.2.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.18.2.2.2.1">
+                    <p id="section-toc.1-1.18.2.2.2.1.1"><a href="#section-f.2.1" class="xref">F.2.1</a>.  <a href="#name-external-references-2" class="xref">External References</a><a href="#section-toc.1-1.18.2.2.2.1.1" class="pilcrow">¶</a></p>
+</li>
+                </ul>
+</li>
+              <li class="toc ulEmpty compact" id="section-toc.1-1.18.2.3">
+                <p id="section-toc.1-1.18.2.3.1"><a href="#section-f.3" class="xref">F.3</a>.  <a href="#name-traffic-analysis" class="xref">Traffic Analysis</a><a href="#section-toc.1-1.18.2.3.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="toc ulEmpty compact" id="section-toc.1-1.18.2.4">
+                <p id="section-toc.1-1.18.2.4.1"><a href="#section-f.4" class="xref">F.4</a>.  <a href="#name-side-channel-attacks" class="xref">Side Channel Attacks</a><a href="#section-toc.1-1.18.2.4.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="toc ulEmpty compact" id="section-toc.1-1.18.2.5">
+                <p id="section-toc.1-1.18.2.5.1"><a href="#section-f.5" class="xref">F.5</a>.  <a href="#name-replay-attacks-on-0-rtt" class="xref">Replay Attacks on 0-RTT</a><a href="#section-toc.1-1.18.2.5.1" class="pilcrow">¶</a></p>
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.18.2.5.2.1">
+                    <p id="section-toc.1-1.18.2.5.2.1.1"><a href="#section-f.5.1" class="xref">F.5.1</a>.  <a href="#name-replay-and-exporters" class="xref">Replay and Exporters</a><a href="#section-toc.1-1.18.2.5.2.1.1" class="pilcrow">¶</a></p>
+</li>
+                </ul>
+</li>
+              <li class="toc ulEmpty compact" id="section-toc.1-1.18.2.6">
+                <p id="section-toc.1-1.18.2.6.1"><a href="#section-f.6" class="xref">F.6</a>.  <a href="#name-psk-identity-exposure" class="xref">PSK Identity Exposure</a><a href="#section-toc.1-1.18.2.6.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="toc ulEmpty compact" id="section-toc.1-1.18.2.7">
+                <p id="section-toc.1-1.18.2.7.1"><a href="#section-f.7" class="xref">F.7</a>.  <a href="#name-sharing-psks" class="xref">Sharing PSKs</a><a href="#section-toc.1-1.18.2.7.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="toc ulEmpty compact" id="section-toc.1-1.18.2.8">
+                <p id="section-toc.1-1.18.2.8.1"><a href="#section-f.8" class="xref">F.8</a>.  <a href="#name-attacks-on-static-rsa" class="xref">Attacks on Static RSA</a><a href="#section-toc.1-1.18.2.8.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+</li>
+          <li class="toc ulEmpty compact" id="section-toc.1-1.19">
+            <p id="section-toc.1-1.19.1"><a href="#section-appendix.g" class="xref"></a><a href="#name-contributors" class="xref">Contributors</a><a href="#section-toc.1-1.19.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="toc ulEmpty compact" id="section-toc.1-1.20">
+            <p id="section-toc.1-1.20.1"><a href="#section-appendix.h" class="xref"></a><a href="#name-authors-address" class="xref">Author's Address</a><a href="#section-toc.1-1.20.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </nav>
@@ -1410,7 +1413,7 @@ modified by attackers without detection.<a href="#section-1-3.3" class="pilcrow"
       </ul>
 <p id="section-1-4">These properties should be true even in the face of an attacker who has complete
 control of the network, as described in <span>[<a href="#RFC3552" class="xref">RFC3552</a>]</span>.
-See <a href="#security-analysis" class="xref">Appendix E</a> for a more complete statement of the relevant security
+See <a href="#security-analysis" class="xref">Appendix F</a> for a more complete statement of the relevant security
 properties.<a href="#section-1-4" class="pilcrow">¶</a></p>
 <p id="section-1-5">TLS consists of two primary components:<a href="#section-1-5" class="pilcrow">¶</a></p>
 <ul class="normal">
@@ -1556,6 +1559,10 @@ the ClientHello.<a href="#section-1.4-2.3" class="pilcrow">¶</a>
 </li>
           <li class="normal" id="section-1.4-2.4">The "signature_algorithms_cert" extension allows a client to indicate
 which signature algorithms it can validate in X.509 certificates.<a href="#section-1.4-2.4" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-1.4-2.5">The term "master" as applied to secrets has been removed, and the
+"extended_master_secret" extension <span>[<a href="#RFC7627" class="xref">RFC7627</a>]</span> has been renamed to
+"extended_main_secret".<a href="#section-1.4-2.5" class="pilcrow">¶</a>
 </li>
         </ul>
 <p id="section-1.4-3">Additionally, this document clarifies some compliance requirements for earlier
@@ -1952,7 +1959,7 @@ apply to any use of the early_exporter_main_secret.<a href="#section-2.3-5.2" cl
 <p id="section-2.3-6">0-RTT data cannot be duplicated within a connection (i.e., the server will
 not process the same data twice for the same connection), and an
 attacker will not be able to make 0-RTT data appear to be 1-RTT data
-(because it is protected with different keys). <a href="#replay-0rtt" class="xref">Appendix E.5</a>
+(because it is protected with different keys). <a href="#replay-0rtt" class="xref">Appendix F.5</a>
 contains a description of potential attacks, and <a href="#anti-replay" class="xref">Section 8</a>
 describes mechanisms which the server can use to limit the impact of
 replay.<a href="#section-2.3-6" class="pilcrow">¶</a></p>
@@ -2437,7 +2444,7 @@ be set to 0x0303, which is the version number for TLS 1.2.
 TLS 1.3 ClientHellos are identified as having
 a legacy_version of 0x0303 and a supported_versions extension
 present with 0x0304 as the highest version indicated therein.
-(See <a href="#backward-compatibility" class="xref">Appendix D</a> for details about backward compatibility.)
+(See <a href="#backward-compatibility" class="xref">Appendix E</a> for details about backward compatibility.)
 A server which receives a legacy_version value not equal to 0x0303 MUST abort
 the handshake with an "illegal_parameter" alert.<a href="#section-4.1.2-7.2.1" class="pilcrow">¶</a></p>
 </dd>
@@ -2456,7 +2463,7 @@ legacy_session_id:  </dt>
 feature which has been merged with pre-shared keys in this version
 (see <a href="#resumption-and-psk" class="xref">Section 2.2</a>). A client which has a cached session ID
 set by a pre-TLS 1.3 server SHOULD set this field to that value. In
-compatibility mode (see <a href="#middlebox" class="xref">Appendix D.4</a>), this field MUST be non-empty,
+compatibility mode (see <a href="#middlebox" class="xref">Appendix E.4</a>), this field MUST be non-empty,
 so a client not offering a pre-TLS 1.3 session MUST generate a
 new 32-byte value. This value need not be random but SHOULD be
 unpredictable to avoid implementations fixating on a specific value
@@ -2567,7 +2574,7 @@ In TLS 1.3, the TLS server indicates its version using the
 "supported_versions" extension (<a href="#supported-versions" class="xref">Section 4.2.1</a>),
 and the legacy_version field MUST
 be set to 0x0303, which is the version number for TLS 1.2.
-(See <a href="#backward-compatibility" class="xref">Appendix D</a> for details about backward compatibility.)<a href="#section-4.1.3-4.2.1" class="pilcrow">¶</a></p>
+(See <a href="#backward-compatibility" class="xref">Appendix E</a> for details about backward compatibility.)<a href="#section-4.1.3-4.2.1" class="pilcrow">¶</a></p>
 </dd>
             <dd class="break"></dd>
 <dt id="section-4.1.3-4.3">
@@ -2624,7 +2631,7 @@ separately in the EncryptedExtensions message.<a href="#section-4.1.3-4.12.1" cl
           <dd class="break"></dd>
 </dl>
 <p id="section-4.1.3-5">For reasons of backward compatibility with middleboxes
-(see <a href="#middlebox" class="xref">Appendix D.4</a>), the HelloRetryRequest
+(see <a href="#middlebox" class="xref">Appendix E.4</a>), the HelloRetryRequest
 message uses the same structure as the ServerHello, but with
 Random set to the special value of the SHA-256 of
 "HelloRetryRequest":<a href="#section-4.1.3-5" class="pilcrow">¶</a></p>
@@ -3903,7 +3910,7 @@ not present or does not validate, the server MUST abort the handshake.
 Servers SHOULD NOT attempt to validate multiple binders; rather, they
 SHOULD select a single PSK and validate solely the binder that
 corresponds to that PSK.
-See <a href="#client-hello-recording" class="xref">Section 8.2</a> and <a href="#psk-identity-exposure" class="xref">Appendix E.6</a> for the
+See <a href="#client-hello-recording" class="xref">Section 8.2</a> and <a href="#psk-identity-exposure" class="xref">Appendix F.6</a> for the
 security rationale for this requirement.
 In order to accept PSK key establishment, the
 server sends a "pre_shared_key" extension indicating the selected
@@ -4934,7 +4941,7 @@ be multiplexed over the same record layer. This document specifies
 four content types: handshake, application_data, alert, and
 change_cipher_spec.
 The change_cipher_spec record is used only for compatibility purposes
-(see <a href="#middlebox" class="xref">Appendix D.4</a>).<a href="#section-5-2" class="pilcrow">¶</a></p>
+(see <a href="#middlebox" class="xref">Appendix E.4</a>).<a href="#section-5-2" class="pilcrow">¶</a></p>
 <p id="section-5-3">An implementation may receive an unencrypted record of type
 change_cipher_spec consisting of the single byte value 0x01 at any
 time after the first ClientHello message has been sent or received and before
@@ -5057,7 +5064,7 @@ compatibility, a record containing an initial ClientHello SHOULD have version
 a ServerHello MUST have version
 0x0303 (reflecting TLS 1.2).
 When negotiating prior versions of TLS, endpoints
-follow the procedure and requirements provided in <a href="#backward-compatibility" class="xref">Appendix D</a>.<a href="#section-5.1-9" class="pilcrow">¶</a></p>
+follow the procedure and requirements provided in <a href="#backward-compatibility" class="xref">Appendix E</a>.<a href="#section-5.1-9" class="pilcrow">¶</a></p>
 <p id="section-5.1-10">When record protection has not yet been engaged, TLSPlaintext
 structures are written directly onto the wire. Once record protection
 has started, TLSPlaintext records are protected and sent as
@@ -5582,7 +5589,7 @@ or a PSK binder.<a href="#section-6.2-4.28.1" class="pilcrow">¶</a></p>
 protocol_version:  </dt>
           <dd style="margin-left: 1.5em" id="section-6.2-4.30">
             <p id="section-6.2-4.30.1">The protocol version the peer has attempted to negotiate is
-recognized but not supported (see <a href="#backward-compatibility" class="xref">Appendix D</a>).<a href="#section-6.2-4.30.1" class="pilcrow">¶</a></p>
+recognized but not supported (see <a href="#backward-compatibility" class="xref">Appendix E</a>).<a href="#section-6.2-4.30.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-6.2-4.31">
@@ -6018,7 +6025,7 @@ of <span>[<a href="#RFC5705" class="xref">RFC5705</a>]</span>.<a href="#section-
       <h2 id="name-0-rtt-and-anti-replay">
 <a href="#section-8" class="section-number selfRef">8. </a><a href="#name-0-rtt-and-anti-replay" class="section-name selfRef">0-RTT and Anti-Replay</a>
       </h2>
-<p id="section-8-1">As noted in <a href="#zero-rtt-data" class="xref">Section 2.3</a> and <a href="#replay-0rtt" class="xref">Appendix E.5</a>, TLS does not provide inherent replay
+<p id="section-8-1">As noted in <a href="#zero-rtt-data" class="xref">Section 2.3</a> and <a href="#replay-0rtt" class="xref">Appendix F.5</a>, TLS does not provide inherent replay
 protections for 0-RTT data. There are two potential threats to be
 concerned with:<a href="#section-8-1" class="pilcrow">¶</a></p>
 <ul class="normal">
@@ -6053,7 +6060,7 @@ safe to be replayed.<a href="#section-8-3" class="pilcrow">¶</a></p>
 <p id="section-8-4">In addition to the direct effects of replays, there is a class of attacks where
 even operations normally considered idempotent could be exploited by a large
 number of replays (timing attacks, resource limit exhaustion and others, as
-described in <a href="#replay-0rtt" class="xref">Appendix E.5</a>).  Those can be mitigated by ensuring that every
+described in <a href="#replay-0rtt" class="xref">Appendix F.5</a>).  Those can be mitigated by ensuring that every
 0-RTT payload can be replayed only a limited number of times.  The server MUST
 ensure that any instance of it (be it a machine, a thread, or any other entity
 within the relevant serving infrastructure) would accept 0-RTT for the same
@@ -6323,7 +6330,7 @@ servers, when communicating with newer peers, should negotiate the
 most preferred common parameters. The TLS handshake provides downgrade
 protection: Middleboxes passing traffic between a newer client and
 newer server without terminating TLS should be unable to influence the
-handshake (see <a href="#security-handshake" class="xref">Appendix E.1</a>). At the same time, deployments
+handshake (see <a href="#security-handshake" class="xref">Appendix F.1</a>). At the same time, deployments
 update at different rates, so a newer client or server MAY continue to
 support older parameters, which would allow it to interoperate with
 older endpoints.<a href="#section-9.3-2" class="pilcrow">¶</a></p>
@@ -6367,7 +6374,7 @@ might change.<a href="#section-9.3-4.4.2" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="section-9.3-5">The design of TLS 1.3 was constrained by widely deployed non-compliant TLS
-middleboxes (see <a href="#middlebox" class="xref">Appendix D.4</a>); however, it does not relax the invariants.
+middleboxes (see <a href="#middlebox" class="xref">Appendix E.4</a>); however, it does not relax the invariants.
 Those middleboxes continue to be non-compliant.<a href="#section-9.3-5" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -6379,7 +6386,7 @@ Those middleboxes continue to be non-compliant.<a href="#section-9.3-5" class="p
 <a href="#section-10" class="section-number selfRef">10. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
 <p id="section-10-1">Security issues are discussed throughout this memo, especially in
-<a href="#implementation-notes" class="xref">Appendix C</a>, <a href="#backward-compatibility" class="xref">Appendix D</a>, and <a href="#security-analysis" class="xref">Appendix E</a>.<a href="#section-10-1" class="pilcrow">¶</a></p>
+<a href="#implementation-notes" class="xref">Appendix C</a>, <a href="#backward-compatibility" class="xref">Appendix E</a>, and <a href="#security-analysis" class="xref">Appendix F</a>.<a href="#section-10-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
@@ -6389,83 +6396,85 @@ Those middleboxes continue to be non-compliant.<a href="#section-9.3-5" class="p
       </h2>
 <p id="section-11-1">[[OPEN ISSUE: Should we remove this? I am reluctant to create a situation
 where one needs to read 8446 to process this document.]]<a href="#section-11-1" class="pilcrow">¶</a></p>
-<p id="section-11-2">This document uses several registries that were originally created in
+<p id="section-11-2">[[OPEN ISSUE: Add some text to rename the extended_master_secret entry in
+the extensions registry to extended_main_secret, after the above is resolved.]]<a href="#section-11-2" class="pilcrow">¶</a></p>
+<p id="section-11-3">This document uses several registries that were originally created in
 <span>[<a href="#RFC4346" class="xref">RFC4346</a>]</span> and updated in <span>[<a href="#RFC8447" class="xref">RFC8447</a>]</span>. IANA has updated these to reference this document.
-The registries and their allocation policies are below:<a href="#section-11-2" class="pilcrow">¶</a></p>
+The registries and their allocation policies are below:<a href="#section-11-3" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-11-3.1">
-          <p id="section-11-3.1.1">TLS Cipher Suites registry: values with the first byte in the range
+<li class="normal" id="section-11-4.1">
+          <p id="section-11-4.1.1">TLS Cipher Suites registry: values with the first byte in the range
 0-254 (decimal) are assigned via Specification Required <span>[<a href="#RFC8126" class="xref">RFC8126</a>]</span>.
 Values with the first byte 255 (decimal) are reserved for Private
-Use <span>[<a href="#RFC8126" class="xref">RFC8126</a>]</span>.<a href="#section-11-3.1.1" class="pilcrow">¶</a></p>
-<p id="section-11-3.1.2">
+Use <span>[<a href="#RFC8126" class="xref">RFC8126</a>]</span>.<a href="#section-11-4.1.1" class="pilcrow">¶</a></p>
+<p id="section-11-4.1.2">
 IANA has added the cipher suites listed in <a href="#cipher-suites" class="xref">Appendix B.4</a> to
 the registry. The "Value" and "Description" columns are taken from the table.
 The "DTLS-OK" and "Recommended" columns are both marked as "Y" for each new
-cipher suite.<a href="#section-11-3.1.2" class="pilcrow">¶</a></p>
+cipher suite.<a href="#section-11-4.1.2" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-11-3.2">TLS ContentType registry: Future values are allocated via
-Standards Action <span>[<a href="#RFC8126" class="xref">RFC8126</a>]</span>.<a href="#section-11-3.2" class="pilcrow">¶</a>
+        <li class="normal" id="section-11-4.2">TLS ContentType registry: Future values are allocated via
+Standards Action <span>[<a href="#RFC8126" class="xref">RFC8126</a>]</span>.<a href="#section-11-4.2" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-11-3.3">TLS Alerts registry: Future values are allocated via Standards
+        <li class="normal" id="section-11-4.3">TLS Alerts registry: Future values are allocated via Standards
 Action <span>[<a href="#RFC8126" class="xref">RFC8126</a>]</span>. IANA has populated this registry
 with the values from <a href="#alert-messages-appendix" class="xref">Appendix B.2</a>. The
 "DTLS-OK" column is marked as "Y" for all such values.
 Values marked as "_RESERVED" have comments
- describing their previous usage.<a href="#section-11-3.3" class="pilcrow">¶</a>
+ describing their previous usage.<a href="#section-11-4.3" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-11-3.4">TLS HandshakeType registry: Future values are allocated via
+        <li class="normal" id="section-11-4.4">TLS HandshakeType registry: Future values are allocated via
 Standards Action <span>[<a href="#RFC8126" class="xref">RFC8126</a>]</span>. IANA has updated this registry
 to rename item 4 from "NewSessionTicket" to "new_session_ticket"
 and populated this registry with the values from <a href="#handshake-protocol-appendix" class="xref">Appendix B.3</a>.
 The "DTLS-OK" column is marked as "Y" for all such values.
 Values marked "_RESERVED" have comments describing their previous or
-temporary usage.<a href="#section-11-3.4" class="pilcrow">¶</a>
+temporary usage.<a href="#section-11-4.4" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="section-11-4">This document also uses the TLS ExtensionType Values registry originally created in
+<p id="section-11-5">This document also uses the TLS ExtensionType Values registry originally created in
 <span>[<a href="#RFC4366" class="xref">RFC4366</a>]</span>. IANA has updated it to reference this document.  Changes to the
-registry follow:<a href="#section-11-4" class="pilcrow">¶</a></p>
+registry follow:<a href="#section-11-5" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-11-5.1">
-          <p id="section-11-5.1.1">IANA has updated the registration policy as follows:<a href="#section-11-5.1.1" class="pilcrow">¶</a></p>
-<p id="section-11-5.1.2">
+<li class="normal" id="section-11-6.1">
+          <p id="section-11-6.1.1">IANA has updated the registration policy as follows:<a href="#section-11-6.1.1" class="pilcrow">¶</a></p>
+<p id="section-11-6.1.2">
 Values with the first byte in the range 0-254 (decimal) are assigned
 via Specification Required <span>[<a href="#RFC8126" class="xref">RFC8126</a>]</span>.  Values with the first byte
-255 (decimal) are reserved for Private Use <span>[<a href="#RFC8126" class="xref">RFC8126</a>]</span>.<a href="#section-11-5.1.2" class="pilcrow">¶</a></p>
+255 (decimal) are reserved for Private Use <span>[<a href="#RFC8126" class="xref">RFC8126</a>]</span>.<a href="#section-11-6.1.2" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-11-5.2">IANA has updated this registry to include the
+        <li class="normal" id="section-11-6.2">IANA has updated this registry to include the
 "key_share", "pre_shared_key", "psk_key_exchange_modes",
 "early_data", "cookie", "supported_versions",
-"certificate_authorities", "oid_filters", "post_handshake_auth", and "signature_algorithms_cert"  extensions with the values defined in this document and the "Recommended" value of "Y".<a href="#section-11-5.2" class="pilcrow">¶</a>
+"certificate_authorities", "oid_filters", "post_handshake_auth", and "signature_algorithms_cert"  extensions with the values defined in this document and the "Recommended" value of "Y".<a href="#section-11-6.2" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-11-5.3">IANA has updated this registry to include a "TLS
+        <li class="normal" id="section-11-6.3">IANA has updated this registry to include a "TLS
 1.3" column which lists the messages in which the extension may
 appear. This column has been
 initially populated from the table in <a href="#extensions" class="xref">Section 4.2</a>,
 with any extension not listed there marked as "-" to indicate that
-it is not used by TLS 1.3.<a href="#section-11-5.3" class="pilcrow">¶</a>
+it is not used by TLS 1.3.<a href="#section-11-6.3" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="section-11-6">This document updates an entry in the TLS Certificate Types registry
+<p id="section-11-7">This document updates an entry in the TLS Certificate Types registry
 originally created in <span>[<a href="#RFC6091" class="xref">RFC6091</a>]</span> and updated in <span>[<a href="#RFC8447" class="xref">RFC8447</a>]</span>.  IANA has
 updated the entry for value 1 to have the name "OpenPGP_RESERVED",
 "Recommended" value "N", and comment "Used in TLS versions prior
 to 1.3."  IANA has updated the entry for value 0 to have the name
-"X509", "Recommended" value "Y", and comment "Was X.509 before TLS 1.3".<a href="#section-11-6" class="pilcrow">¶</a></p>
-<p id="section-11-7">This document updates an entry in the TLS Certificate Status Types
+"X509", "Recommended" value "Y", and comment "Was X.509 before TLS 1.3".<a href="#section-11-7" class="pilcrow">¶</a></p>
+<p id="section-11-8">This document updates an entry in the TLS Certificate Status Types
 registry originally created in <span>[<a href="#RFC6961" class="xref">RFC6961</a>]</span>.  IANA has updated the entry
 for value 2 to have the name "ocsp_multi_RESERVED" and comment "Used
-in TLS versions prior to 1.3".<a href="#section-11-7" class="pilcrow">¶</a></p>
-<p id="section-11-8">This document updates two entries in the TLS Supported Groups
+in TLS versions prior to 1.3".<a href="#section-11-8" class="pilcrow">¶</a></p>
+<p id="section-11-9">This document updates two entries in the TLS Supported Groups
 registry (created under a different name by <span>[<a href="#RFC4492" class="xref">RFC4492</a>]</span>; now maintained
 by <span>[<a href="#RFC8422" class="xref">RFC8422</a>]</span>) and updated by <span>[<a href="#RFC7919" class="xref">RFC7919</a>]</span> and <span>[<a href="#RFC8447" class="xref">RFC8447</a>]</span>.  The entries
 for values 29 and 30 (x25519 and x448) have been updated to also
-refer to this document.<a href="#section-11-8" class="pilcrow">¶</a></p>
-<p id="section-11-9">In addition, this document defines two new registries that are maintained
-by IANA:<a href="#section-11-9" class="pilcrow">¶</a></p>
+refer to this document.<a href="#section-11-9" class="pilcrow">¶</a></p>
+<p id="section-11-10">In addition, this document defines two new registries that are maintained
+by IANA:<a href="#section-11-10" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-11-10.1">TLS SignatureScheme registry: Values with the first byte in the range
+<li class="normal" id="section-11-11.1">TLS SignatureScheme registry: Values with the first byte in the range
 0-253 (decimal) are assigned via Specification Required <span>[<a href="#RFC8126" class="xref">RFC8126</a>]</span>.
 Values with the first byte 254 or 255 (decimal) are reserved for Private
 Use <span>[<a href="#RFC8126" class="xref">RFC8126</a>]</span>. Values with the first byte in the range 0-6 or with the
@@ -6481,9 +6490,9 @@ The
 "Recommended" column is assigned a value of "N" unless explicitly
  requested, and adding a value with a "Recommended" value of "Y"
  requires Standards Action <span>[<a href="#RFC8126" class="xref">RFC8126</a>]</span>.  IESG Approval is REQUIRED
- for a Y-&gt;N transition.<a href="#section-11-10.1" class="pilcrow">¶</a>
+ for a Y-&gt;N transition.<a href="#section-11-11.1" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-11-10.2">TLS PskKeyExchangeMode registry: Values in the
+        <li class="normal" id="section-11-11.2">TLS PskKeyExchangeMode registry: Values in the
 range 0-253 (decimal) are assigned via Specification Required
 <span>[<a href="#RFC8126" class="xref">RFC8126</a>]</span>.  The values 254 and 255 (decimal) are
 reserved for Private Use <span>[<a href="#RFC8126" class="xref">RFC8126</a>]</span>.  This registry has a
@@ -6493,7 +6502,7 @@ populated with psk_ke (0) and psk_dhe_ke (1).  Both are marked as
 "Recommended" column is assigned a value of "N" unless explicitly
 requested, and adding a value with a "Recommended" value of "Y"
 requires Standards Action <span>[<a href="#RFC8126" class="xref">RFC8126</a>]</span>.  IESG Approval is REQUIRED
-for a Y-&gt;N transition.<a href="#section-11-10.2" class="pilcrow">¶</a>
+for a Y-&gt;N transition.<a href="#section-11-11.2" class="pilcrow">¶</a>
 </li>
       </ul>
 </section>
@@ -6582,6 +6591,10 @@ for a Y-&gt;N transition.<a href="#section-11-10.2" class="pilcrow">¶</a>
 <dt id="RFC7507">[RFC7507]</dt>
         <dd>
 <span class="refAuthor">Moeller, B.</span><span class="refAuthor"> and A. Langley</span>, <span class="refTitle">"TLS Fallback Signaling Cipher Suite Value (SCSV) for Preventing Protocol Downgrade Attacks"</span>, <span class="seriesInfo">RFC 7507</span>, <span class="seriesInfo">DOI 10.17487/RFC7507</span>, <time datetime="2015-04" class="refDate">April 2015</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc7507">https://datatracker.ietf.org/doc/html/rfc7507</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7627">[RFC7627]</dt>
+        <dd>
+<span class="refAuthor">Bhargavan, K., Ed.</span><span class="refAuthor">, Delignat-Lavaud, A.</span><span class="refAuthor">, Pironti, A.</span><span class="refAuthor">, Langley, A.</span><span class="refAuthor">, and M. Ray</span>, <span class="refTitle">"Transport Layer Security (TLS) Session Hash and Extended Master Secret Extension"</span>, <span class="seriesInfo">RFC 7627</span>, <span class="seriesInfo">DOI 10.17487/RFC7627</span>, <time datetime="2015-09" class="refDate">September 2015</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc7627">https://datatracker.ietf.org/doc/html/rfc7627</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7748">[RFC7748]</dt>
         <dd>
@@ -6845,10 +6858,6 @@ for a Y-&gt;N transition.<a href="#section-11-10.2" class="pilcrow">¶</a>
 <dt id="RFC7568">[RFC7568]</dt>
         <dd>
 <span class="refAuthor">Barnes, R.</span><span class="refAuthor">, Thomson, M.</span><span class="refAuthor">, Pironti, A.</span><span class="refAuthor">, and A. Langley</span>, <span class="refTitle">"Deprecating Secure Sockets Layer Version 3.0"</span>, <span class="seriesInfo">RFC 7568</span>, <span class="seriesInfo">DOI 10.17487/RFC7568</span>, <time datetime="2015-06" class="refDate">June 2015</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc7568">https://datatracker.ietf.org/doc/html/rfc7568</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC7627">[RFC7627]</dt>
-        <dd>
-<span class="refAuthor">Bhargavan, K., Ed.</span><span class="refAuthor">, Delignat-Lavaud, A.</span><span class="refAuthor">, Pironti, A.</span><span class="refAuthor">, Langley, A.</span><span class="refAuthor">, and M. Ray</span>, <span class="refTitle">"Transport Layer Security (TLS) Session Hash and Extended Master Secret Extension"</span>, <span class="seriesInfo">RFC 7627</span>, <span class="seriesInfo">DOI 10.17487/RFC7627</span>, <time datetime="2015-09" class="refDate">September 2015</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc7627">https://datatracker.ietf.org/doc/html/rfc7627</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7685">[RFC7685]</dt>
         <dd>
@@ -7710,13 +7719,13 @@ size? In particular, the Certificate and CertificateRequest
 handshake messages can be large enough to require fragmentation.<a href="#section-c.3-3.1" class="pilcrow">¶</a>
 </li>
           <li class="normal" id="section-c.3-3.2">Do you ignore the TLS record layer version number in all unencrypted TLS
-records (see <a href="#backward-compatibility" class="xref">Appendix D</a>)?<a href="#section-c.3-3.2" class="pilcrow">¶</a>
+records (see <a href="#backward-compatibility" class="xref">Appendix E</a>)?<a href="#section-c.3-3.2" class="pilcrow">¶</a>
 </li>
           <li class="normal" id="section-c.3-3.3">Have you ensured that all support for SSL, RC4, EXPORT ciphers, and
 MD5 (via the "signature_algorithms" extension) is completely removed from
 all possible configurations that support TLS 1.3 or later, and that
 attempts to use these obsolete capabilities fail correctly?
-(see <a href="#backward-compatibility" class="xref">Appendix D</a>)?<a href="#section-c.3-3.3" class="pilcrow">¶</a>
+(see <a href="#backward-compatibility" class="xref">Appendix E</a>)?<a href="#section-c.3-3.3" class="pilcrow">¶</a>
 </li>
           <li class="normal" id="section-c.3-3.4">Do you handle TLS extensions in ClientHellos correctly, including
 unknown extensions?<a href="#section-c.3-3.4" class="pilcrow">¶</a>
@@ -7818,18 +7827,46 @@ profile.<a href="#section-c.5-3" class="pilcrow">¶</a></p>
 </div>
 </section>
 </div>
-<div id="backward-compatibility">
+<div id="update-tls12">
 <section id="section-appendix.d">
-      <h2 id="name-backward-compatibility">
-<a href="#section-appendix.d" class="section-number selfRef">Appendix D. </a><a href="#name-backward-compatibility" class="section-name selfRef">Backward Compatibility</a>
+      <h2 id="name-updates-to-tls-12">
+<a href="#section-appendix.d" class="section-number selfRef">Appendix D. </a><a href="#name-updates-to-tls-12" class="section-name selfRef">Updates to TLS 1.2</a>
       </h2>
-<p id="section-appendix.d-1">The TLS protocol provides a built-in mechanism for version negotiation between
-endpoints potentially supporting different versions of TLS.<a href="#section-appendix.d-1" class="pilcrow">¶</a></p>
-<p id="section-appendix.d-2">TLS 1.x and SSL 3.0 use compatible ClientHello messages. Servers can also handle
+<p id="section-appendix.d-1">To align with the names used this document, the following terms from
+<span>[<a href="#RFC5246" class="xref">RFC5246</a>]</span> are renamed:<a href="#section-appendix.d-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-appendix.d-2.1">The master secret, computed in Section 8.1 of <span>[<a href="#RFC5246" class="xref">RFC5246</a>]</span>, is renamed to
+the main secret. It is referred to as main_secret in formulas and
+structures, instead of master_secret. However, the label parameter to the PRF
+function is left unchanged for compatibility.<a href="#section-appendix.d-2.1" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="section-appendix.d-2.2">The premaster secret is renamed to the preliminary secret. It is referred to
+as preliminary_secret in formulas and structures, instead of
+pre_master_secret.<a href="#section-appendix.d-2.2" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="section-appendix.d-2.3">The PreMasterSecret and EncryptedPreMasterSecret structures, defined in
+Section 7.4.7.1 of <span>[<a href="#RFC5246" class="xref">RFC5246</a>]</span>, are renamed to PreliminarySecret and
+EncryptedPreliminarySecret, respectively.<a href="#section-appendix.d-2.3" class="pilcrow">¶</a>
+</li>
+      </ul>
+<p id="section-appendix.d-3">Correspondingly, the extension defined in <span>[<a href="#RFC7627" class="xref">RFC7627</a>]</span> is renamed to the
+"Extended Main Secret" extension. The extension code point is renamed to
+"extended_main_secret". The label parameter to the PRF function in Section 4 of
+<span>[<a href="#RFC7627" class="xref">RFC7627</a>]</span> is left unchanged for compatibility.<a href="#section-appendix.d-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="backward-compatibility">
+<section id="section-appendix.e">
+      <h2 id="name-backward-compatibility">
+<a href="#section-appendix.e" class="section-number selfRef">Appendix E. </a><a href="#name-backward-compatibility" class="section-name selfRef">Backward Compatibility</a>
+      </h2>
+<p id="section-appendix.e-1">The TLS protocol provides a built-in mechanism for version negotiation between
+endpoints potentially supporting different versions of TLS.<a href="#section-appendix.e-1" class="pilcrow">¶</a></p>
+<p id="section-appendix.e-2">TLS 1.x and SSL 3.0 use compatible ClientHello messages. Servers can also handle
 clients trying to use future versions of TLS as long as the ClientHello format
 remains compatible and there is at least one protocol version supported by
-both the client and the server.<a href="#section-appendix.d-2" class="pilcrow">¶</a></p>
-<p id="section-appendix.d-3">Prior versions of TLS used the record layer version number
+both the client and the server.<a href="#section-appendix.e-2" class="pilcrow">¶</a></p>
+<p id="section-appendix.e-3">Prior versions of TLS used the record layer version number
 (TLSPlaintext.legacy_record_version and
 TLSCiphertext.legacy_record_version) for various purposes.
 As of TLS 1.3, this field is deprecated. The value of
@@ -7843,23 +7880,23 @@ ClientHello, HelloRetryRequest, and ServerHello "supported_versions" extensions)
 In order to maximize interoperability with older endpoints, implementations
 that negotiate the use of TLS 1.0-1.2 SHOULD set the record layer
 version number to the negotiated version for the ServerHello and all
-records thereafter.<a href="#section-appendix.d-3" class="pilcrow">¶</a></p>
-<p id="section-appendix.d-4">For maximum compatibility with previously non-standard behavior and misconfigured
+records thereafter.<a href="#section-appendix.e-3" class="pilcrow">¶</a></p>
+<p id="section-appendix.e-4">For maximum compatibility with previously non-standard behavior and misconfigured
 deployments, all implementations SHOULD support validation of certification paths
 based on the expectations in this document, even when handling prior TLS versions'
-handshakes (see <a href="#server-certificate-selection" class="xref">Section 4.4.2.2</a>).<a href="#section-appendix.d-4" class="pilcrow">¶</a></p>
-<p id="section-appendix.d-5">TLS 1.2 and prior supported an "Extended Master Secret" <span>[<a href="#RFC7627" class="xref">RFC7627</a>]</span> extension
+handshakes (see <a href="#server-certificate-selection" class="xref">Section 4.4.2.2</a>).<a href="#section-appendix.e-4" class="pilcrow">¶</a></p>
+<p id="section-appendix.e-5">TLS 1.2 and prior supported an "Extended Main Secret" <span>[<a href="#RFC7627" class="xref">RFC7627</a>]</span> extension
 which digested large parts of the handshake transcript into the secret and
-derived keys. Because TLS 1.3 always hashes in the transcript up to the server Finished,
-implementations which support both TLS 1.3 and earlier versions SHOULD
-indicate the use of the Extended Master Secret extension in their APIs
-whenever TLS 1.3 is used.<a href="#section-appendix.d-5" class="pilcrow">¶</a></p>
+derived keys. Note this extension was renamed in <a href="#update-tls12" class="xref">Appendix D</a>. Because TLS
+1.3 always hashes in the transcript up to the server Finished, implementations
+which support both TLS 1.3 and earlier versions SHOULD indicate the use of the
+Extended Main Secret extension in their APIs whenever TLS 1.3 is used.<a href="#section-appendix.e-5" class="pilcrow">¶</a></p>
 <div id="negotiating-with-an-older-server">
-<section id="section-d.1">
+<section id="section-e.1">
         <h2 id="name-negotiating-with-an-older-s">
-<a href="#section-d.1" class="section-number selfRef">D.1. </a><a href="#name-negotiating-with-an-older-s" class="section-name selfRef">Negotiating with an Older Server</a>
+<a href="#section-e.1" class="section-number selfRef">E.1. </a><a href="#name-negotiating-with-an-older-s" class="section-name selfRef">Negotiating with an Older Server</a>
         </h2>
-<p id="section-d.1-1">A TLS 1.3 client who wishes to negotiate with servers that do not
+<p id="section-e.1-1">A TLS 1.3 client who wishes to negotiate with servers that do not
 support TLS 1.3 will send a
 normal TLS 1.3 ClientHello containing 0x0303 (TLS 1.2) in
 ClientHello.legacy_version but with the correct version(s) in the
@@ -7867,27 +7904,27 @@ ClientHello.legacy_version but with the correct version(s) in the
 will respond with a ServerHello containing an older version number. If the
 client agrees to use this version, the negotiation will proceed as appropriate
 for the negotiated protocol. A client using a ticket for resumption SHOULD initiate the
-connection using the version that was previously negotiated.<a href="#section-d.1-1" class="pilcrow">¶</a></p>
-<p id="section-d.1-2">Note that 0-RTT data is not compatible with older servers and SHOULD NOT
+connection using the version that was previously negotiated.<a href="#section-e.1-1" class="pilcrow">¶</a></p>
+<p id="section-e.1-2">Note that 0-RTT data is not compatible with older servers and SHOULD NOT
 be sent absent knowledge that the server supports TLS 1.3.
-See <a href="#zero-rtt-backwards-compatibility" class="xref">Appendix D.3</a>.<a href="#section-d.1-2" class="pilcrow">¶</a></p>
-<p id="section-d.1-3">If the version chosen by the server is not supported by the client (or is not
-acceptable), the client MUST abort the handshake with a "protocol_version" alert.<a href="#section-d.1-3" class="pilcrow">¶</a></p>
-<p id="section-d.1-4">Some legacy server implementations are known to not implement the TLS
+See <a href="#zero-rtt-backwards-compatibility" class="xref">Appendix E.3</a>.<a href="#section-e.1-2" class="pilcrow">¶</a></p>
+<p id="section-e.1-3">If the version chosen by the server is not supported by the client (or is not
+acceptable), the client MUST abort the handshake with a "protocol_version" alert.<a href="#section-e.1-3" class="pilcrow">¶</a></p>
+<p id="section-e.1-4">Some legacy server implementations are known to not implement the TLS
 specification properly and might abort connections upon encountering
 TLS extensions or versions which they are not aware of. Interoperability
 with buggy servers is a complex topic beyond the scope of this document.
 Multiple connection attempts may be required in order to negotiate
 a backward-compatible connection; however, this practice is vulnerable
-to downgrade attacks and is NOT RECOMMENDED.<a href="#section-d.1-4" class="pilcrow">¶</a></p>
+to downgrade attacks and is NOT RECOMMENDED.<a href="#section-e.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="negotiating-with-an-older-client">
-<section id="section-d.2">
+<section id="section-e.2">
         <h2 id="name-negotiating-with-an-older-c">
-<a href="#section-d.2" class="section-number selfRef">D.2. </a><a href="#name-negotiating-with-an-older-c" class="section-name selfRef">Negotiating with an Older Client</a>
+<a href="#section-e.2" class="section-number selfRef">E.2. </a><a href="#name-negotiating-with-an-older-c" class="section-name selfRef">Negotiating with an Older Client</a>
         </h2>
-<p id="section-d.2-1">A TLS server can also receive a ClientHello indicating a version number smaller
+<p id="section-e.2-1">A TLS server can also receive a ClientHello indicating a version number smaller
 than its highest supported version. If the "supported_versions" extension
 is present, the server MUST negotiate using that extension as described in
 <a href="#supported-versions" class="xref">Section 4.2.1</a>. If the "supported_versions" extension is not
@@ -7896,213 +7933,213 @@ and TLS 1.2. For example, if the server supports TLS 1.0, 1.1, and 1.2,
 and legacy_version is TLS 1.0, the server will proceed with a TLS 1.0 ServerHello.
 If the "supported_versions" extension is absent and the server only supports
 versions greater than ClientHello.legacy_version, the server MUST abort the handshake
-with a "protocol_version" alert.<a href="#section-d.2-1" class="pilcrow">¶</a></p>
-<p id="section-d.2-2">Note that earlier versions of TLS did not clearly specify the record layer
+with a "protocol_version" alert.<a href="#section-e.2-1" class="pilcrow">¶</a></p>
+<p id="section-e.2-2">Note that earlier versions of TLS did not clearly specify the record layer
 version number value in all cases (TLSPlaintext.legacy_record_version). Servers
 will receive various TLS 1.x versions in this field, but its value
-MUST always be ignored.<a href="#section-d.2-2" class="pilcrow">¶</a></p>
+MUST always be ignored.<a href="#section-e.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="zero-rtt-backwards-compatibility">
-<section id="section-d.3">
+<section id="section-e.3">
         <h2 id="name-0-rtt-backward-compatibilit">
-<a href="#section-d.3" class="section-number selfRef">D.3. </a><a href="#name-0-rtt-backward-compatibilit" class="section-name selfRef">0-RTT Backward Compatibility</a>
+<a href="#section-e.3" class="section-number selfRef">E.3. </a><a href="#name-0-rtt-backward-compatibilit" class="section-name selfRef">0-RTT Backward Compatibility</a>
         </h2>
-<p id="section-d.3-1">0-RTT data is not compatible with older servers. An older server will respond
+<p id="section-e.3-1">0-RTT data is not compatible with older servers. An older server will respond
 to the ClientHello with an older ServerHello, but it will not correctly skip
 the 0-RTT data and will fail to complete the handshake. This can cause issues when
 a client attempts to use 0-RTT, particularly against multi-server deployments. For
 example, a deployment could deploy TLS 1.3 gradually with some servers
 implementing TLS 1.3 and some implementing TLS 1.2, or a TLS 1.3 deployment
-could be downgraded to TLS 1.2.<a href="#section-d.3-1" class="pilcrow">¶</a></p>
-<p id="section-d.3-2">A client that attempts to send 0-RTT data MUST fail a connection if it receives
+could be downgraded to TLS 1.2.<a href="#section-e.3-1" class="pilcrow">¶</a></p>
+<p id="section-e.3-2">A client that attempts to send 0-RTT data MUST fail a connection if it receives
 a ServerHello with TLS 1.2 or older.  It can then retry
 the connection with 0-RTT disabled.  To avoid a downgrade attack, the
-client SHOULD NOT disable TLS 1.3, only 0-RTT.<a href="#section-d.3-2" class="pilcrow">¶</a></p>
-<p id="section-d.3-3">To avoid this error condition, multi-server deployments SHOULD ensure a uniform
-and stable deployment of TLS 1.3 without 0-RTT prior to enabling 0-RTT.<a href="#section-d.3-3" class="pilcrow">¶</a></p>
+client SHOULD NOT disable TLS 1.3, only 0-RTT.<a href="#section-e.3-2" class="pilcrow">¶</a></p>
+<p id="section-e.3-3">To avoid this error condition, multi-server deployments SHOULD ensure a uniform
+and stable deployment of TLS 1.3 without 0-RTT prior to enabling 0-RTT.<a href="#section-e.3-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="middlebox">
-<section id="section-d.4">
+<section id="section-e.4">
         <h2 id="name-middlebox-compatibility-mod">
-<a href="#section-d.4" class="section-number selfRef">D.4. </a><a href="#name-middlebox-compatibility-mod" class="section-name selfRef">Middlebox Compatibility Mode</a>
+<a href="#section-e.4" class="section-number selfRef">E.4. </a><a href="#name-middlebox-compatibility-mod" class="section-name selfRef">Middlebox Compatibility Mode</a>
         </h2>
-<p id="section-d.4-1">Field measurements
+<p id="section-e.4-1">Field measurements
 <span>[<a href="#Ben17a" class="xref">Ben17a</a>]</span> <span>[<a href="#Ben17b" class="xref">Ben17b</a>]</span> <span>[<a href="#Res17a" class="xref">Res17a</a>]</span> <span>[<a href="#Res17b" class="xref">Res17b</a>]</span> have found that a significant number of middleboxes
 misbehave when a TLS client/server pair negotiates TLS 1.3. Implementations
 can increase the chance of making connections through those middleboxes
-by making the TLS 1.3 handshake look more like a TLS 1.2 handshake:<a href="#section-d.4-1" class="pilcrow">¶</a></p>
+by making the TLS 1.3 handshake look more like a TLS 1.2 handshake:<a href="#section-e.4-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-d.4-2.1">The client always provides a non-empty session ID in the ClientHello,
-as described in the legacy_session_id section of <a href="#client-hello" class="xref">Section 4.1.2</a>.<a href="#section-d.4-2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-e.4-2.1">The client always provides a non-empty session ID in the ClientHello,
+as described in the legacy_session_id section of <a href="#client-hello" class="xref">Section 4.1.2</a>.<a href="#section-e.4-2.1" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-d.4-2.2">If not offering early data, the client sends a dummy
+          <li class="normal" id="section-e.4-2.2">If not offering early data, the client sends a dummy
 change_cipher_spec record (see the third paragraph of <a href="#record-protocol" class="xref">Section 5</a>)
 immediately before its second flight. This
 may either be before its second ClientHello or before its encrypted
 handshake flight. If offering early data, the record is placed
-immediately after the first ClientHello.<a href="#section-d.4-2.2" class="pilcrow">¶</a>
+immediately after the first ClientHello.<a href="#section-e.4-2.2" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-d.4-2.3">The server sends a dummy change_cipher_spec record immediately
+          <li class="normal" id="section-e.4-2.3">The server sends a dummy change_cipher_spec record immediately
 after its first handshake message. This may either be after a
-ServerHello or a HelloRetryRequest.<a href="#section-d.4-2.3" class="pilcrow">¶</a>
+ServerHello or a HelloRetryRequest.<a href="#section-e.4-2.3" class="pilcrow">¶</a>
 </li>
         </ul>
-<p id="section-d.4-3">When put together, these changes make the TLS 1.3 handshake resemble
+<p id="section-e.4-3">When put together, these changes make the TLS 1.3 handshake resemble
 TLS 1.2 session resumption, which improves the chance of successfully
 connecting through middleboxes. This "compatibility mode" is partially
 negotiated: the client can opt to provide a session ID or not,
 and the server has to echo it. Either side can send change_cipher_spec
 at any time during the handshake, as they must be ignored by the peer,
 but if the client sends a non-empty session ID, the server MUST send
-the change_cipher_spec as described in this appendix.<a href="#section-d.4-3" class="pilcrow">¶</a></p>
+the change_cipher_spec as described in this appendix.<a href="#section-e.4-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-restrictions-related-to-backward-compatibility">
-<section id="section-d.5">
+<section id="section-e.5">
         <h2 id="name-security-restrictions-relat">
-<a href="#section-d.5" class="section-number selfRef">D.5. </a><a href="#name-security-restrictions-relat" class="section-name selfRef">Security Restrictions Related to Backward Compatibility</a>
+<a href="#section-e.5" class="section-number selfRef">E.5. </a><a href="#name-security-restrictions-relat" class="section-name selfRef">Security Restrictions Related to Backward Compatibility</a>
         </h2>
-<p id="section-d.5-1">Implementations negotiating the use of older versions of TLS SHOULD prefer
-forward secret and AEAD cipher suites, when available.<a href="#section-d.5-1" class="pilcrow">¶</a></p>
-<p id="section-d.5-2">The security of RC4 cipher suites is considered insufficient for the reasons
+<p id="section-e.5-1">Implementations negotiating the use of older versions of TLS SHOULD prefer
+forward secret and AEAD cipher suites, when available.<a href="#section-e.5-1" class="pilcrow">¶</a></p>
+<p id="section-e.5-2">The security of RC4 cipher suites is considered insufficient for the reasons
 cited in <span>[<a href="#RFC7465" class="xref">RFC7465</a>]</span>. Implementations MUST NOT offer or negotiate RC4 cipher suites
-for any version of TLS for any reason.<a href="#section-d.5-2" class="pilcrow">¶</a></p>
-<p id="section-d.5-3">Old versions of TLS permitted the use of very low strength ciphers.
+for any version of TLS for any reason.<a href="#section-e.5-2" class="pilcrow">¶</a></p>
+<p id="section-e.5-3">Old versions of TLS permitted the use of very low strength ciphers.
 Ciphers with a strength less than 112 bits MUST NOT be offered or
-negotiated for any version of TLS for any reason.<a href="#section-d.5-3" class="pilcrow">¶</a></p>
-<p id="section-d.5-4">The security of SSL 3.0 <span>[<a href="#RFC6101" class="xref">RFC6101</a>]</span> is considered insufficient for the reasons enumerated
-in <span>[<a href="#RFC7568" class="xref">RFC7568</a>]</span>, and it MUST NOT be negotiated for any reason.<a href="#section-d.5-4" class="pilcrow">¶</a></p>
-<p id="section-d.5-5">The security of SSL 2.0 <span>[<a href="#SSL2" class="xref">SSL2</a>]</span> is considered insufficient for the reasons enumerated
-in <span>[<a href="#RFC6176" class="xref">RFC6176</a>]</span>, and it MUST NOT be negotiated for any reason.<a href="#section-d.5-5" class="pilcrow">¶</a></p>
-<p id="section-d.5-6">Implementations MUST NOT send an SSL version 2.0 compatible CLIENT-HELLO.
+negotiated for any version of TLS for any reason.<a href="#section-e.5-3" class="pilcrow">¶</a></p>
+<p id="section-e.5-4">The security of SSL 3.0 <span>[<a href="#RFC6101" class="xref">RFC6101</a>]</span> is considered insufficient for the reasons enumerated
+in <span>[<a href="#RFC7568" class="xref">RFC7568</a>]</span>, and it MUST NOT be negotiated for any reason.<a href="#section-e.5-4" class="pilcrow">¶</a></p>
+<p id="section-e.5-5">The security of SSL 2.0 <span>[<a href="#SSL2" class="xref">SSL2</a>]</span> is considered insufficient for the reasons enumerated
+in <span>[<a href="#RFC6176" class="xref">RFC6176</a>]</span>, and it MUST NOT be negotiated for any reason.<a href="#section-e.5-5" class="pilcrow">¶</a></p>
+<p id="section-e.5-6">Implementations MUST NOT send an SSL version 2.0 compatible CLIENT-HELLO.
 Implementations MUST NOT negotiate TLS 1.3 or later using an SSL version 2.0 compatible
 CLIENT-HELLO. Implementations are NOT RECOMMENDED to accept an SSL version 2.0 compatible
-CLIENT-HELLO in order to negotiate older versions of TLS.<a href="#section-d.5-6" class="pilcrow">¶</a></p>
-<p id="section-d.5-7">Implementations MUST NOT send a ClientHello.legacy_version or ServerHello.legacy_version
+CLIENT-HELLO in order to negotiate older versions of TLS.<a href="#section-e.5-6" class="pilcrow">¶</a></p>
+<p id="section-e.5-7">Implementations MUST NOT send a ClientHello.legacy_version or ServerHello.legacy_version
 set to 0x0300 or less. Any endpoint receiving a Hello message with
 ClientHello.legacy_version or ServerHello.legacy_version set to 0x0300 MUST
-abort the handshake with a "protocol_version" alert.<a href="#section-d.5-7" class="pilcrow">¶</a></p>
-<p id="section-d.5-8">Implementations MUST NOT send any records with a version less than 0x0300.
+abort the handshake with a "protocol_version" alert.<a href="#section-e.5-7" class="pilcrow">¶</a></p>
+<p id="section-e.5-8">Implementations MUST NOT send any records with a version less than 0x0300.
 Implementations SHOULD NOT accept any records with a version less than 0x0300
-(but may inadvertently do so if the record version number is ignored completely).<a href="#section-d.5-8" class="pilcrow">¶</a></p>
-<p id="section-d.5-9">Implementations MUST NOT use the Truncated HMAC extension, defined in
+(but may inadvertently do so if the record version number is ignored completely).<a href="#section-e.5-8" class="pilcrow">¶</a></p>
+<p id="section-e.5-9">Implementations MUST NOT use the Truncated HMAC extension, defined in
 Section 7 of <span>[<a href="#RFC6066" class="xref">RFC6066</a>]</span>, as it is not applicable to AEAD algorithms and has
-been shown to be insecure in some scenarios.<a href="#section-d.5-9" class="pilcrow">¶</a></p>
+been shown to be insecure in some scenarios.<a href="#section-e.5-9" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="security-analysis">
-<section id="section-appendix.e">
+<section id="section-appendix.f">
       <h2 id="name-overview-of-security-proper">
-<a href="#section-appendix.e" class="section-number selfRef">Appendix E. </a><a href="#name-overview-of-security-proper" class="section-name selfRef">Overview of Security Properties</a>
+<a href="#section-appendix.f" class="section-number selfRef">Appendix F. </a><a href="#name-overview-of-security-proper" class="section-name selfRef">Overview of Security Properties</a>
       </h2>
-<p id="section-appendix.e-1">A complete security analysis of TLS is outside the scope of this document.
+<p id="section-appendix.f-1">A complete security analysis of TLS is outside the scope of this document.
 In this appendix, we provide an informal description of the desired properties
 as well as references to more detailed work in the research literature
-which provides more formal definitions.<a href="#section-appendix.e-1" class="pilcrow">¶</a></p>
-<p id="section-appendix.e-2">We cover properties of the handshake separately from those of the record layer.<a href="#section-appendix.e-2" class="pilcrow">¶</a></p>
+which provides more formal definitions.<a href="#section-appendix.f-1" class="pilcrow">¶</a></p>
+<p id="section-appendix.f-2">We cover properties of the handshake separately from those of the record layer.<a href="#section-appendix.f-2" class="pilcrow">¶</a></p>
 <div id="security-handshake">
-<section id="section-e.1">
+<section id="section-f.1">
         <h2 id="name-handshake">
-<a href="#section-e.1" class="section-number selfRef">E.1. </a><a href="#name-handshake" class="section-name selfRef">Handshake</a>
+<a href="#section-f.1" class="section-number selfRef">F.1. </a><a href="#name-handshake" class="section-name selfRef">Handshake</a>
         </h2>
-<p id="section-e.1-1">The TLS handshake is an Authenticated Key Exchange (AKE) protocol which
+<p id="section-f.1-1">The TLS handshake is an Authenticated Key Exchange (AKE) protocol which
 is intended to provide both one-way authenticated (server-only) and
 mutually authenticated (client and server) functionality. At the completion
-of the handshake, each side outputs its view of the following values:<a href="#section-e.1-1" class="pilcrow">¶</a></p>
+of the handshake, each side outputs its view of the following values:<a href="#section-f.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-e.1-2.1">A set of "session keys" (the various secrets derived from the main secret)
-from which can be derived a set of working keys.<a href="#section-e.1-2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-f.1-2.1">A set of "session keys" (the various secrets derived from the main secret)
+from which can be derived a set of working keys.<a href="#section-f.1-2.1" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-e.1-2.2">A set of cryptographic parameters (algorithms, etc.).<a href="#section-e.1-2.2" class="pilcrow">¶</a>
+          <li class="normal" id="section-f.1-2.2">A set of cryptographic parameters (algorithms, etc.).<a href="#section-f.1-2.2" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-e.1-2.3">The identities of the communicating parties.<a href="#section-e.1-2.3" class="pilcrow">¶</a>
+          <li class="normal" id="section-f.1-2.3">The identities of the communicating parties.<a href="#section-f.1-2.3" class="pilcrow">¶</a>
 </li>
         </ul>
-<p id="section-e.1-3">We assume the attacker to be an active network attacker, which means it
+<p id="section-f.1-3">We assume the attacker to be an active network attacker, which means it
 has complete control over the network used to communicate between the parties <span>[<a href="#RFC3552" class="xref">RFC3552</a>]</span>.
 Even under these conditions, the handshake should provide the properties listed below.
 Note that these properties are not necessarily independent, but reflect
-the protocol consumers' needs.<a href="#section-e.1-3" class="pilcrow">¶</a></p>
-<span class="break"></span><dl class="dlParallel" id="section-e.1-4">
-          <dt id="section-e.1-4.1">
+the protocol consumers' needs.<a href="#section-f.1-3" class="pilcrow">¶</a></p>
+<span class="break"></span><dl class="dlParallel" id="section-f.1-4">
+          <dt id="section-f.1-4.1">
 Establishing the same session keys:  </dt>
-          <dd style="margin-left: 1.5em" id="section-e.1-4.2">
-            <p id="section-e.1-4.2.1">The handshake needs to output the same set of session keys on both sides of
+          <dd style="margin-left: 1.5em" id="section-f.1-4.2">
+            <p id="section-f.1-4.2.1">The handshake needs to output the same set of session keys on both sides of
 the handshake, provided that it completes successfully on each endpoint
-(see <span>[<a href="#CK01" class="xref">CK01</a>]</span>; Definition 1, part 1).<a href="#section-e.1-4.2.1" class="pilcrow">¶</a></p>
+(see <span>[<a href="#CK01" class="xref">CK01</a>]</span>; Definition 1, part 1).<a href="#section-f.1-4.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-e.1-4.3">
+<dt id="section-f.1-4.3">
 Secrecy of the session keys:  </dt>
-          <dd style="margin-left: 1.5em" id="section-e.1-4.4">
-            <p id="section-e.1-4.4.1">The shared session keys should be known only to the communicating
+          <dd style="margin-left: 1.5em" id="section-f.1-4.4">
+            <p id="section-f.1-4.4.1">The shared session keys should be known only to the communicating
 parties and not to the attacker (see <span>[<a href="#CK01" class="xref">CK01</a>]</span>; Definition 1, part 2).
 Note that in a unilaterally authenticated connection, the attacker can establish
 its own session keys with the server, but those session keys are distinct from
-those established by the client.<a href="#section-e.1-4.4.1" class="pilcrow">¶</a></p>
+those established by the client.<a href="#section-f.1-4.4.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-e.1-4.5">
+<dt id="section-f.1-4.5">
 Peer Authentication:  </dt>
-          <dd style="margin-left: 1.5em" id="section-e.1-4.6">
-            <p id="section-e.1-4.6.1">The client's view of the peer identity should reflect the server's
+          <dd style="margin-left: 1.5em" id="section-f.1-4.6">
+            <p id="section-f.1-4.6.1">The client's view of the peer identity should reflect the server's
 identity. If the client is authenticated, the server's view of the
-peer identity should match the client's identity.<a href="#section-e.1-4.6.1" class="pilcrow">¶</a></p>
+peer identity should match the client's identity.<a href="#section-f.1-4.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-e.1-4.7">
+<dt id="section-f.1-4.7">
 Uniqueness of the session keys:  </dt>
-          <dd style="margin-left: 1.5em" id="section-e.1-4.8">
-            <p id="section-e.1-4.8.1">Any two distinct handshakes should produce distinct, unrelated session
+          <dd style="margin-left: 1.5em" id="section-f.1-4.8">
+            <p id="section-f.1-4.8.1">Any two distinct handshakes should produce distinct, unrelated session
 keys. Individual session keys produced by a handshake should also be distinct
-and independent.<a href="#section-e.1-4.8.1" class="pilcrow">¶</a></p>
+and independent.<a href="#section-f.1-4.8.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-e.1-4.9">
+<dt id="section-f.1-4.9">
 Downgrade Protection:  </dt>
-          <dd style="margin-left: 1.5em" id="section-e.1-4.10">
-            <p id="section-e.1-4.10.1">The cryptographic parameters should be the same on both sides and
+          <dd style="margin-left: 1.5em" id="section-f.1-4.10">
+            <p id="section-f.1-4.10.1">The cryptographic parameters should be the same on both sides and
 should be the same as if the peers had been communicating in the
-absence of an attack (see <span>[<a href="#BBFGKZ16" class="xref">BBFGKZ16</a>]</span>; Definitions 8 and 9).<a href="#section-e.1-4.10.1" class="pilcrow">¶</a></p>
+absence of an attack (see <span>[<a href="#BBFGKZ16" class="xref">BBFGKZ16</a>]</span>; Definitions 8 and 9).<a href="#section-f.1-4.10.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-e.1-4.11">
+<dt id="section-f.1-4.11">
 Forward secret with respect to long-term keys:  </dt>
-          <dd style="margin-left: 1.5em" id="section-e.1-4.12">
-            <p id="section-e.1-4.12.1">If the long-term keying material (in this case the signature keys in certificate-based
+          <dd style="margin-left: 1.5em" id="section-f.1-4.12">
+            <p id="section-f.1-4.12.1">If the long-term keying material (in this case the signature keys in certificate-based
 authentication modes or the external/resumption PSK in PSK with (EC)DHE modes) is compromised after
 the handshake is complete, this does not compromise the security of the
 session key (see <span>[<a href="#DOW92" class="xref">DOW92</a>]</span>), as long as the session key itself has
 been erased. The forward secrecy property is not satisfied
-when PSK is used in the "psk_ke" PskKeyExchangeMode.<a href="#section-e.1-4.12.1" class="pilcrow">¶</a></p>
+when PSK is used in the "psk_ke" PskKeyExchangeMode.<a href="#section-f.1-4.12.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-e.1-4.13">
+<dt id="section-f.1-4.13">
 Key Compromise Impersonation (KCI) resistance:  </dt>
-          <dd style="margin-left: 1.5em" id="section-e.1-4.14">
-            <p id="section-e.1-4.14.1">In a mutually authenticated connection with certificates, compromising the long-term
+          <dd style="margin-left: 1.5em" id="section-f.1-4.14">
+            <p id="section-f.1-4.14.1">In a mutually authenticated connection with certificates, compromising the long-term
 secret of one actor should not break that actor's authentication of their peer in
 the given connection (see <span>[<a href="#HGFS15" class="xref">HGFS15</a>]</span>). For example, if a client's signature key is
 compromised, it should not be possible to impersonate arbitrary servers to that client
-in subsequent handshakes.<a href="#section-e.1-4.14.1" class="pilcrow">¶</a></p>
+in subsequent handshakes.<a href="#section-f.1-4.14.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-e.1-4.15">
+<dt id="section-f.1-4.15">
 Protection of endpoint identities:  </dt>
-          <dd style="margin-left: 1.5em" id="section-e.1-4.16">
-            <p id="section-e.1-4.16.1">The server's identity (certificate) should be protected against passive
+          <dd style="margin-left: 1.5em" id="section-f.1-4.16">
+            <p id="section-f.1-4.16.1">The server's identity (certificate) should be protected against passive
 attackers. The client's identity (certificate) should be protected against
 both passive and active attackers. This property does not hold for cipher
 suites without confidentiality; while this specification does not define any such cipher suites,
-other documents may do so.<a href="#section-e.1-4.16.1" class="pilcrow">¶</a></p>
+other documents may do so.<a href="#section-f.1-4.16.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 </dl>
-<p id="section-e.1-5">Informally, the signature-based modes of TLS 1.3 provide for the
+<p id="section-f.1-5">Informally, the signature-based modes of TLS 1.3 provide for the
 establishment of a unique, secret, shared key established by an
 (EC)DHE key exchange and authenticated by the server's signature over
 the handshake transcript, as well as tied to the server's identity by
@@ -8110,8 +8147,8 @@ a MAC. If the client is authenticated by a certificate, it also signs
 over the handshake transcript and provides a MAC tied to both
 identities. <span>[<a href="#SIGMA" class="xref">SIGMA</a>]</span> describes the design and analysis of this type of key
 exchange protocol. If fresh (EC)DHE keys are used for each connection,
-then the output keys are forward secret.<a href="#section-e.1-5" class="pilcrow">¶</a></p>
-<p id="section-e.1-6">The external PSK and resumption PSK bootstrap from a long-term shared
+then the output keys are forward secret.<a href="#section-f.1-5" class="pilcrow">¶</a></p>
+<p id="section-f.1-6">The external PSK and resumption PSK bootstrap from a long-term shared
 secret into a unique per-connection set of short-term session keys. This
 secret may have been established in a previous handshake. If
 PSK with (EC)DHE key establishment is used, these session keys will also be forward
@@ -8124,18 +8161,18 @@ connection, they are associated with different keys, so compromise of
 the PSK associated with one ticket does not lead to the compromise of
 connections established with PSKs associated with other tickets.
 This property is most interesting if tickets are stored in a database
-(and so can be deleted) rather than if they are self-encrypted.<a href="#section-e.1-6" class="pilcrow">¶</a></p>
-<p id="section-e.1-7">The PSK binder value forms a binding between a PSK
+(and so can be deleted) rather than if they are self-encrypted.<a href="#section-f.1-6" class="pilcrow">¶</a></p>
+<p id="section-f.1-7">The PSK binder value forms a binding between a PSK
 and the current handshake, as well as between the session where the
 PSK was established and the current session. This binding
 transitively includes the original handshake transcript, because that
 transcript is digested into the values which produce the resumption
 main secret. This requires that both the KDF used to produce the
 resumption main secret and the MAC used to compute the binder be collision
-resistant. See <a href="#key-derivation-and-hkdf" class="xref">Appendix E.1.1</a> for more on this.
+resistant. See <a href="#key-derivation-and-hkdf" class="xref">Appendix F.1.1</a> for more on this.
 Note: The binder does not cover the binder values from other
-PSKs, though they are included in the Finished MAC.<a href="#section-e.1-7" class="pilcrow">¶</a></p>
-<p id="section-e.1-8">Note: TLS does not currently permit the server to send a certificate_request
+PSKs, though they are included in the Finished MAC.<a href="#section-f.1-7" class="pilcrow">¶</a></p>
+<p id="section-f.1-8">Note: TLS does not currently permit the server to send a certificate_request
 message in non-certificate-based handshakes (e.g., PSK).
 If this restriction were to be relaxed in future, the
 client's signature would not cover the server's certificate directly.
@@ -8148,8 +8185,8 @@ authentication when the client might potentially share the same
 PSK/key-id pair with two different endpoints.  Implementations MUST
 NOT combine external PSKs with certificate-based authentication of
 either the client or server. Future specifications MAY provide an
-extension to permit this.<a href="#section-e.1-8" class="pilcrow">¶</a></p>
-<p id="section-e.1-9">If an exporter is used, then it produces values which are unique
+extension to permit this.<a href="#section-f.1-8" class="pilcrow">¶</a></p>
+<p id="section-f.1-9">If an exporter is used, then it produces values which are unique
 and secret (because they are generated from a unique session key).
 Exporters computed with different labels and contexts are computationally
 independent, so it is not feasible to compute one from another or
@@ -8164,13 +8201,13 @@ and thus have similar security properties. Note that they do
 not include the client's certificate; future applications
 which wish to bind to the client's certificate may need
 to define a new exporter that includes the full handshake
-transcript.<a href="#section-e.1-9" class="pilcrow">¶</a></p>
-<p id="section-e.1-10">For all handshake modes, the Finished MAC (and, where present, the
+transcript.<a href="#section-f.1-9" class="pilcrow">¶</a></p>
+<p id="section-f.1-10">For all handshake modes, the Finished MAC (and, where present, the
 signature) prevents downgrade attacks. In addition, the use of
 certain bytes in the random nonces as described in <a href="#server-hello" class="xref">Section 4.1.3</a>
 allows the detection of downgrade to previous TLS versions.
-See <span>[<a href="#BBFGKZ16" class="xref">BBFGKZ16</a>]</span> for more details on TLS 1.3 and downgrade.<a href="#section-e.1-10" class="pilcrow">¶</a></p>
-<p id="section-e.1-11">As soon as the client and the server have exchanged enough information
+See <span>[<a href="#BBFGKZ16" class="xref">BBFGKZ16</a>]</span> for more details on TLS 1.3 and downgrade.<a href="#section-f.1-10" class="pilcrow">¶</a></p>
+<p id="section-f.1-11">As soon as the client and the server have exchanged enough information
 to establish shared keys, the remainder of the handshake is encrypted,
 thus providing protection against passive attackers, even if the
 computed shared key is not authenticated. Because the server
@@ -8180,13 +8217,13 @@ reveals its identity to an authenticated server. Note that implementations
 must use the provided record-padding mechanism during the handshake
 to avoid leaking information about the identities due to length.
 The client's proposed PSK identities are not encrypted, nor is the
-one that the server selects.<a href="#section-e.1-11" class="pilcrow">¶</a></p>
+one that the server selects.<a href="#section-f.1-11" class="pilcrow">¶</a></p>
 <div id="key-derivation-and-hkdf">
-<section id="section-e.1.1">
+<section id="section-f.1.1">
           <h3 id="name-key-derivation-and-hkdf">
-<a href="#section-e.1.1" class="section-number selfRef">E.1.1. </a><a href="#name-key-derivation-and-hkdf" class="section-name selfRef">Key Derivation and HKDF</a>
+<a href="#section-f.1.1" class="section-number selfRef">F.1.1. </a><a href="#name-key-derivation-and-hkdf" class="section-name selfRef">Key Derivation and HKDF</a>
           </h3>
-<p id="section-e.1.1-1">Key derivation in TLS 1.3 uses  HKDF as defined in <span>[<a href="#RFC5869" class="xref">RFC5869</a>]</span> and
+<p id="section-f.1.1-1">Key derivation in TLS 1.3 uses  HKDF as defined in <span>[<a href="#RFC5869" class="xref">RFC5869</a>]</span> and
 its two components, HKDF-Extract and HKDF-Expand. The full rationale for the HKDF
 construction can be found in <span>[<a href="#Kraw10" class="xref">Kraw10</a>]</span> and the rationale for the way it is used
 in TLS 1.3 in <span>[<a href="#KW16" class="xref">KW16</a>]</span>.  Throughout this document, each
@@ -8196,23 +8233,23 @@ revisions of this document); in particular, one SHOULD NOT use an output of
 HKDF-Extract as an input to another application of HKDF-Extract without an
 HKDF-Expand in between. Multiple applications of HKDF-Expand to some of
 the same inputs are allowed as
-long as these are differentiated via the key and/or the labels.<a href="#section-e.1.1-1" class="pilcrow">¶</a></p>
-<p id="section-e.1.1-2">Note that HKDF-Expand implements a pseudorandom function (PRF) with both inputs and
+long as these are differentiated via the key and/or the labels.<a href="#section-f.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-f.1.1-2">Note that HKDF-Expand implements a pseudorandom function (PRF) with both inputs and
 outputs of variable length. In some of the uses of HKDF in this document
 (e.g., for generating exporters and the resumption_main_secret), it is necessary
 that the application of HKDF-Expand be collision resistant; namely, it should
 be infeasible to find two different inputs to HKDF-Expand that output the same
 value. This requires the underlying hash function to be collision resistant
 and the output length from HKDF-Expand to be of size at least 256 bits (or as
-much as needed for the hash function to prevent finding collisions).<a href="#section-e.1.1-2" class="pilcrow">¶</a></p>
+much as needed for the hash function to prevent finding collisions).<a href="#section-f.1.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="certificate-based-client-authentication">
-<section id="section-e.1.2">
+<section id="section-f.1.2">
           <h3 id="name-certificate-based-client-au">
-<a href="#section-e.1.2" class="section-number selfRef">E.1.2. </a><a href="#name-certificate-based-client-au" class="section-name selfRef">Certificate-Based Client Authentication</a>
+<a href="#section-f.1.2" class="section-number selfRef">F.1.2. </a><a href="#name-certificate-based-client-au" class="section-name selfRef">Certificate-Based Client Authentication</a>
           </h3>
-<p id="section-e.1.2-1">A client that has sent certificate-based authentication data to a server, either during
+<p id="section-f.1.2-1">A client that has sent certificate-based authentication data to a server, either during
 the handshake or in post-handshake authentication, cannot be sure whether
 the server afterwards considers the client to be authenticated or not.
 If the client needs to determine if the server considers the
@@ -8223,29 +8260,29 @@ In addition, the analysis of post-handshake authentication from
 the post-handshake phase possesses the traffic key. This party is
 therefore the client that participated in the original handshake or
 one to whom the original client delegated the traffic key (assuming
-that the traffic key has not been compromised).<a href="#section-e.1.2-1" class="pilcrow">¶</a></p>
+that the traffic key has not been compromised).<a href="#section-f.1.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="rtt">
-<section id="section-e.1.3">
+<section id="section-f.1.3">
           <h3 id="name-0-rtt">
-<a href="#section-e.1.3" class="section-number selfRef">E.1.3. </a><a href="#name-0-rtt" class="section-name selfRef">0-RTT</a>
+<a href="#section-f.1.3" class="section-number selfRef">F.1.3. </a><a href="#name-0-rtt" class="section-name selfRef">0-RTT</a>
           </h3>
-<p id="section-e.1.3-1">The 0-RTT mode of operation generally provides security
+<p id="section-f.1.3-1">The 0-RTT mode of operation generally provides security
 properties similar to those of 1-RTT data, with the two exceptions that the 0-RTT
 encryption keys do not provide full forward secrecy and that the
 server is not able to guarantee uniqueness of the handshake
 (non-replayability) without keeping potentially undue amounts of
 state. See <a href="#anti-replay" class="xref">Section 8</a> for mechanisms to limit
-the exposure to replay.<a href="#section-e.1.3-1" class="pilcrow">¶</a></p>
+the exposure to replay.<a href="#section-f.1.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="exporter-independence">
-<section id="section-e.1.4">
+<section id="section-f.1.4">
           <h3 id="name-exporter-independence">
-<a href="#section-e.1.4" class="section-number selfRef">E.1.4. </a><a href="#name-exporter-independence" class="section-name selfRef">Exporter Independence</a>
+<a href="#section-f.1.4" class="section-number selfRef">F.1.4. </a><a href="#name-exporter-independence" class="section-name selfRef">Exporter Independence</a>
           </h3>
-<p id="section-e.1.4-1">The exporter_main_secret and early_exporter_main_secret are
+<p id="section-f.1.4-1">The exporter_main_secret and early_exporter_main_secret are
 derived to be independent of the traffic keys and therefore do
 not represent a threat to the security of traffic encrypted with
 those keys. However, because these secrets can be used to
@@ -8255,84 +8292,84 @@ implementations SHOULD pre-compute the inner Derive-Secret
 stage of the exporter computation for all those labels,
 then erase the [early_]exporter_main_secret, followed by
 each inner values as soon as it is known that it will not be
-needed again.<a href="#section-e.1.4-1" class="pilcrow">¶</a></p>
+needed again.<a href="#section-f.1.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="post-compromise-security">
-<section id="section-e.1.5">
+<section id="section-f.1.5">
           <h3 id="name-post-compromise-security">
-<a href="#section-e.1.5" class="section-number selfRef">E.1.5. </a><a href="#name-post-compromise-security" class="section-name selfRef">Post-Compromise Security</a>
+<a href="#section-f.1.5" class="section-number selfRef">F.1.5. </a><a href="#name-post-compromise-security" class="section-name selfRef">Post-Compromise Security</a>
           </h3>
-<p id="section-e.1.5-1">TLS does not provide security for handshakes which take place after the peer's
+<p id="section-f.1.5-1">TLS does not provide security for handshakes which take place after the peer's
 long-term secret (signature key or external PSK) is compromised. It therefore
 does not provide post-compromise security <span>[<a href="#CCG16" class="xref">CCG16</a>]</span>, sometimes also referred to
 as backwards or future secrecy. This is in contrast to KCI resistance, which
 describes the security guarantees that a party has after its own long-term
-secret has been compromised.<a href="#section-e.1.5-1" class="pilcrow">¶</a></p>
+secret has been compromised.<a href="#section-f.1.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="external-references">
-<section id="section-e.1.6">
+<section id="section-f.1.6">
           <h3 id="name-external-references">
-<a href="#section-e.1.6" class="section-number selfRef">E.1.6. </a><a href="#name-external-references" class="section-name selfRef">External References</a>
+<a href="#section-f.1.6" class="section-number selfRef">F.1.6. </a><a href="#name-external-references" class="section-name selfRef">External References</a>
           </h3>
-<p id="section-e.1.6-1">The reader should refer to the following references for analysis of the
+<p id="section-f.1.6-1">The reader should refer to the following references for analysis of the
 TLS handshake: <span>[<a href="#DFGS15" class="xref">DFGS15</a>]</span>, <span>[<a href="#CHSV16" class="xref">CHSV16</a>]</span>, <span>[<a href="#DFGS16" class="xref">DFGS16</a>]</span>, <span>[<a href="#KW16" class="xref">KW16</a>]</span>, <span>[<a href="#Kraw16" class="xref">Kraw16</a>]</span>, <span>[<a href="#FGSW16" class="xref">FGSW16</a>]</span>,
-<span>[<a href="#LXZFH16" class="xref">LXZFH16</a>]</span>, <span>[<a href="#FG17" class="xref">FG17</a>]</span>, and <span>[<a href="#BBK17" class="xref">BBK17</a>]</span>.<a href="#section-e.1.6-1" class="pilcrow">¶</a></p>
+<span>[<a href="#LXZFH16" class="xref">LXZFH16</a>]</span>, <span>[<a href="#FG17" class="xref">FG17</a>]</span>, and <span>[<a href="#BBK17" class="xref">BBK17</a>]</span>.<a href="#section-f.1.6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="security-record-layer">
-<section id="section-e.2">
+<section id="section-f.2">
         <h2 id="name-record-layer-3">
-<a href="#section-e.2" class="section-number selfRef">E.2. </a><a href="#name-record-layer-3" class="section-name selfRef">Record Layer</a>
+<a href="#section-f.2" class="section-number selfRef">F.2. </a><a href="#name-record-layer-3" class="section-name selfRef">Record Layer</a>
         </h2>
-<p id="section-e.2-1">The record layer depends on the handshake producing strong traffic secrets
+<p id="section-f.2-1">The record layer depends on the handshake producing strong traffic secrets
 which can be used to derive bidirectional encryption keys and nonces.
 Assuming that is true, and the keys are used for no more data than
 indicated in <a href="#limits-on-key-usage" class="xref">Section 5.5</a>, then the record layer should provide the following
-guarantees:<a href="#section-e.2-1" class="pilcrow">¶</a></p>
-<span class="break"></span><dl class="dlParallel" id="section-e.2-2">
-          <dt id="section-e.2-2.1">
+guarantees:<a href="#section-f.2-1" class="pilcrow">¶</a></p>
+<span class="break"></span><dl class="dlParallel" id="section-f.2-2">
+          <dt id="section-f.2-2.1">
 Confidentiality:  </dt>
-          <dd style="margin-left: 1.5em" id="section-e.2-2.2">
-            <p id="section-e.2-2.2.1">An attacker should not be able to determine the plaintext contents
-of a given record.<a href="#section-e.2-2.2.1" class="pilcrow">¶</a></p>
+          <dd style="margin-left: 1.5em" id="section-f.2-2.2">
+            <p id="section-f.2-2.2.1">An attacker should not be able to determine the plaintext contents
+of a given record.<a href="#section-f.2-2.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-e.2-2.3">
+<dt id="section-f.2-2.3">
 Integrity:  </dt>
-          <dd style="margin-left: 1.5em" id="section-e.2-2.4">
-            <p id="section-e.2-2.4.1">An attacker should not be able to craft a new record which is
-different from an existing record which will be accepted by the receiver.<a href="#section-e.2-2.4.1" class="pilcrow">¶</a></p>
+          <dd style="margin-left: 1.5em" id="section-f.2-2.4">
+            <p id="section-f.2-2.4.1">An attacker should not be able to craft a new record which is
+different from an existing record which will be accepted by the receiver.<a href="#section-f.2-2.4.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-e.2-2.5">
+<dt id="section-f.2-2.5">
 Order protection/non-replayability:  </dt>
-          <dd style="margin-left: 1.5em" id="section-e.2-2.6">
-            <p id="section-e.2-2.6.1">An attacker should not be able to cause the receiver to accept a
+          <dd style="margin-left: 1.5em" id="section-f.2-2.6">
+            <p id="section-f.2-2.6.1">An attacker should not be able to cause the receiver to accept a
 record which it has already accepted or cause the receiver to accept
-record N+1 without having first processed record N.<a href="#section-e.2-2.6.1" class="pilcrow">¶</a></p>
+record N+1 without having first processed record N.<a href="#section-f.2-2.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-e.2-2.7">
+<dt id="section-f.2-2.7">
 Length concealment:  </dt>
-          <dd style="margin-left: 1.5em" id="section-e.2-2.8">
-            <p id="section-e.2-2.8.1">Given a record with a given external length, the attacker should not be able
-to determine the amount of the record that is content versus padding.<a href="#section-e.2-2.8.1" class="pilcrow">¶</a></p>
+          <dd style="margin-left: 1.5em" id="section-f.2-2.8">
+            <p id="section-f.2-2.8.1">Given a record with a given external length, the attacker should not be able
+to determine the amount of the record that is content versus padding.<a href="#section-f.2-2.8.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-e.2-2.9">
+<dt id="section-f.2-2.9">
 Forward secrecy after key change:  </dt>
-          <dd style="margin-left: 1.5em" id="section-e.2-2.10">
-            <p id="section-e.2-2.10.1">If the traffic key update mechanism described in <a href="#key-update" class="xref">Section 4.6.3</a> has been
+          <dd style="margin-left: 1.5em" id="section-f.2-2.10">
+            <p id="section-f.2-2.10.1">If the traffic key update mechanism described in <a href="#key-update" class="xref">Section 4.6.3</a> has been
 used and the previous generation key is deleted, an attacker who compromises
-the endpoint should not be able to decrypt traffic encrypted with the old key.<a href="#section-e.2-2.10.1" class="pilcrow">¶</a></p>
+the endpoint should not be able to decrypt traffic encrypted with the old key.<a href="#section-f.2-2.10.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 </dl>
-<p id="section-e.2-3">Informally, TLS 1.3 provides these properties by AEAD-protecting the
+<p id="section-f.2-3">Informally, TLS 1.3 provides these properties by AEAD-protecting the
 plaintext with a strong key. AEAD encryption <span>[<a href="#RFC5116" class="xref">RFC5116</a>]</span> provides confidentiality
 and integrity for the data. Non-replayability is provided by using
 a separate nonce for each record, with the nonce being derived from
@@ -8344,46 +8381,46 @@ repeatedly encrypted by different users under the same key
 (as is commonly the case for HTTP), the nonce is formed by mixing
 the sequence number with a secret per-connection initialization
 vector derived along with the traffic keys.
-See <span>[<a href="#BT16" class="xref">BT16</a>]</span> for analysis of this construction.<a href="#section-e.2-3" class="pilcrow">¶</a></p>
-<p id="section-e.2-4">The rekeying technique in TLS 1.3 (see <a href="#updating-traffic-keys" class="xref">Section 7.2</a>) follows the
+See <span>[<a href="#BT16" class="xref">BT16</a>]</span> for analysis of this construction.<a href="#section-f.2-3" class="pilcrow">¶</a></p>
+<p id="section-f.2-4">The rekeying technique in TLS 1.3 (see <a href="#updating-traffic-keys" class="xref">Section 7.2</a>) follows the
 construction of the serial generator as discussed in <span>[<a href="#REKEY" class="xref">REKEY</a>]</span>, which shows that rekeying can
 allow keys to be used for a larger number of encryptions than without
 rekeying. This relies on the security of the HKDF-Expand-Label function as a
 pseudorandom function (PRF).  In addition, as long as this function is truly
 one way, it is not possible to compute traffic keys from prior to a key change
-(forward secrecy).<a href="#section-e.2-4" class="pilcrow">¶</a></p>
-<p id="section-e.2-5">TLS does not provide security for data which is communicated on a connection
+(forward secrecy).<a href="#section-f.2-4" class="pilcrow">¶</a></p>
+<p id="section-f.2-5">TLS does not provide security for data which is communicated on a connection
 after a traffic secret of that connection is compromised. That is, TLS does not
 provide post-compromise security/future secrecy/backward secrecy with respect
 to the traffic secret. Indeed, an attacker who learns a traffic secret can
 compute all future traffic secrets on that connection.  Systems which want such
 guarantees need to do a fresh handshake and establish a new connection with an
-(EC)DHE exchange.<a href="#section-e.2-5" class="pilcrow">¶</a></p>
+(EC)DHE exchange.<a href="#section-f.2-5" class="pilcrow">¶</a></p>
 <div id="external-references-1">
-<section id="section-e.2.1">
+<section id="section-f.2.1">
           <h3 id="name-external-references-2">
-<a href="#section-e.2.1" class="section-number selfRef">E.2.1. </a><a href="#name-external-references-2" class="section-name selfRef">External References</a>
+<a href="#section-f.2.1" class="section-number selfRef">F.2.1. </a><a href="#name-external-references-2" class="section-name selfRef">External References</a>
           </h3>
-<p id="section-e.2.1-1">The reader should refer to the following references for analysis of the TLS record layer:
-<span>[<a href="#BMMRT15" class="xref">BMMRT15</a>]</span>, <span>[<a href="#BT16" class="xref">BT16</a>]</span>, <span>[<a href="#BDFKPPRSZZ16" class="xref">BDFKPPRSZZ16</a>]</span>, <span>[<a href="#BBK17" class="xref">BBK17</a>]</span>, and <span>[<a href="#PS18" class="xref">PS18</a>]</span>.<a href="#section-e.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-f.2.1-1">The reader should refer to the following references for analysis of the TLS record layer:
+<span>[<a href="#BMMRT15" class="xref">BMMRT15</a>]</span>, <span>[<a href="#BT16" class="xref">BT16</a>]</span>, <span>[<a href="#BDFKPPRSZZ16" class="xref">BDFKPPRSZZ16</a>]</span>, <span>[<a href="#BBK17" class="xref">BBK17</a>]</span>, and <span>[<a href="#PS18" class="xref">PS18</a>]</span>.<a href="#section-f.2.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="traffic-analysis">
-<section id="section-e.3">
+<section id="section-f.3">
         <h2 id="name-traffic-analysis">
-<a href="#section-e.3" class="section-number selfRef">E.3. </a><a href="#name-traffic-analysis" class="section-name selfRef">Traffic Analysis</a>
+<a href="#section-f.3" class="section-number selfRef">F.3. </a><a href="#name-traffic-analysis" class="section-name selfRef">Traffic Analysis</a>
         </h2>
-<p id="section-e.3-1">TLS is susceptible to a variety of traffic analysis attacks based on
+<p id="section-f.3-1">TLS is susceptible to a variety of traffic analysis attacks based on
 observing the length and timing of encrypted packets
 <span>[<a href="#CLINIC" class="xref">CLINIC</a>]</span>
           <span>[<a href="#HCJC16" class="xref">HCJC16</a>]</span>.
 This is particularly easy when there is a small
 set of possible messages to be distinguished, such as for a video
 server hosting a fixed corpus of content, but still provides usable
-information even in more complicated scenarios.<a href="#section-e.3-1" class="pilcrow">¶</a></p>
-<p id="section-e.3-2">TLS does not provide any specific defenses against this form of attack
+information even in more complicated scenarios.<a href="#section-f.3-1" class="pilcrow">¶</a></p>
+<p id="section-f.3-2">TLS does not provide any specific defenses against this form of attack
 but does include a padding mechanism for use by applications: The
 plaintext protected by the AEAD function consists of content plus
 variable-length padding, which allows the application to produce
@@ -8400,76 +8437,76 @@ these channels because even a constant-time padding removal function will
 likely feed the content into data-dependent functions.
 At minimum, a fully constant-time server or client would require close
 cooperation with the application-layer protocol implementation, including
-making that higher-level protocol constant time.<a href="#section-e.3-2" class="pilcrow">¶</a></p>
-<p id="section-e.3-3">Note: Robust
+making that higher-level protocol constant time.<a href="#section-f.3-2" class="pilcrow">¶</a></p>
+<p id="section-f.3-3">Note: Robust
 traffic analysis defenses will likely lead to inferior performance
-due to delays in transmitting packets and increased traffic volume.<a href="#section-e.3-3" class="pilcrow">¶</a></p>
+due to delays in transmitting packets and increased traffic volume.<a href="#section-f.3-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="side-channel-attacks">
-<section id="section-e.4">
+<section id="section-f.4">
         <h2 id="name-side-channel-attacks">
-<a href="#section-e.4" class="section-number selfRef">E.4. </a><a href="#name-side-channel-attacks" class="section-name selfRef">Side Channel Attacks</a>
+<a href="#section-f.4" class="section-number selfRef">F.4. </a><a href="#name-side-channel-attacks" class="section-name selfRef">Side Channel Attacks</a>
         </h2>
-<p id="section-e.4-1">In general, TLS does not have specific defenses against side-channel
+<p id="section-f.4-1">In general, TLS does not have specific defenses against side-channel
 attacks (i.e., those which attack the communications via secondary
 channels such as timing), leaving those to the implementation of the relevant
 cryptographic primitives. However, certain features of TLS are
-designed to make it easier to write side-channel resistant code:<a href="#section-e.4-1" class="pilcrow">¶</a></p>
+designed to make it easier to write side-channel resistant code:<a href="#section-f.4-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-e.4-2.1">Unlike previous versions of TLS which used a composite
+<li class="normal" id="section-f.4-2.1">Unlike previous versions of TLS which used a composite
 MAC-then-encrypt structure, TLS 1.3 only uses AEAD algorithms,
 allowing implementations to use self-contained constant-time
-implementations of those primitives.<a href="#section-e.4-2.1" class="pilcrow">¶</a>
+implementations of those primitives.<a href="#section-f.4-2.1" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-e.4-2.2">TLS uses a uniform "bad_record_mac" alert for all decryption
+          <li class="normal" id="section-f.4-2.2">TLS uses a uniform "bad_record_mac" alert for all decryption
 errors, which is intended to prevent an attacker from gaining
 piecewise insight into portions of the message.  Additional resistance
 is provided by terminating the connection on such errors; a new
 connection will have different cryptographic material, preventing
 attacks against the cryptographic primitives that require multiple
-trials.<a href="#section-e.4-2.2" class="pilcrow">¶</a>
+trials.<a href="#section-f.4-2.2" class="pilcrow">¶</a>
 </li>
         </ul>
-<p id="section-e.4-3">Information leakage through side channels can occur at layers above
+<p id="section-f.4-3">Information leakage through side channels can occur at layers above
 TLS, in application protocols and the applications that use
 them. Resistance to side-channel attacks depends on applications and
 application protocols separately ensuring that confidential
-information is not inadvertently leaked.<a href="#section-e.4-3" class="pilcrow">¶</a></p>
+information is not inadvertently leaked.<a href="#section-f.4-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="replay-0rtt">
-<section id="section-e.5">
+<section id="section-f.5">
         <h2 id="name-replay-attacks-on-0-rtt">
-<a href="#section-e.5" class="section-number selfRef">E.5. </a><a href="#name-replay-attacks-on-0-rtt" class="section-name selfRef">Replay Attacks on 0-RTT</a>
+<a href="#section-f.5" class="section-number selfRef">F.5. </a><a href="#name-replay-attacks-on-0-rtt" class="section-name selfRef">Replay Attacks on 0-RTT</a>
         </h2>
-<p id="section-e.5-1">Replayable 0-RTT data presents a number of security threats to
+<p id="section-f.5-1">Replayable 0-RTT data presents a number of security threats to
 TLS-using applications, unless those applications are specifically
 engineered to be safe under replay
 (minimally, this means idempotent, but in many cases may
 also require other stronger conditions, such as constant-time
-response). Potential attacks include:<a href="#section-e.5-1" class="pilcrow">¶</a></p>
+response). Potential attacks include:<a href="#section-f.5-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-e.5-2.1">Duplication of actions which cause side effects (e.g., purchasing an
+<li class="normal" id="section-f.5-2.1">Duplication of actions which cause side effects (e.g., purchasing an
 item or transferring money) to be duplicated, thus harming the site or
-the user.<a href="#section-e.5-2.1" class="pilcrow">¶</a>
+the user.<a href="#section-f.5-2.1" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-e.5-2.2">Attackers can store and replay 0-RTT messages in order to
+          <li class="normal" id="section-f.5-2.2">Attackers can store and replay 0-RTT messages in order to
 reorder them with respect to other messages (e.g., moving
-a delete to after a create).<a href="#section-e.5-2.2" class="pilcrow">¶</a>
+a delete to after a create).<a href="#section-f.5-2.2" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-e.5-2.3">Exploiting cache timing behavior to discover the content of 0-RTT
+          <li class="normal" id="section-f.5-2.3">Exploiting cache timing behavior to discover the content of 0-RTT
 messages by replaying a 0-RTT message to a different cache node
 and then using a separate connection to measure request latency,
-to see if the two requests address the same resource.<a href="#section-e.5-2.3" class="pilcrow">¶</a>
+to see if the two requests address the same resource.<a href="#section-f.5-2.3" class="pilcrow">¶</a>
 </li>
         </ul>
-<p id="section-e.5-3">If data can be replayed a large number of times, additional attacks
+<p id="section-f.5-3">If data can be replayed a large number of times, additional attacks
 become possible, such as making repeated measurements of the
 speed of cryptographic operations. In addition, they may
 be able to overload rate-limiting systems. For a further description of
-these attacks, see <span>[<a href="#Mac17" class="xref">Mac17</a>]</span>.<a href="#section-e.5-3" class="pilcrow">¶</a></p>
-<p id="section-e.5-4">Ultimately, servers have the responsibility to protect themselves
+these attacks, see <span>[<a href="#Mac17" class="xref">Mac17</a>]</span>.<a href="#section-f.5-3" class="pilcrow">¶</a></p>
+<p id="section-f.5-4">Ultimately, servers have the responsibility to protect themselves
 against attacks employing 0-RTT data replication. The mechanisms
 described in <a href="#anti-replay" class="xref">Section 8</a> are intended to
 prevent replay at the TLS layer but do not provide complete protection
@@ -8486,8 +8523,8 @@ fall back to 1-RTT and process the data upon application-layer
 replay. The scale of this attack is limited by the client's
 willingness to retry transactions and therefore only allows a limited amount
 of duplication, with each copy appearing as a new connection at
-the server.<a href="#section-e.5-4" class="pilcrow">¶</a></p>
-<p id="section-e.5-5">If implemented correctly, the mechanisms described in
+the server.<a href="#section-f.5-4" class="pilcrow">¶</a></p>
+<p id="section-f.5-5">If implemented correctly, the mechanisms described in
 <a href="#single-use-tickets" class="xref">Section 8.1</a> and <a href="#client-hello-recording" class="xref">Section 8.2</a> prevent a
 replayed ClientHello and its associated 0-RTT data from being accepted
 multiple times by any cluster with consistent state; for servers
@@ -8499,12 +8536,12 @@ accepted during the replication window.
 Because clients do not know the exact details of server behavior, they
 MUST NOT send messages in early data which are not safe to have
 replayed and which they would not be willing to retry across multiple
-1-RTT connections.<a href="#section-e.5-5" class="pilcrow">¶</a></p>
-<p id="section-e.5-6">Application protocols MUST NOT use 0-RTT data without a profile that
+1-RTT connections.<a href="#section-f.5-5" class="pilcrow">¶</a></p>
+<p id="section-f.5-6">Application protocols MUST NOT use 0-RTT data without a profile that
 defines its use. That profile needs to identify which messages or
 interactions are safe to use with 0-RTT and how to handle the
-situation when the server rejects 0-RTT and falls back to 1-RTT.<a href="#section-e.5-6" class="pilcrow">¶</a></p>
-<p id="section-e.5-7">In addition, to avoid accidental misuse, TLS implementations MUST NOT
+situation when the server rejects 0-RTT and falls back to 1-RTT.<a href="#section-f.5-6" class="pilcrow">¶</a></p>
+<p id="section-f.5-7">In addition, to avoid accidental misuse, TLS implementations MUST NOT
 enable 0-RTT (either sending or accepting) unless specifically
 requested by the application and MUST NOT automatically resend 0-RTT
 data if it is rejected by the server unless instructed by the
@@ -8514,32 +8551,32 @@ abort the connection, request that data be resent at the application
 layer, or delay processing until the handshake completes). In order to
 allow applications to implement this kind of processing, TLS
 implementations MUST provide a way for the application to determine if
-the handshake has completed.<a href="#section-e.5-7" class="pilcrow">¶</a></p>
+the handshake has completed.<a href="#section-f.5-7" class="pilcrow">¶</a></p>
 <div id="replay-and-exporters">
-<section id="section-e.5.1">
+<section id="section-f.5.1">
           <h3 id="name-replay-and-exporters">
-<a href="#section-e.5.1" class="section-number selfRef">E.5.1. </a><a href="#name-replay-and-exporters" class="section-name selfRef">Replay and Exporters</a>
+<a href="#section-f.5.1" class="section-number selfRef">F.5.1. </a><a href="#name-replay-and-exporters" class="section-name selfRef">Replay and Exporters</a>
           </h3>
-<p id="section-e.5.1-1">Replays of the ClientHello produce the same early exporter, thus
+<p id="section-f.5.1-1">Replays of the ClientHello produce the same early exporter, thus
 requiring additional care by applications which use these exporters.
 In particular, if these exporters are used as an authentication
 channel binding (e.g., by signing the output of the exporter)
 an attacker who compromises the PSK can transplant authenticators
-between connections without compromising the authentication key.<a href="#section-e.5.1-1" class="pilcrow">¶</a></p>
-<p id="section-e.5.1-2">In addition, the early exporter SHOULD NOT be used to generate
+between connections without compromising the authentication key.<a href="#section-f.5.1-1" class="pilcrow">¶</a></p>
+<p id="section-f.5.1-2">In addition, the early exporter SHOULD NOT be used to generate
 server-to-client encryption keys because that would entail
 the reuse of those keys. This parallels the use of the early
-application traffic keys only in the client-to-server direction.<a href="#section-e.5.1-2" class="pilcrow">¶</a></p>
+application traffic keys only in the client-to-server direction.<a href="#section-f.5.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="psk-identity-exposure">
-<section id="section-e.6">
+<section id="section-f.6">
         <h2 id="name-psk-identity-exposure">
-<a href="#section-e.6" class="section-number selfRef">E.6. </a><a href="#name-psk-identity-exposure" class="section-name selfRef">PSK Identity Exposure</a>
+<a href="#section-f.6" class="section-number selfRef">F.6. </a><a href="#name-psk-identity-exposure" class="section-name selfRef">PSK Identity Exposure</a>
         </h2>
-<p id="section-e.6-1">Because implementations respond to an invalid PSK binder by aborting
+<p id="section-f.6-1">Because implementations respond to an invalid PSK binder by aborting
 the handshake, it may be possible for an attacker to verify whether
 a given PSK identity is valid. Specifically, if a server accepts
 both external-PSK and certificate-based handshakes, a valid PSK identity
@@ -8548,15 +8585,15 @@ just be skipped and result in a successful certificate handshake.
 Servers which solely support PSK handshakes may be able to resist
 this form of attack by treating the cases where there is no
 valid PSK identity and where there is an identity but it has an
-invalid binder identically.<a href="#section-e.6-1" class="pilcrow">¶</a></p>
+invalid binder identically.<a href="#section-f.6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sharing-psks">
-<section id="section-e.7">
+<section id="section-f.7">
         <h2 id="name-sharing-psks">
-<a href="#section-e.7" class="section-number selfRef">E.7. </a><a href="#name-sharing-psks" class="section-name selfRef">Sharing PSKs</a>
+<a href="#section-f.7" class="section-number selfRef">F.7. </a><a href="#name-sharing-psks" class="section-name selfRef">Sharing PSKs</a>
         </h2>
-<p id="section-e.7-1">TLS 1.3 takes a conservative approach to PSKs by binding them to a
+<p id="section-f.7-1">TLS 1.3 takes a conservative approach to PSKs by binding them to a
 specific KDF.  By contrast, TLS 1.2 allows PSKs to be used with any
 hash function and the TLS 1.2 PRF.  Thus, any PSK which is used with
 both TLS 1.2 and TLS 1.3 must be used with only one hash in TLS 1.3,
@@ -8566,15 +8603,15 @@ are both based on HMAC.  While there is no known way in which the
 same PSK might produce related output in both versions, only limited
 analysis has been done.  Implementations can ensure safety from
 cross-protocol related output by not reusing PSKs between TLS 1.3 and
-TLS 1.2.<a href="#section-e.7-1" class="pilcrow">¶</a></p>
+TLS 1.2.<a href="#section-f.7-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="attacks-on-static-rsa">
-<section id="section-e.8">
+<section id="section-f.8">
         <h2 id="name-attacks-on-static-rsa">
-<a href="#section-e.8" class="section-number selfRef">E.8. </a><a href="#name-attacks-on-static-rsa" class="section-name selfRef">Attacks on Static RSA</a>
+<a href="#section-f.8" class="section-number selfRef">F.8. </a><a href="#name-attacks-on-static-rsa" class="section-name selfRef">Attacks on Static RSA</a>
         </h2>
-<p id="section-e.8-1">Although TLS 1.3 does not use RSA key transport and so is not
+<p id="section-f.8-1">Although TLS 1.3 does not use RSA key transport and so is not
 directly susceptible to Bleichenbacher-type attacks <span>[<a href="#Blei98" class="xref">Blei98</a>]</span>if TLS 1.3
 servers also support static RSA in the context of previous
 versions of TLS, then it may be possible to impersonate the server
@@ -8585,17 +8622,17 @@ might also be able to separate certificates with different keyUsage
 bits for static RSA decryption and RSA signature, but this technique
 relies on clients refusing to accept signatures using keys
 in certificates that do not have the digitalSignature bit set,
-and many clients do not enforce this restriction.<a href="#section-e.8-1" class="pilcrow">¶</a></p>
+and many clients do not enforce this restriction.<a href="#section-f.8-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="contributors">
-<section id="section-appendix.f">
+<section id="section-appendix.g">
       <h2 id="name-contributors">
 <a href="#name-contributors" class="section-name selfRef">Contributors</a>
       </h2>
-<div class="artwork art-text alignLeft" id="section-appendix.f-1">
+<div class="artwork art-text alignLeft" id="section-appendix.g-1">
 <pre>
       Martin Abadi
       University of California, Santa Cruz
@@ -8958,12 +8995,12 @@ and many clients do not enforce this restriction.<a href="#section-e.8-1" class=
       Kazu Yamamoto
       Internet Initiative Japan Inc.
       kazu@iij.ad.jp
-</pre><a href="#section-appendix.f-1" class="pilcrow">¶</a>
+</pre><a href="#section-appendix.g-1" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
 <div id="authors-addresses">
-<section id="section-appendix.g">
+<section id="section-appendix.h">
       <h2 id="name-authors-address">
 <a href="#name-authors-address" class="section-name selfRef">Author's Address</a>
       </h2>

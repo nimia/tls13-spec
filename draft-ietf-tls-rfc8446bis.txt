@@ -5,7 +5,7 @@
 Network Working Group                                        E. Rescorla
 Internet-Draft                                                   Mozilla
 Obsoletes: 5077, 5246, 6961, 8446 (if approved)         19 February 2021
-Updates: 4492, 5705, 6066 (if approved)                                 
+Updates: 4492, 5705, 6066, 7627 (if approved)                           
 Intended status: Standards Track                                        
 Expires: 23 August 2021
 
@@ -167,29 +167,30 @@ Table of Contents
      C.3.  Implementation Pitfalls
      C.4.  Client Tracking Prevention
      C.5.  Unauthenticated Operation
-   Appendix D.  Backward Compatibility
-     D.1.  Negotiating with an Older Server
-     D.2.  Negotiating with an Older Client
-     D.3.  0-RTT Backward Compatibility
-     D.4.  Middlebox Compatibility Mode
-     D.5.  Security Restrictions Related to Backward Compatibility
-   Appendix E.  Overview of Security Properties
-     E.1.  Handshake
-       E.1.1.  Key Derivation and HKDF
-       E.1.2.  Certificate-Based Client Authentication
-       E.1.3.  0-RTT
-       E.1.4.  Exporter Independence
-       E.1.5.  Post-Compromise Security
-       E.1.6.  External References
-     E.2.  Record Layer
-       E.2.1.  External References
-     E.3.  Traffic Analysis
-     E.4.  Side Channel Attacks
-     E.5.  Replay Attacks on 0-RTT
-       E.5.1.  Replay and Exporters
-     E.6.  PSK Identity Exposure
-     E.7.  Sharing PSKs
-     E.8.  Attacks on Static RSA
+   Appendix D.  Updates to TLS 1.2
+   Appendix E.  Backward Compatibility
+     E.1.  Negotiating with an Older Server
+     E.2.  Negotiating with an Older Client
+     E.3.  0-RTT Backward Compatibility
+     E.4.  Middlebox Compatibility Mode
+     E.5.  Security Restrictions Related to Backward Compatibility
+   Appendix F.  Overview of Security Properties
+     F.1.  Handshake
+       F.1.1.  Key Derivation and HKDF
+       F.1.2.  Certificate-Based Client Authentication
+       F.1.3.  0-RTT
+       F.1.4.  Exporter Independence
+       F.1.5.  Post-Compromise Security
+       F.1.6.  External References
+     F.2.  Record Layer
+       F.2.1.  External References
+     F.3.  Traffic Analysis
+     F.4.  Side Channel Attacks
+     F.5.  Replay Attacks on 0-RTT
+       F.5.1.  Replay and Exporters
+     F.6.  PSK Identity Exposure
+     F.7.  Sharing PSKs
+     F.8.  Attacks on Static RSA
    Contributors
    Author's Address
 
@@ -223,7 +224,7 @@ Table of Contents
 
    These properties should be true even in the face of an attacker who
    has complete control of the network, as described in [RFC3552].  See
-   Appendix E for a more complete statement of the relevant security
+   Appendix F for a more complete statement of the relevant security
    properties.
 
    TLS consists of two primary components:
@@ -378,6 +379,10 @@ Table of Contents
    *  The "signature_algorithms_cert" extension allows a client to
       indicate which signature algorithms it can validate in X.509
       certificates.
+
+   *  The term "master" as applied to secrets has been removed, and the
+      "extended_master_secret" extension [RFC7627] has been renamed to
+      "extended_main_secret".
 
    Additionally, this document clarifies some compliance requirements
    for earlier versions of TLS; see Section 9.3.
@@ -719,7 +724,7 @@ Auth | {CertificateVerify*}
    0-RTT data cannot be duplicated within a connection (i.e., the server
    will not process the same data twice for the same connection), and an
    attacker will not be able to make 0-RTT data appear to be 1-RTT data
-   (because it is protected with different keys).  Appendix E.5 contains
+   (because it is protected with different keys).  Appendix F.5 contains
    a description of potential attacks, and Section 8 describes
    mechanisms which the server can use to limit the impact of replay.
 
@@ -1128,7 +1133,7 @@ Auth | {CertificateVerify*}
       number for TLS 1.2.  TLS 1.3 ClientHellos are identified as having
       a legacy_version of 0x0303 and a supported_versions extension
       present with 0x0304 as the highest version indicated therein.
-      (See Appendix D for details about backward compatibility.)  A
+      (See Appendix E for details about backward compatibility.)  A
       server which receives a legacy_version value not equal to 0x0303
       MUST abort the handshake with an "illegal_parameter" alert.
 
@@ -1139,7 +1144,7 @@ Auth | {CertificateVerify*}
       "session resumption" feature which has been merged with pre-shared
       keys in this version (see Section 2.2).  A client which has a
       cached session ID set by a pre-TLS 1.3 server SHOULD set this
-      field to that value.  In compatibility mode (see Appendix D.4),
+      field to that value.  In compatibility mode (see Appendix E.4),
       this field MUST be non-empty, so a client not offering a pre-TLS
       1.3 session MUST generate a new 32-byte value.  This value need
       not be random but SHOULD be unpredictable to avoid implementations
@@ -1228,7 +1233,7 @@ Auth | {CertificateVerify*}
       presented with new values.  In TLS 1.3, the TLS server indicates
       its version using the "supported_versions" extension
       (Section 4.2.1), and the legacy_version field MUST be set to
-      0x0303, which is the version number for TLS 1.2.  (See Appendix D
+      0x0303, which is the version number for TLS 1.2.  (See Appendix E
       for details about backward compatibility.)
 
    random:  32 bytes generated by a secure random number generator.  See
@@ -1265,7 +1270,7 @@ Auth | {CertificateVerify*}
       separately in the EncryptedExtensions message.
 
    For reasons of backward compatibility with middleboxes (see
-   Appendix D.4), the HelloRetryRequest message uses the same structure
+   Appendix E.4), the HelloRetryRequest message uses the same structure
    as the ServerHello, but with Random set to the special value of the
    SHA-256 of "HelloRetryRequest":
 
@@ -2356,7 +2361,7 @@ Auth | {CertificateVerify*}
    handshake.  Servers SHOULD NOT attempt to validate multiple binders;
    rather, they SHOULD select a single PSK and validate solely the
    binder that corresponds to that PSK.  See Section 8.2 and
-   Appendix E.6 for the security rationale for this requirement.  In
+   Appendix F.6 for the security rationale for this requirement.  In
    order to accept PSK key establishment, the server sends a
    "pre_shared_key" extension indicating the selected identity.
 
@@ -3246,7 +3251,7 @@ Auth | {CertificateVerify*}
    to be multiplexed over the same record layer.  This document
    specifies four content types: handshake, application_data, alert, and
    change_cipher_spec.  The change_cipher_spec record is used only for
-   compatibility purposes (see Appendix D.4).
+   compatibility purposes (see Appendix E.4).
 
    An implementation may receive an unencrypted record of type
    change_cipher_spec consisting of the single byte value 0x01 at any
@@ -3353,7 +3358,7 @@ Auth | {CertificateVerify*}
    version 0x0301 (reflecting TLS 1.0) and a record containing a second
    ClientHello or a ServerHello MUST have version 0x0303 (reflecting TLS
    1.2).  When negotiating prior versions of TLS, endpoints follow the
-   procedure and requirements provided in Appendix D.
+   procedure and requirements provided in Appendix E.
 
    When record protection has not yet been engaged, TLSPlaintext
    structures are written directly onto the wire.  Once record
@@ -3779,7 +3784,7 @@ Auth | {CertificateVerify*}
       signature or validate a Finished message or a PSK binder.
 
    protocol_version:  The protocol version the peer has attempted to
-      negotiate is recognized but not supported (see Appendix D).
+      negotiate is recognized but not supported (see Appendix E).
 
    insufficient_security:  Returned instead of "handshake_failure" when
       a negotiation has failed specifically because the server requires
@@ -4128,7 +4133,7 @@ Auth | {CertificateVerify*}
 
 8.  0-RTT and Anti-Replay
 
-   As noted in Section 2.3 and Appendix E.5, TLS does not provide
+   As noted in Section 2.3 and Appendix F.5, TLS does not provide
    inherent replay protections for 0-RTT data.  There are two potential
    threats to be concerned with:
 
@@ -4164,7 +4169,7 @@ Auth | {CertificateVerify*}
    In addition to the direct effects of replays, there is a class of
    attacks where even operations normally considered idempotent could be
    exploited by a large number of replays (timing attacks, resource
-   limit exhaustion and others, as described in Appendix E.5).  Those
+   limit exhaustion and others, as described in Appendix F.5).  Those
    can be mitigated by ensuring that every 0-RTT payload can be replayed
    only a limited number of times.  The server MUST ensure that any
    instance of it (be it a machine, a thread, or any other entity within
@@ -4416,7 +4421,7 @@ Auth | {CertificateVerify*}
    negotiate the most preferred common parameters.  The TLS handshake
    provides downgrade protection: Middleboxes passing traffic between a
    newer client and newer server without terminating TLS should be
-   unable to influence the handshake (see Appendix E.1).  At the same
+   unable to influence the handshake (see Appendix F.1).  At the same
    time, deployments update at different rates, so a newer client or
    server MAY continue to support older parameters, which would allow it
    to interoperate with older endpoints.
@@ -4462,19 +4467,23 @@ Auth | {CertificateVerify*}
       might change.
 
    The design of TLS 1.3 was constrained by widely deployed non-
-   compliant TLS middleboxes (see Appendix D.4); however, it does not
+   compliant TLS middleboxes (see Appendix E.4); however, it does not
    relax the invariants.  Those middleboxes continue to be non-
    compliant.
 
 10.  Security Considerations
 
    Security issues are discussed throughout this memo, especially in
-   Appendix C, Appendix D, and Appendix E.
+   Appendix C, Appendix E, and Appendix F.
 
 11.  IANA Considerations
 
    [[OPEN ISSUE: Should we remove this?  I am reluctant to create a
    situation where one needs to read 8446 to process this document.]]
+
+   [[OPEN ISSUE: Add some text to rename the extended_master_secret
+   entry in the extensions registry to extended_main_secret, after the
+   above is resolved.]]
 
    This document uses several registries that were originally created in
    [RFC4346] and updated in [RFC8447].  IANA has updated these to
@@ -4679,6 +4688,12 @@ Auth | {CertificateVerify*}
               Suite Value (SCSV) for Preventing Protocol Downgrade
               Attacks", RFC 7507, DOI 10.17487/RFC7507, April 2015,
               <https://datatracker.ietf.org/doc/html/rfc7507>.
+
+   [RFC7627]  Bhargavan, K., Ed., Delignat-Lavaud, A., Pironti, A.,
+              Langley, A., and M. Ray, "Transport Layer Security (TLS)
+              Session Hash and Extended Master Secret Extension",
+              RFC 7627, DOI 10.17487/RFC7627, September 2015,
+              <https://datatracker.ietf.org/doc/html/rfc7627>.
 
    [RFC7748]  Langley, A., Hamburg, M., and S. Turner, "Elliptic Curves
               for Security", RFC 7748, DOI 10.17487/RFC7748, January
@@ -5019,12 +5034,6 @@ Auth | {CertificateVerify*}
               "Deprecating Secure Sockets Layer Version 3.0", RFC 7568,
               DOI 10.17487/RFC7568, June 2015,
               <https://datatracker.ietf.org/doc/html/rfc7568>.
-
-   [RFC7627]  Bhargavan, K., Ed., Delignat-Lavaud, A., Pironti, A.,
-              Langley, A., and M. Ray, "Transport Layer Security (TLS)
-              Session Hash and Extended Master Secret Extension",
-              RFC 7627, DOI 10.17487/RFC7627, September 2015,
-              <https://datatracker.ietf.org/doc/html/rfc7627>.
 
    [RFC7685]  Langley, A., "A Transport Layer Security (TLS) ClientHello
               Padding Extension", RFC 7685, DOI 10.17487/RFC7685,
@@ -5728,13 +5737,13 @@ C.3.  Implementation Pitfalls
       require fragmentation.
 
    *  Do you ignore the TLS record layer version number in all
-      unencrypted TLS records (see Appendix D)?
+      unencrypted TLS records (see Appendix E)?
 
    *  Have you ensured that all support for SSL, RC4, EXPORT ciphers,
       and MD5 (via the "signature_algorithms" extension) is completely
       removed from all possible configurations that support TLS 1.3 or
       later, and that attempts to use these obsolete capabilities fail
-      correctly? (see Appendix D)?
+      correctly? (see Appendix E)?
 
    *  Do you handle TLS extensions in ClientHellos correctly, including
       unknown extensions?
@@ -5824,7 +5833,32 @@ C.5.  Unauthenticated Operation
    NOT use TLS in such a way absent explicit configuration or a specific
    application profile.
 
-Appendix D.  Backward Compatibility
+Appendix D.  Updates to TLS 1.2
+
+   To align with the names used this document, the following terms from
+   [RFC5246] are renamed:
+
+   *  The master secret, computed in Section 8.1 of [RFC5246], is
+      renamed to the main secret.  It is referred to as main_secret in
+      formulas and structures, instead of master_secret.  However, the
+      label parameter to the PRF function is left unchanged for
+      compatibility.
+
+   *  The premaster secret is renamed to the preliminary secret.  It is
+      referred to as preliminary_secret in formulas and structures,
+      instead of pre_master_secret.
+
+   *  The PreMasterSecret and EncryptedPreMasterSecret structures,
+      defined in Section 7.4.7.1 of [RFC5246], are renamed to
+      PreliminarySecret and EncryptedPreliminarySecret, respectively.
+
+   Correspondingly, the extension defined in [RFC7627] is renamed to the
+   "Extended Main Secret" extension.  The extension code point is
+   renamed to "extended_main_secret".  The label parameter to the PRF
+   function in Section 4 of [RFC7627] is left unchanged for
+   compatibility.
+
+Appendix E.  Backward Compatibility
 
    The TLS protocol provides a built-in mechanism for version
    negotiation between endpoints potentially supporting different
@@ -5858,15 +5892,15 @@ Appendix D.  Backward Compatibility
    document, even when handling prior TLS versions' handshakes (see
    Section 4.4.2.2).
 
-   TLS 1.2 and prior supported an "Extended Master Secret" [RFC7627]
+   TLS 1.2 and prior supported an "Extended Main Secret" [RFC7627]
    extension which digested large parts of the handshake transcript into
-   the secret and derived keys.  Because TLS 1.3 always hashes in the
-   transcript up to the server Finished, implementations which support
-   both TLS 1.3 and earlier versions SHOULD indicate the use of the
-   Extended Master Secret extension in their APIs whenever TLS 1.3 is
-   used.
+   the secret and derived keys.  Note this extension was renamed in
+   Appendix D.  Because TLS 1.3 always hashes in the transcript up to
+   the server Finished, implementations which support both TLS 1.3 and
+   earlier versions SHOULD indicate the use of the Extended Main Secret
+   extension in their APIs whenever TLS 1.3 is used.
 
-D.1.  Negotiating with an Older Server
+E.1.  Negotiating with an Older Server
 
    A TLS 1.3 client who wishes to negotiate with servers that do not
    support TLS 1.3 will send a normal TLS 1.3 ClientHello containing
@@ -5880,7 +5914,7 @@ D.1.  Negotiating with an Older Server
 
    Note that 0-RTT data is not compatible with older servers and SHOULD
    NOT be sent absent knowledge that the server supports TLS 1.3.  See
-   Appendix D.3.
+   Appendix E.3.
 
    If the version chosen by the server is not supported by the client
    (or is not acceptable), the client MUST abort the handshake with a
@@ -5894,7 +5928,7 @@ D.1.  Negotiating with an Older Server
    in order to negotiate a backward-compatible connection; however, this
    practice is vulnerable to downgrade attacks and is NOT RECOMMENDED.
 
-D.2.  Negotiating with an Older Client
+E.2.  Negotiating with an Older Client
 
    A TLS server can also receive a ClientHello indicating a version
    number smaller than its highest supported version.  If the
@@ -5914,7 +5948,7 @@ D.2.  Negotiating with an Older Client
    (TLSPlaintext.legacy_record_version).  Servers will receive various
    TLS 1.x versions in this field, but its value MUST always be ignored.
 
-D.3.  0-RTT Backward Compatibility
+E.3.  0-RTT Backward Compatibility
 
    0-RTT data is not compatible with older servers.  An older server
    will respond to the ClientHello with an older ServerHello, but it
@@ -5934,7 +5968,7 @@ D.3.  0-RTT Backward Compatibility
    a uniform and stable deployment of TLS 1.3 without 0-RTT prior to
    enabling 0-RTT.
 
-D.4.  Middlebox Compatibility Mode
+E.4.  Middlebox Compatibility Mode
 
    Field measurements [Ben17a] [Ben17b] [Res17a] [Res17b] have found
    that a significant number of middleboxes misbehave when a TLS client/
@@ -5967,7 +6001,7 @@ D.4.  Middlebox Compatibility Mode
    the server MUST send the change_cipher_spec as described in this
    appendix.
 
-D.5.  Security Restrictions Related to Backward Compatibility
+E.5.  Security Restrictions Related to Backward Compatibility
 
    Implementations negotiating the use of older versions of TLS SHOULD
    prefer forward secret and AEAD cipher suites, when available.
@@ -6009,7 +6043,7 @@ D.5.  Security Restrictions Related to Backward Compatibility
    Section 7 of [RFC6066], as it is not applicable to AEAD algorithms
    and has been shown to be insecure in some scenarios.
 
-Appendix E.  Overview of Security Properties
+Appendix F.  Overview of Security Properties
 
    A complete security analysis of TLS is outside the scope of this
    document.  In this appendix, we provide an informal description of
@@ -6019,7 +6053,7 @@ Appendix E.  Overview of Security Properties
    We cover properties of the handshake separately from those of the
    record layer.
 
-E.1.  Handshake
+F.1.  Handshake
 
    The TLS handshake is an Authenticated Key Exchange (AKE) protocol
    which is intended to provide both one-way authenticated (server-only)
@@ -6123,7 +6157,7 @@ E.1.  Handshake
    is digested into the values which produce the resumption main secret.
    This requires that both the KDF used to produce the resumption main
    secret and the MAC used to compute the binder be collision resistant.
-   See Appendix E.1.1 for more on this.  Note: The binder does not cover
+   See Appendix F.1.1 for more on this.  Note: The binder does not cover
    the binder values from other PSKs, though they are included in the
    Finished MAC.
 
@@ -6175,7 +6209,7 @@ E.1.  Handshake
    proposed PSK identities are not encrypted, nor is the one that the
    server selects.
 
-E.1.1.  Key Derivation and HKDF
+F.1.1.  Key Derivation and HKDF
 
    Key derivation in TLS 1.3 uses HKDF as defined in [RFC5869] and its
    two components, HKDF-Extract and HKDF-Expand.  The full rationale for
@@ -6201,7 +6235,7 @@ E.1.1.  Key Derivation and HKDF
    least 256 bits (or as much as needed for the hash function to prevent
    finding collisions).
 
-E.1.2.  Certificate-Based Client Authentication
+F.1.2.  Certificate-Based Client Authentication
 
    A client that has sent certificate-based authentication data to a
    server, either during the handshake or in post-handshake
@@ -6217,7 +6251,7 @@ E.1.2.  Certificate-Based Client Authentication
    original client delegated the traffic key (assuming that the traffic
    key has not been compromised).
 
-E.1.3.  0-RTT
+F.1.3.  0-RTT
 
    The 0-RTT mode of operation generally provides security properties
    similar to those of 1-RTT data, with the two exceptions that the
@@ -6226,7 +6260,7 @@ E.1.3.  0-RTT
    replayability) without keeping potentially undue amounts of state.
    See Section 8 for mechanisms to limit the exposure to replay.
 
-E.1.4.  Exporter Independence
+F.1.4.  Exporter Independence
 
    The exporter_main_secret and early_exporter_main_secret are derived
    to be independent of the traffic keys and therefore do not represent
@@ -6239,7 +6273,7 @@ E.1.4.  Exporter Independence
    by each inner values as soon as it is known that it will not be
    needed again.
 
-E.1.5.  Post-Compromise Security
+F.1.5.  Post-Compromise Security
 
    TLS does not provide security for handshakes which take place after
    the peer's long-term secret (signature key or external PSK) is
@@ -6249,13 +6283,13 @@ E.1.5.  Post-Compromise Security
    guarantees that a party has after its own long-term secret has been
    compromised.
 
-E.1.6.  External References
+F.1.6.  External References
 
    The reader should refer to the following references for analysis of
    the TLS handshake: [DFGS15], [CHSV16], [DFGS16], [KW16], [Kraw16],
    [FGSW16], [LXZFH16], [FG17], and [BBK17].
 
-E.2.  Record Layer
+F.2.  Record Layer
 
    The record layer depends on the handshake producing strong traffic
    secrets which can be used to derive bidirectional encryption keys and
@@ -6317,13 +6351,13 @@ E.2.  Record Layer
    guarantees need to do a fresh handshake and establish a new
    connection with an (EC)DHE exchange.
 
-E.2.1.  External References
+F.2.1.  External References
 
    The reader should refer to the following references for analysis of
    the TLS record layer: [BMMRT15], [BT16], [BDFKPPRSZZ16], [BBK17], and
    [PS18].
 
-E.3.  Traffic Analysis
+F.3.  Traffic Analysis
 
    TLS is susceptible to a variety of traffic analysis attacks based on
    observing the length and timing of encrypted packets [CLINIC]
@@ -6355,7 +6389,7 @@ E.3.  Traffic Analysis
    performance due to delays in transmitting packets and increased
    traffic volume.
 
-E.4.  Side Channel Attacks
+F.4.  Side Channel Attacks
 
    In general, TLS does not have specific defenses against side-channel
    attacks (i.e., those which attack the communications via secondary
@@ -6382,7 +6416,7 @@ E.4.  Side Channel Attacks
    application protocols separately ensuring that confidential
    information is not inadvertently leaked.
 
-E.5.  Replay Attacks on 0-RTT
+F.5.  Replay Attacks on 0-RTT
 
    Replayable 0-RTT data presents a number of security threats to TLS-
    using applications, unless those applications are specifically
@@ -6457,7 +6491,7 @@ E.5.  Replay Attacks on 0-RTT
    processing, TLS implementations MUST provide a way for the
    application to determine if the handshake has completed.
 
-E.5.1.  Replay and Exporters
+F.5.1.  Replay and Exporters
 
    Replays of the ClientHello produce the same early exporter, thus
    requiring additional care by applications which use these exporters.
@@ -6471,7 +6505,7 @@ E.5.1.  Replay and Exporters
    of those keys.  This parallels the use of the early application
    traffic keys only in the client-to-server direction.
 
-E.6.  PSK Identity Exposure
+F.6.  PSK Identity Exposure
 
    Because implementations respond to an invalid PSK binder by aborting
    the handshake, it may be possible for an attacker to verify whether a
@@ -6484,7 +6518,7 @@ E.6.  PSK Identity Exposure
    identity and where there is an identity but it has an invalid binder
    identically.
 
-E.7.  Sharing PSKs
+F.7.  Sharing PSKs
 
    TLS 1.3 takes a conservative approach to PSKs by binding them to a
    specific KDF.  By contrast, TLS 1.2 allows PSKs to be used with any
@@ -6498,7 +6532,7 @@ E.7.  Sharing PSKs
    cross-protocol related output by not reusing PSKs between TLS 1.3 and
    TLS 1.2.
 
-E.8.  Attacks on Static RSA
+F.8.  Attacks on Static RSA
 
    Although TLS 1.3 does not use RSA key transport and so is not
    directly susceptible to Bleichenbacher-type attacks [Blei98]if TLS
