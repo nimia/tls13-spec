@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-02-18T00:32:40.044431+00:00",
+  "timestamp": "2021-02-21T00:29:17.899917+00:00",
   "repo": "tlswg/tls13-spec",
   "labels": [
     {
@@ -11222,15 +11222,15 @@
       "id": "MDU6SXNzdWU3MTUyNDEzMDk=",
       "title": "Even shorter secret names?",
       "url": "https://github.com/tlswg/tls13-spec/issues/1200",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "davidben",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "exporter_main_secret and resumption_main_secret strike me as not needing an adjective in the middle at all. Perhaps exporter_secret and resumption_secret?\r\n\r\nFor the exporter secret, dropping \"main\" avoids the acronym collision with the EMS extension, and there are no other secrets associated with exporters, so there's no use in designating this as the main one.\r\n\r\nFor the resumption secret, there is a potential confusion between resumption_[main_]secret and the derived PSK associated with the ticket (section {#NSTMessage}), but we don't seem to give the latter a name in the first place so I think that's fine.\r\n\r\nThis also gives us nice short KDF labels when we're able to change those: \"exporter\" and \"resumption\". (Or perhaps even \"export\" and \"resume\" if those don't fit in a hash block.)",
       "createdAt": "2020-10-06T00:05:59Z",
-      "updatedAt": "2020-10-06T00:05:59Z",
-      "closedAt": null,
+      "updatedAt": "2021-02-19T18:29:14Z",
+      "closedAt": "2021-02-19T18:29:14Z",
       "comments": []
     },
     {
@@ -11238,15 +11238,15 @@
       "id": "MDU6SXNzdWU3NDA4ODE0MzY=",
       "title": "Discuss tracking implications of session resumption",
       "url": "https://github.com/tlswg/tls13-spec/issues/1201",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "davidben",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "In WG discussion of draft-vvv-tls-cross-sni-resumption-00, tracking implications came up. While that draft does expand the set of servers that can cross-resume, it's not a new issue. For instance, on the Web, if https://a.example and https://b.example both include a subresource to a common https://tracker.example, TLS session resumption may be used to correlate activity across the two sites.\r\n\r\nWe should have some text in mentioning that servers can correlate connections that resume, and recommend clients partitioning their session caches to align with their desired correlation boundaries.",
       "createdAt": "2020-11-11T16:03:21Z",
-      "updatedAt": "2020-11-11T16:03:21Z",
-      "closedAt": null,
+      "updatedAt": "2021-02-19T18:15:33Z",
+      "closedAt": "2021-02-19T18:15:33Z",
       "comments": []
     },
     {
@@ -11254,15 +11254,15 @@
       "id": "MDU6SXNzdWU3NDI4MzQ1NjU=",
       "title": "Handle remaining TLS 1.2 names",
       "url": "https://github.com/tlswg/tls13-spec/issues/1203",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "davidben",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Implementations of TLS 1.2 will remain for some time. The document renames \"master secret\" to \"main secret\", but TLS 1.2 has some naming variations that aren't in TLS 1.3. Perhaps a section in the document somewhere (maybe under Backward Compatibility since that talks about older versions) that describes some additional deltas:\r\n\r\n* \"master secret\" => \"main secret\", to align this this document\r\n* \"premaster secret\" => \"preliminary secret\" (\"pre-main secret\" sounds weird to me)\r\n* \"extended master secret\" => \"extended main secret\" (probably move rfc7627 from informative to normative and then also add to the updates line)\r\n* Also cover the variations like \"EncryptedPreMasterSecret\" and \"master_secret\", but not the KDF labels since those can't change.\r\n\r\nAnd then IANA considerations to rename extended_master_secret to extended_main_secret in the registries.",
       "createdAt": "2020-11-13T22:48:08Z",
-      "updatedAt": "2020-11-13T22:48:08Z",
-      "closedAt": null,
+      "updatedAt": "2021-02-19T18:20:37Z",
+      "closedAt": "2021-02-19T18:20:37Z",
       "comments": []
     },
     {
@@ -11331,7 +11331,7 @@
       "labels": [],
       "body": "John Mattsson writes:\r\n\r\nI think Section 6.1 Closure Alerts is a bit unclear:\r\n\r\n> First it is stated the user_canceled SHOULD be followed by close_notify\r\n> \r\n>    \"This alert SHOULD be followed by a \"close_notify\".\"\r\n> \r\n> Then it is stated that it MUST be followed by close_notify\r\n> \r\n>    \"Each party MUST send a \"close_notify\" alert before closing its write side of the connection,\r\n>    unless it has already sent some error alert.\"\r\n> \r\n> And in the same section is is stated that any data folloing user_canceled MUST be ignored.\r\n> \r\n>    \"Any data received after a closure alert has been received MUST be ignored.\"\r\n> \r\n> This seems quite contradicting to me. I don't know what the correct behavior would be,\r\n> but unless I misunderstood something, it looks like it should be addressed in rfc8446bis.\r\n\r\nI think this is a remnant of when we transitioned alerts to error by default. ",
       "createdAt": "2021-01-29T14:47:50Z",
-      "updatedAt": "2021-02-01T00:38:48Z",
+      "updatedAt": "2021-02-19T22:44:55Z",
       "closedAt": null,
       "comments": [
         {
@@ -11347,6 +11347,27 @@
           "body": "Going on memory only, I believe that we did treat them as fatal for some time, but were forced to remove that for compatibility reasons similar to the ones that @davidben talks about.",
           "createdAt": "2021-02-01T00:38:48Z",
           "updatedAt": "2021-02-01T00:38:48Z"
+        },
+        {
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "@davidben So are you saying that JDK just sends them at some inappropriate point rather than in the handshake?",
+          "createdAt": "2021-02-19T21:49:44Z",
+          "updatedAt": "2021-02-19T21:49:44Z"
+        },
+        {
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Following up, what if we were to just treat this as an alias for close_notify?",
+          "createdAt": "2021-02-19T21:51:28Z",
+          "updatedAt": "2021-02-19T21:51:28Z"
+        },
+        {
+          "author": "davidben",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "IIRC, they send user_cancelled followed by close_notify, as a non-standard signal to JDKs on the other side to do bidirectional close instead of unidirectional close? But I could be misremembering.\r\n\r\nI think that means ignoring it is probably the right plan.",
+          "createdAt": "2021-02-19T22:44:55Z",
+          "updatedAt": "2021-02-19T22:44:55Z"
         }
       ]
     },
@@ -11355,16 +11376,24 @@
       "id": "MDU6SXNzdWU4MDI2MDQzODc=",
       "title": "\"client authentication\" -> \"certificate-based client authentication\"",
       "url": "https://github.com/tlswg/tls13-spec/issues/1209",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "emanjon",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "The document use the term \"client authentication\" in some places where is means \"certificate-based client authentication\" and not PSK-based authentication.\r\n\r\nI think it would be good to spell out when the text only means \"certificate-based client authentication\". I think people can misunderstand. ",
       "createdAt": "2021-02-06T04:12:21Z",
-      "updatedAt": "2021-02-06T04:12:21Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2021-02-19T18:56:04Z",
+      "closedAt": "2021-02-19T18:56:04Z",
+      "comments": [
+        {
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "fixed.",
+          "createdAt": "2021-02-19T18:55:29Z",
+          "updatedAt": "2021-02-19T18:55:29Z"
+        }
+      ]
     },
     {
       "number": 1212,
@@ -11378,7 +11407,7 @@
       "labels": [],
       "body": "Some other protocols have a rule to override a specific error with a generic error. It would be nice to define such a rule for TLS 1.3. For instance, `internal_error` MAY be used on any cases where a specific alert is sent.",
       "createdAt": "2021-02-12T00:47:55Z",
-      "updatedAt": "2021-02-17T22:38:35Z",
+      "updatedAt": "2021-02-18T16:23:56Z",
       "closedAt": null,
       "comments": [
         {
@@ -11457,8 +11486,139 @@
           "body": "Fine-grained alerts can help with showing the code is correct, but it's outweighed by:\r\n- Fuzzers\r\n- The fact that they constrain the implementation\r\n",
           "createdAt": "2021-02-17T22:38:35Z",
           "updatedAt": "2021-02-17T22:38:35Z"
+        },
+        {
+          "author": "tomato42",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "@davidben I can only say that it's not my experience, I find that specific errors help in correctness of both implementation and test cases, not just as a \"rough check of the test\". While in many cases you can create complex reproducers that test all the corner cases without looking at alerts, without specific alerts it's _harder,_ not easier.\r\nYes, original handling of PKCS#1 errors was incorrect on protocol level, the later versions fixed that. So if you want to fix issues like ROBOT you need to strictly follow the alert requirements.\r\nI don't think that \"increasing the complexity of the implementation\" is a valid argument when the differences we talk about are semantically between\r\n```\r\nif not valid_format(msg, ENCRYPTED_EXTENSIONS) || not consistent_values(msg, client_hello, server_hello):\r\n   send_fatal_alert(GENERIC_ALERT)\r\n```\r\nand\r\n```\r\nif not valid_format(msg, ENCRYPTED_EXTENSIONS):\r\n   send_fatal_alert(DECODE_ERROR)\r\nif not consistent_values(msg, client_hello, server_hello):\r\n   send_fatal_alert(ILLEGAL_PARAMETER)\r\n```\r\n\r\n> @richsalz\r\n> Fine-grained alerts can help with showing the code is correct, but it's outweighed by:\r\n> \r\n>     * Fuzzers\r\n\r\nWhich fuzzers actually check the alerts sent by the other side of the connection? For which ones specific alerts are a problem, and why?\r\n\r\n>     * The fact that they constrain the implementation\r\n\r\nhow's that a bad thing? ",
+          "createdAt": "2021-02-18T12:08:01Z",
+          "updatedAt": "2021-02-18T12:08:01Z"
+        },
+        {
+          "author": "richsalz",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "> Which fuzzers actually check the alerts sent by the other side of the connection? For which ones specific alerts are a problem, and why?\r\n\r\nFuzzers are also good at showing the code works with bad input.  Checking for specific alerts does some of that, but in my view fuzzers are better at finding more instances of wrong input being handled.\r\n\r\nSpecific alerts also limits how the code is implemented.  That is an onerous burden, especially when you consider non-C/C++ languages. I see that as a bad thing, I guess you see it as not bad.  Shrug, it's a matter of opinion.  I guess my opinion is informed be seeing \"needless\" bug reports against OpenSSL because the \"wrong\" alert was sent.\r\n\r\nI could imagine an implementation that parsed and verified things in a streaming manner, and would just throw an exception if anything went wrong without caring about details.\r\n",
+          "createdAt": "2021-02-18T15:20:09Z",
+          "updatedAt": "2021-02-18T15:20:09Z"
+        },
+        {
+          "author": "tomato42",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "> > Which fuzzers actually check the alerts sent by the other side of the connection? For which ones specific alerts are a problem, and why?\r\n> \r\n> Fuzzers are also good at showing the code works with bad input. Checking for specific alerts does some of that, but in my view fuzzers are better at finding more instances of wrong input being handled.\r\n\r\nyou didn't say how that is problematic to fuzzers\r\n \r\n> Specific alerts also limits how the code is implemented. That is an onerous burden, especially when you consider non-C/C++ languages. I see that as a bad thing, I guess you see it as not bad. \r\n\r\nthen please explain why it's a burden\r\n\r\n> Shrug, it's a matter of opinion. I guess my opinion is informed be seeing \"needless\" bug reports against OpenSSL because the \"wrong\" alert was sent.\r\n\r\nand mine in informed by finding security issues; and by working regularly with 4 different implementations\r\nand from my point of view 20 \"needless\" bugs are a small price to pay for one CVE\r\nbut I guess I care too much about security of the TLS implementations and too little about having dozens upon dozens of TLS implementations\r\n\r\n> I could imagine an implementation that parsed and verified things in a streaming manner, and would just throw an exception if anything went wrong without caring about details.\r\n\r\nand I can't imagine how throwing a specific exception in such streaming implementation is an insurmountable burden",
+          "createdAt": "2021-02-18T16:11:00Z",
+          "updatedAt": "2021-02-18T16:11:00Z"
+        },
+        {
+          "author": "richsalz",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I don't have anything worthwhile to add.  We bring different sets of experiences; you like specfic alerts, I don't.",
+          "createdAt": "2021-02-18T16:23:56Z",
+          "updatedAt": "2021-02-18T16:23:56Z"
         }
       ]
+    },
+    {
+      "number": 1214,
+      "id": "MDU6SXNzdWU4MTIyNjIyNTU=",
+      "title": "Implication of Recommended/Not Recommended",
+      "url": "https://github.com/tlswg/tls13-spec/issues/1214",
+      "state": "OPEN",
+      "author": "ekr",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "There has been a bunch of discussion about what we should do with the Recommended Column\r\n\r\nSee, especially:\r\nhttps://mailarchive.ietf.org/arch/msg/tls/_1fPsfy6kkQwFAtX3eKeIkRKK4E/\r\n\r\nThis is a placeholder issue to workshop an approach.\r\n",
+      "createdAt": "2021-02-19T19:00:31Z",
+      "updatedAt": "2021-02-20T22:46:12Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "richsalz",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "The initial impetus for 'recommended' was to allow national ciphers to register in IANA, but to not give them the imprimateur of officially-recommended status. That's still important and we shouldn't lose that.  One possibility is to say N unless it's standards-track and any s-t document must explicitly say what value it wants.\r\n",
+          "createdAt": "2021-02-19T19:07:33Z",
+          "updatedAt": "2021-02-19T19:07:33Z"
+        },
+        {
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "@chris-wood ",
+          "createdAt": "2021-02-19T19:09:47Z",
+          "updatedAt": "2021-02-19T19:09:47Z"
+        },
+        {
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "My sense is that part of the impetus here now is to be able to express that certain algorithms that are disrecommended for general use (e.g., integrity only)",
+          "createdAt": "2021-02-19T19:10:39Z",
+          "updatedAt": "2021-02-19T19:10:39Z"
+        },
+        {
+          "author": "davidben",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "In addition to whether the WG \"officially\" recommends them, we probably need to say something about what properties TLS claims to provide, and what assumptions other documents can make. Things like:\r\n\r\n* Appendix E talks about protecting endpoint identities. Obviously that is only true in so far as the AEAD isn't secretly broken, but if the non-recommended cipher suite doesn't even try, I don't think that's Appendix E's problem.\r\n* Appendix C.4's tracking protections depend on confidentiality. Since confidentiality is part of RFC8446's guarantees, C.4 shouldn't have to qualify that with \"assuming you are not in a non-recommended mode that skips confidentiality\". Same with ECH.\r\n* Say some extension document says \"compute ABC by passing XYZ into the chosen cipher suite's AEAD\". If some non-recommended cipher suite isn't even based on AEADs, the document shouldn't need to qualify the instructions.\r\n\r\nIf we allow registrations for these sorts of things, we probably want a way to say the code points are suitably out of scope. (No opinions on whether that's recommended=N, or some new third state.)",
+          "createdAt": "2021-02-19T20:43:58Z",
+          "updatedAt": "2021-02-19T20:43:58Z"
+        },
+        {
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I would suggest that we have four categories (names TBD)\r\n\r\n- Recommended: The WG thinks this is good for general use.\r\n  (E.g., TLS_AES_128_GCM_SHA256). Requires a standards track\r\n  RFC.\r\n  \r\n- Conditionally Recommended: The WG thinks this is good for limited\r\n  scope, as with IoT (must come with some description of that scope)\r\n  (e.g., TLS_AES_128_CCM_8_SHA256). Requires a standards\r\n  track RFC.\r\n  \r\n- Not recommended: The WG expresses no opinion on this\r\n  (e.g., TLS_GOSTR341112_256_WITH_KUZNYECHIK_CTR_OMAC)\r\n  \r\n- Discouraged (?): Known not to provide the rated TLS 1.3 security\r\n  guarantees (e.g., TLS_SHA256_SHA256)\r\n\r\nWhat do people think about this? I do worry about some slop between\r\n\"conditionally recommended\" and \"discouraged\" but I think the\r\nexperts/WG can sort it out.",
+          "createdAt": "2021-02-19T21:37:58Z",
+          "updatedAt": "2021-02-19T21:37:58Z"
+        },
+        {
+          "author": "davidben",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Works for me. (Mechanically, this means that code point allocations still need to go through some cursory TLSWG consult to get a category?)",
+          "createdAt": "2021-02-19T22:14:44Z",
+          "updatedAt": "2021-02-19T22:14:44Z"
+        },
+        {
+          "author": "richsalz",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Where do you put integrity-only ciphers?\r\n\r\nMaybe discouraged is discouraged/obsolete?",
+          "createdAt": "2021-02-19T22:21:19Z",
+          "updatedAt": "2021-02-19T22:21:19Z"
+        },
+        {
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I would put integrity-only in \"Discouraged\"",
+          "createdAt": "2021-02-19T22:55:26Z",
+          "updatedAt": "2021-02-19T22:55:26Z"
+        },
+        {
+          "author": "martinthomson",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "How would a suite end up in that state? Known broken cipher? Integrity-only? What else?",
+          "createdAt": "2021-02-20T22:17:28Z",
+          "updatedAt": "2021-02-20T22:17:28Z"
+        },
+        {
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Maybe known weak, e.g., a curve that had less than ~128 bits of security.",
+          "createdAt": "2021-02-20T22:46:12Z",
+          "updatedAt": "2021-02-20T22:46:12Z"
+        }
+      ]
+    },
+    {
+      "number": 1216,
+      "id": "MDU6SXNzdWU4MTIzNzM2MjE=",
+      "title": "Double check issues filed in ekr/ repo.",
+      "url": "https://github.com/tlswg/tls13-spec/issues/1216",
+      "state": "OPEN",
+      "author": "ekr",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This is a reminder to make sure all got closed or copied over.",
+      "createdAt": "2021-02-19T21:43:59Z",
+      "updatedAt": "2021-02-19T21:43:59Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -60338,24 +60498,26 @@
       "id": "MDExOlB1bGxSZXF1ZXN0NTIwODcwNzYy",
       "title": "Shorten some unnecessarily long names.",
       "url": "https://github.com/tlswg/tls13-spec/pull/1202",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "davidben",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "While we're renaming these anyway, exporter_secret and resumption_secret\r\nare just as descriptive. Closes #1200.",
       "createdAt": "2020-11-13T21:54:17Z",
-      "updatedAt": "2020-11-13T21:56:25Z",
+      "updatedAt": "2021-02-19T18:29:14Z",
       "baseRepository": "tlswg/tls13-spec",
       "baseRefName": "main",
       "baseRefOid": "b71bdb739c75ec18f13bbbaaebb4a2efb9a2e93a",
       "headRepository": "davidben/tls13-spec",
       "headRefName": "shorten-secret-names",
       "headRefOid": "b93311e2da5290886449d78c5797ce01f39fa6d8",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2021-02-19T18:29:14Z",
+      "mergedAt": "2021-02-19T18:29:14Z",
+      "mergedBy": "ekr",
+      "mergeCommit": {
+        "oid": "2fb7b0ad77d9cca4c845a93a705ffda3b27a3517"
+      },
       "comments": [],
       "reviews": []
     },
@@ -60364,24 +60526,26 @@
       "id": "MDExOlB1bGxSZXF1ZXN0NTIyMjAxMTEy",
       "title": "Align TLS 1.2 terminology with this document",
       "url": "https://github.com/tlswg/tls13-spec/pull/1204",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "davidben",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Closes #1203. I wasn't sure where to put this text. There was an Appendix talking about TLS 1.2, so I figured it could go nearby. And then it probably wanted to go before that Appendix so there isn't ambiguity about how to refer to EMS.",
       "createdAt": "2020-11-17T07:26:09Z",
-      "updatedAt": "2020-11-17T07:26:09Z",
+      "updatedAt": "2021-02-19T18:20:37Z",
       "baseRepository": "tlswg/tls13-spec",
       "baseRefName": "main",
       "baseRefOid": "b71bdb739c75ec18f13bbbaaebb4a2efb9a2e93a",
       "headRepository": "davidben/tls13-spec",
       "headRefName": "tls12-names",
       "headRefOid": "eea31f7261940dc3a2115651bf34323da2c8c38e",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2021-02-19T18:20:37Z",
+      "mergedAt": "2021-02-19T18:20:37Z",
+      "mergedBy": "ekr",
+      "mergeCommit": {
+        "oid": "3c0e8c0f9a79a080645770077071669f6cc74848"
+      },
       "comments": [],
       "reviews": []
     },
@@ -60390,24 +60554,26 @@
       "id": "MDExOlB1bGxSZXF1ZXN0NTMxMzM0MzQx",
       "title": "Discuss tracking implications of session resumption.",
       "url": "https://github.com/tlswg/tls13-spec/pull/1205",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "davidben",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "In WG discussion of draft-vvv-tls-cross-sni-resumption-00, tracking\r\nimplications came up. While that draft does expand the set of servers\r\nthat can cross-resume, it's not a new issue. For instance, on the Web,\r\nif https://a.example and https://b.example both include a subresource to\r\na common https://tracker.example, TLS session resumption may be used to\r\ncorrelate activity across the two sites.\r\n\r\nAdd some text to discuss this. This is distinct from the single-use\r\nticket mitigation, which only covers correlation by passive observers.\r\nCorrelation by the server itself is pretty much inherent to session\r\nresumption and other cache-like optimizations. Instead, the text points\r\nthis out and gives an example of how applications can keep their\r\nresumption scopes consistent with their privacy goals.\r\n\r\nFixes #1201.\r\n\r\n(CC @vasilvv)",
       "createdAt": "2020-12-02T22:42:17Z",
-      "updatedAt": "2020-12-03T00:24:02Z",
+      "updatedAt": "2021-02-19T18:15:33Z",
       "baseRepository": "tlswg/tls13-spec",
       "baseRefName": "main",
       "baseRefOid": "b71bdb739c75ec18f13bbbaaebb4a2efb9a2e93a",
       "headRepository": "davidben/tls13-spec",
       "headRefName": "resumption-tracking",
       "headRefOid": "1a67fd23382d0f2c1f1edfd5131e5af7f0be4c7a",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2021-02-19T18:15:33Z",
+      "mergedAt": "2021-02-19T18:15:33Z",
+      "mergedBy": "ekr",
+      "mergeCommit": {
+        "oid": "8f8c841329cde2b2e42a7bc42205ae0e9c41139d"
+      },
       "comments": [],
       "reviews": [
         {
@@ -60430,24 +60596,26 @@
       "id": "MDExOlB1bGxSZXF1ZXN0NTcxNjYyMzg5",
       "title": "Security Property - Protection of endpoint identities",
       "url": "https://github.com/tlswg/tls13-spec/pull/1210",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "emanjon",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "As discussed on the TLS list. It seems like cipher suites without confidentiality is already registered. Feel free to reformulate in any way. Refering to the cipher suites in the document is not very useful for the reader, and it does not seem to be a rule that a NULL encryption could not be recommended even if that seems very unlikely.\r\n\r\nI also suggest adding \"(certificate)\" after client identity. The security property does obviously not hold for PSK authentication.",
       "createdAt": "2021-02-11T08:53:49Z",
-      "updatedAt": "2021-02-11T23:29:10Z",
+      "updatedAt": "2021-02-19T18:19:36Z",
       "baseRepository": "tlswg/tls13-spec",
       "baseRefName": "main",
       "baseRefOid": "b71bdb739c75ec18f13bbbaaebb4a2efb9a2e93a",
       "headRepository": "emanjon/tls13-spec",
       "headRefName": "patch-1",
-      "headRefOid": "f63175ba49c2ba2fd0de5d9974546f9de7b2fd58",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "dde8adb75b8fa93fca2b4dfce1a1483809e0b7c6",
+      "closedAt": "2021-02-19T18:19:36Z",
+      "mergedAt": "2021-02-19T18:19:36Z",
+      "mergedBy": "ekr",
+      "mergeCommit": {
+        "oid": "ec5d7e6e04c7c9f54a19da972695f933f2bfee89"
+      },
       "comments": [
         {
           "author": "martinthomson",
@@ -60458,7 +60626,7 @@
         },
         {
           "author": "emanjon",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "I agree that enforcing MUST would be better. I am quite bored of writing TLS profiling documents for various SDOs and products forbidding weak options. Reading RFC 8446 Appedix E, I understood the security properties as something that would be enforced in the future. I would support that interpretation of the security properties.\r\n\r\nHowever:\r\n- Now is seems like registration of cipher suites breaking one of the security properties might already have been done.\r\n- The TLS WG has adopted draft-ietf-tls-external-psk-guidance, which breaks some of the other security properties.\r\n",
           "createdAt": "2021-02-11T11:47:10Z",
           "updatedAt": "2021-02-11T11:47:10Z"
@@ -60478,32 +60646,144 @@
           "updatedAt": "2021-02-11T23:29:10Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTk0NDQ1NTcz",
+          "commit": {
+            "abbreviatedOid": "f63175b"
+          },
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-02-19T18:18:48Z",
+          "updatedAt": "2021-02-19T18:18:56Z",
+          "comments": [
+            {
+              "originalPosition": 8,
+              "body": "```suggestion\r\n  suites without confidentiality; while this specification does not define any such cipher suites,\r\n  other documents may do so.\r\n```",
+              "createdAt": "2021-02-19T18:18:48Z",
+              "updatedAt": "2021-02-19T18:19:03Z"
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 1211,
       "id": "MDExOlB1bGxSZXF1ZXN0NTcxNjY3NzYz",
       "title": "Editorial: \"Client Authentication\" -> \"Certificate-Based Client Authentication\"",
       "url": "https://github.com/tlswg/tls13-spec/pull/1211",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "emanjon",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Based on the PSK authentication was not included in the past. I think specification has some places where \"Client Authentication\" refer to only certificate-based client authentication and not client authentication is general.\r\n\r\nNot a big thing, but I think it might confuse some readers, and would be good to clarify.",
       "createdAt": "2021-02-11T09:04:32Z",
-      "updatedAt": "2021-02-11T09:04:32Z",
+      "updatedAt": "2021-02-19T18:14:51Z",
       "baseRepository": "tlswg/tls13-spec",
       "baseRefName": "main",
       "baseRefOid": "b71bdb739c75ec18f13bbbaaebb4a2efb9a2e93a",
       "headRepository": "emanjon/tls13-spec",
       "headRefName": "patch-2",
       "headRefOid": "e7a4f1d3a7925a2fa47d41478b1dcc273409a44b",
-      "closedAt": null,
+      "closedAt": "2021-02-19T18:14:51Z",
+      "mergedAt": "2021-02-19T18:14:51Z",
+      "mergedBy": "ekr",
+      "mergeCommit": {
+        "oid": "f2be3bc092a62cf63ff2313a1bddf1268bdc0fe2"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 1213,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTc2NjQyMzU4",
+      "title": "Changelog for -01",
+      "url": "https://github.com/tlswg/tls13-spec/pull/1213",
+      "state": "MERGED",
+      "author": "ekr",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2021-02-19T18:34:31Z",
+      "updatedAt": "2021-02-19T18:39:37Z",
+      "baseRepository": "tlswg/tls13-spec",
+      "baseRefName": "main",
+      "baseRefOid": "2fb7b0ad77d9cca4c845a93a705ffda3b27a3517",
+      "headRepository": "ekr/tls13-spec",
+      "headRefName": "changelog-01",
+      "headRefOid": "1239ccac502cf3dc8f992563c4dc9f980ac3b88e",
+      "closedAt": "2021-02-19T18:39:37Z",
+      "mergedAt": "2021-02-19T18:39:37Z",
+      "mergedBy": "chris-wood",
+      "mergeCommit": {
+        "oid": "97abde007caa7aeb249656b1f7fae86026b53ec8"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTk0NDYxNzky",
+          "commit": {
+            "abbreviatedOid": "6cc2c6f"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-02-19T18:38:40Z",
+          "updatedAt": "2021-02-19T18:39:23Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\n[[RFC EDITOR: Please remove in final RFC.]]\r\n```",
+              "createdAt": "2021-02-19T18:38:40Z",
+              "updatedAt": "2021-02-19T18:39:34Z"
+            },
+            {
+              "originalPosition": 11,
+              "body": "```suggestion\r\n* Clarify that privacy guarantees don't apply when you have null encryption\r\n```",
+              "createdAt": "2021-02-19T18:39:18Z",
+              "updatedAt": "2021-02-19T18:39:34Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 1215,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTc2NzMxOTg2",
+      "title": "minor editorial spelling",
+      "url": "https://github.com/tlswg/tls13-spec/pull/1215",
+      "state": "CLOSED",
+      "author": "emanjon",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2021-02-19T21:08:45Z",
+      "updatedAt": "2021-02-19T21:19:06Z",
+      "baseRepository": "tlswg/tls13-spec",
+      "baseRefName": "main",
+      "baseRefOid": "97abde007caa7aeb249656b1f7fae86026b53ec8",
+      "headRepository": "emanjon/tls13-spec",
+      "headRefName": "patch-3",
+      "headRefOid": "a571a4a3657da66518bf42df453a705d7da20830",
+      "closedAt": "2021-02-19T21:19:06Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Just fixed separately",
+          "createdAt": "2021-02-19T21:19:06Z",
+          "updatedAt": "2021-02-19T21:19:06Z"
+        }
+      ],
       "reviews": []
     }
   ]
