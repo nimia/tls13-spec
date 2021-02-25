@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-02-23T00:28:17.911719+00:00",
+  "timestamp": "2021-02-25T00:28:25.719070+00:00",
   "repo": "tlswg/tls13-spec",
   "labels": [
     {
@@ -11529,7 +11529,7 @@
       "labels": [],
       "body": "There has been a bunch of discussion about what we should do with the Recommended Column\r\n\r\nSee, especially:\r\nhttps://mailarchive.ietf.org/arch/msg/tls/_1fPsfy6kkQwFAtX3eKeIkRKK4E/\r\n\r\nThis is a placeholder issue to workshop an approach.\r\n",
       "createdAt": "2021-02-19T19:00:31Z",
-      "updatedAt": "2021-02-20T22:46:12Z",
+      "updatedAt": "2021-02-23T20:35:19Z",
       "closedAt": null,
       "comments": [
         {
@@ -11601,6 +11601,20 @@
           "body": "Maybe known weak, e.g., a curve that had less than ~128 bits of security.",
           "createdAt": "2021-02-20T22:46:12Z",
           "updatedAt": "2021-02-20T22:46:12Z"
+        },
+        {
+          "author": "kaduk",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "> Say some extension document says \"compute ABC by passing XYZ into the chosen cipher suite's AEAD\". If some non-recommended cipher suite isn't even based on AEADs, the document shouldn't need to qualify the instructions.\r\n\r\n(We almost ended up with something like that for DTLS record protection schemes, but took a different route.)\r\n\r\nIn Ekr's proposal from https://github.com/tlswg/tls13-spec/issues/1214#issuecomment-782373964 there are four categories, two of which require standards-track RFCs and thus are fairly straightforward to figure out how to get classified into, procedurally wise.  For the other two categories, davidben rightly notes that some classification procedure is needed.  The most natural procedure is \"just let the DEs decide, but that lacks the imprimateur of the WG or the IETF as a whole.  One could perhaps say that the DEs have to consult the WG list, but it gets pretty awkward if we don't leave the decision in the hands of the DEs (which would include, say, having the WG chairs judge WG consensus).  I'm pretty wary of anything that puts more IETF process in the way of external registrations than the current specification-required review, due to the risk of being too high a bar to get used in practice.",
+          "createdAt": "2021-02-23T06:24:12Z",
+          "updatedAt": "2021-02-23T06:24:12Z"
+        },
+        {
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "On Mon, Feb 22, 2021 at 10:24 PM kaduk <notifications@github.com> wrote:\n\n> Say some extension document says \"compute ABC by passing XYZ into the\n> chosen cipher suite's AEAD\". If some non-recommended cipher suite isn't\n> even based on AEADs, the document shouldn't need to qualify the\n> instructions.\n>\n> (We almost ended up with something like that for DTLS record protection\n> schemes, but took a different route.)\n>\n> In Ekr's proposal from #1214 (comment)\n> <https://github.com/tlswg/tls13-spec/issues/1214#issuecomment-782373964>\n> there are four categories, two of which require standards-track RFCs and\n> thus are fairly straightforward to figure out how to get classified into,\n> procedurally wise. For the other two categories, davidben rightly notes\n> that some classification procedure is needed. The most natural procedure is\n> \"just let the DEs decide, but that lacks the imprimateur of the WG or the\n> IETF as a whole. One could perhaps say that the DEs have to consult the WG\n> list, but it gets pretty awkward if we don't leave the decision in the\n> hands of the DEs (which would include, say, having the WG chairs judge WG\n> consensus). I'm pretty wary of anything that puts more IETF process in the\n> way of external registrations than the current specification-required\n> review, due to the risk of being too high a bar to get used in practice.\n>\nAgreed. However, note that it's possible to reclassify something, too. I\nwould suggest that we leave it in the hands of the DEs with the potential\nof appeal to the WG if you don't like that answer. You'd have your\nregistration in any case, so these could proceed in parallel.\n\n-Ekr\n",
+          "createdAt": "2021-02-23T20:35:18Z",
+          "updatedAt": "2021-02-23T20:35:18Z"
         }
       ]
     },
@@ -11619,6 +11633,79 @@
       "updatedAt": "2021-02-19T21:43:59Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 1219,
+      "id": "MDU6SXNzdWU4MTQ5NjY2NDg=",
+      "title": "Self-encoded lengths that don't match",
+      "url": "https://github.com/tlswg/tls13-spec/issues/1219",
+      "state": "OPEN",
+      "author": "martinduke",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "As far as I can tell, there is no requirement in RFC 8446 for receiving endpoints to verify that the self-encoded length on outer headers corresponds to the self-encoded lengths of component items. Mangled extensions that do this kind of thing are likely going to end up with decoding errors, but if the outer length is too long many implementations might survive, assuming they support the extension.\r\n\r\nIf it's not too onerous on implementations, it would be good to require a fatal alert if receivers detect this condition, to make behavior more predictable and ease debugging.",
+      "createdAt": "2021-02-24T00:53:12Z",
+      "updatedAt": "2021-02-24T19:18:22Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "davidben",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Which lengths are you referring to? I can't think of any length prefixes in RFC8446 that receivers are allowed to ignore. Are you saying that, if the length prefix on `opaque extension_data<0..2^16-1>` is longer than the structure inside it, receivers are allowed to ignore trailing data? I'd consider any implementation that allowed this non-compliant. The spec often contains text like:\r\n\r\n>    The body of the \"certificate_authorities\" extension consists of a\r\n>   CertificateAuthoritiesExtension structure.\r\n\r\nIt doesn't say the body has a prefix of a CertificateAuthoritiesExtension structure.\r\n\r\n(And, of course, if the `extension_data` length prefix is too short, you'll hit the end of `extension_data` before you finish parsing the inner structure at all.)",
+          "createdAt": "2021-02-24T01:00:21Z",
+          "updatedAt": "2021-02-24T01:00:47Z"
+        },
+        {
+          "author": "martinduke",
+          "authorAssociation": "NONE",
+          "body": "Obviously, bogus extension_data lengths are wrong, but there's no enforcement mechanism. If receivers MUST check that these match and abort if they don't, that would have the benefits described above. I think we're agreeing that ignoring trailing data would be wrong, but it's not actually written anywhere AFAICT.\r\n\r\nEqually obviously, this is not the end of the world and TLS has apparently operated fine like this for a long time. But it's also the kind of problem that QUIC has spent a fair amount of energy to avoid.\r\n\r\n",
+          "createdAt": "2021-02-24T01:16:24Z",
+          "updatedAt": "2021-02-24T01:16:24Z"
+        },
+        {
+          "author": "davidben",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I think it is already the case that receivers MUST check this. Receivers that don't are non-compliant. It's written somewhat implicitly by way of saying the body \"consists of\" such-and-such structure, but I think the most reasonable interpretation of this would be that you don't allow trailing data.\r\n\r\nI'd support adding a sentence or two to the section 4.2 to clarify how extension definitions work in general. Though I've never heard of an implementation that misinterpreted this and did the wrong thing.",
+          "createdAt": "2021-02-24T01:45:22Z",
+          "updatedAt": "2021-02-24T01:45:22Z"
+        },
+        {
+          "author": "richsalz",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Agree and @davidben, I don't know of any implementation that allows extending a field with arbitrary data and then ignoring it. They all do \"I have 'n' bytes and am expecting a CertificateList\" and if they finish with data left over it's a parse error.",
+          "createdAt": "2021-02-24T15:51:41Z",
+          "updatedAt": "2021-02-24T15:51:41Z"
+        },
+        {
+          "author": "martinduke",
+          "authorAssociation": "NONE",
+          "body": "If the consensus is that this is a non-problem I am happy to have the editors close the issue.",
+          "createdAt": "2021-02-24T16:22:51Z",
+          "updatedAt": "2021-02-24T16:22:51Z"
+        },
+        {
+          "author": "martinduke",
+          "authorAssociation": "NONE",
+          "body": "> I think it is already the case that receivers MUST check this. Receivers that don't are non-compliant. It's written somewhat implicitly by way of saying the body \"consists of\" such-and-such structure, but I think the most reasonable interpretation of this would be that you don't allow trailing data.\r\n\r\nIt's entirely possible that I missed a MUST in 8446 somewhere, but I couldn't find it.\r\n\r\n\r\n",
+          "createdAt": "2021-02-24T16:24:00Z",
+          "updatedAt": "2021-02-24T16:24:00Z"
+        },
+        {
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I don't think a sentence to make this clear would be harmful.\n\n\nOn Wed, Feb 24, 2021 at 8:24 AM martinduke <notifications@github.com> wrote:\n\n> I think it is already the case that receivers MUST check this. Receivers\n> that don't are non-compliant. It's written somewhat implicitly by way of\n> saying the body \"consists of\" such-and-such structure, but I think the most\n> reasonable interpretation of this would be that you don't allow trailing\n> data.\n>\n> It's entirely possible that I missed a MUST in 8446 somewhere, but I\n> couldn't find it.\n>\n> \u2014\n> You are receiving this because you are subscribed to this thread.\n> Reply to this email directly, view it on GitHub\n> <https://github.com/tlswg/tls13-spec/issues/1219#issuecomment-785196630>,\n> or unsubscribe\n> <https://github.com/notifications/unsubscribe-auth/AAIPLIK6MXLLCO7EQRHI753TAUR3HANCNFSM4YDQDESQ>\n> .\n>\n",
+          "createdAt": "2021-02-24T17:50:01Z",
+          "updatedAt": "2021-02-24T17:50:01Z"
+        },
+        {
+          "author": "davidben",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "How's https://github.com/tlswg/tls13-spec/pull/1220?",
+          "createdAt": "2021-02-24T19:18:22Z",
+          "updatedAt": "2021-02-24T19:18:22Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -60798,7 +60885,7 @@
       "labels": [],
       "body": "Does not \"require\" a PRNG, a TRNG works as well.\r\n\r\nSince TLS 1.3 was published, CFRG has published RFC 8937. I think RFC 8937 is a great idea. I think it would be good if TLS 1.3 pointed implementors to that. Given the history of Dual EC, tls extended random, and that several different signal intelligence agencies have been controlling hardware security companies like Crypto AG in secret I think it is essential to not trust a single of randomness.\r\n\r\nhttps://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjN39aenfvuAhWvtIsKHQ-wArgQFjABegQIAxAD&url=https%3A%2F%2Fwww.washingtonpost.com%2Fgraphics%2F2020%2Fworld%2Fnational-security%2Fcia-crypto-encryption-machines-espionage%2F&usg=AOvVaw0gGtw_W1_z-DVSlMSqi9Zr",
       "createdAt": "2021-02-21T15:21:50Z",
-      "updatedAt": "2021-02-21T15:21:50Z",
+      "updatedAt": "2021-02-24T19:47:45Z",
       "baseRepository": "tlswg/tls13-spec",
       "baseRefName": "main",
       "baseRefOid": "0cdd4602ea6e732f9a65eb1592521c35a9b538bc",
@@ -60809,7 +60896,36 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "tomato42",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "-1\r\nwe should not recommend use of TRNGs, they commonly have biased output and as such require whitening. If you whiten the output you get a CSPRNGs",
+          "createdAt": "2021-02-24T13:22:02Z",
+          "updatedAt": "2021-02-24T13:22:02Z"
+        },
+        {
+          "author": "emanjon",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "The PR did not \"recommend\" TRNGs. I don't have any interest in using TRNGs and I don't really care. I just saw it as a correction. With your terminlogy, the current text is correct, but I am not sure TRNGs with withening is typically described as CSPRNG even if I agrre with you that they could be seen as such.\r\n\r\nThe important part of the PR is to include RFC 8937.",
+          "createdAt": "2021-02-24T14:06:43Z",
+          "updatedAt": "2021-02-24T14:06:43Z"
+        },
+        {
+          "author": "tomato42",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I'm ok with adding reference to RFC8937",
+          "createdAt": "2021-02-24T19:38:34Z",
+          "updatedAt": "2021-02-24T19:38:34Z"
+        },
+        {
+          "author": "davidben",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I don't think this is generally applicable enough to go as strong as RECOMMENDED here. For instance, it assumes you have a deterministic signature scheme available with your key. And while faulty entropy source are a bit more general of a concern, the worries about bad CSPRNG algorithms are a bit more specific. Applications that get to pick the CSPRNG algorithm can just pick one they believe in. (After all, what's the HKDF machinery in RFC8937 itself but way to consume entropy? Or really most of symmetric cryptography.)",
+          "createdAt": "2021-02-24T19:47:45Z",
+          "updatedAt": "2021-02-24T19:47:45Z"
+        }
+      ],
       "reviews": []
     },
     {
@@ -60824,7 +60940,7 @@
       "labels": [],
       "body": "\u2026 considerations is not good.\r\n\r\nDeterministic ECDSA is good in many cases but may not be the best case in accesable IoT devices.\r\n\r\nIn the last 5 years, there has been a large amount of academic papers showing that purely deterministic ECC algorithms in accesable IoT devices suffers from side-channel and fault injection attacks. For a list of papers see e.g. Section 1 of https://tools.ietf.org/html/draft-mattsson-cfrg-det-sigs-with-noise-02\r\n\r\nRecommending deterministic ECDSA for IoT devices without any security considerations is not good...\r\n\r\nWould be good with some further guidance. Section 1 of https://tools.ietf.org/html/draft-mattsson-cfrg-det-sigs-with-noise-02 is probably the best overview but it is a draft. Any of the paper references there would do. No standardized solutions yet.",
       "createdAt": "2021-02-21T15:33:51Z",
-      "updatedAt": "2021-02-21T15:33:51Z",
+      "updatedAt": "2021-02-24T18:49:42Z",
       "baseRepository": "tlswg/tls13-spec",
       "baseRefName": "main",
       "baseRefOid": "0cdd4602ea6e732f9a65eb1592521c35a9b538bc",
@@ -60835,8 +60951,78 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "tomato42",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "how is this relevant to TLS? client random and server random ensure that the peers will not make a signature over the same handshake hash...",
+          "createdAt": "2021-02-24T13:28:11Z",
+          "updatedAt": "2021-02-24T13:28:11Z"
+        },
+        {
+          "author": "emanjon",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I think the requirement to have signatures over the the same message was specific to the Minerva attack. Side-channel attacks seems to be a general problem when the whole or parts of the signed message is known. TLS stops attacks where the attacker choses the message but does to my understanding not stop all of the published side-channel attacks on deterministic ECDSA. By using randomness, TLS protects against these kind of side-channel attacks much better than e.g. COSE. I do not know it the reamining attacks are mostly theoretical or if they are practical.",
+          "createdAt": "2021-02-24T14:33:25Z",
+          "updatedAt": "2021-02-24T14:33:25Z"
+        },
+        {
+          "author": "tomato42",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "why you're mentioning Minerva? it's about leaking the bit size of k, it doesn't matter if the k was calculated from the deterministic algorithm or if it was selected randomly, the leak is equally destructive in either case",
+          "createdAt": "2021-02-24T18:49:42Z",
+          "updatedAt": "2021-02-24T18:49:42Z"
+        }
+      ],
       "reviews": []
+    },
+    {
+      "number": 1220,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTc5NTQzOTgy",
+      "title": "Clarify that trailing data in extensions is forbidden.",
+      "url": "https://github.com/tlswg/tls13-spec/pull/1220",
+      "state": "OPEN",
+      "author": "davidben",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This was already a compliance requirement, but spell it out more explicitly.\r\n\r\nCloses #1219.",
+      "createdAt": "2021-02-24T19:18:13Z",
+      "updatedAt": "2021-02-24T19:40:58Z",
+      "baseRepository": "tlswg/tls13-spec",
+      "baseRefName": "main",
+      "baseRefOid": "0cdd4602ea6e732f9a65eb1592521c35a9b538bc",
+      "headRepository": "davidben/tls13-spec",
+      "headRefName": "clarify",
+      "headRefOid": "bf72f134e20f6e3ad3ae616c435af448d03fdcf4",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "martinduke",
+          "authorAssociation": "NONE",
+          "body": "LGTM",
+          "createdAt": "2021-02-24T19:40:57Z",
+          "updatedAt": "2021-02-24T19:40:57Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTk3ODUyMTUx",
+          "commit": {
+            "abbreviatedOid": "bf72f13"
+          },
+          "author": "tomato42",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-02-24T19:35:14Z",
+          "updatedAt": "2021-02-24T19:35:14Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
