@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-02-28T00:30:27.189972+00:00",
+  "timestamp": "2021-03-02T00:24:16.954675+00:00",
   "repo": "tlswg/tls13-spec",
   "labels": [
     {
@@ -60988,7 +60988,7 @@
       "labels": [],
       "body": "This was already a compliance requirement, but spell it out more explicitly.\r\n\r\nCloses #1219.",
       "createdAt": "2021-02-24T19:18:13Z",
-      "updatedAt": "2021-02-26T21:19:36Z",
+      "updatedAt": "2021-03-01T05:12:06Z",
       "baseRepository": "tlswg/tls13-spec",
       "baseRefName": "main",
       "baseRefOid": "0cdd4602ea6e732f9a65eb1592521c35a9b538bc",
@@ -61055,6 +61055,13 @@
           "body": "> So I do think that it would be better to have this be a general statement, even if it there is precisely one instance where we know it definitely applies.\r\n\r\nHmm. Where were you envisioning putting this generally? The definition of various length prefixes are kind of scattered all over the place.",
           "createdAt": "2021-02-26T21:19:36Z",
           "updatedAt": "2021-02-26T21:19:36Z"
+        },
+        {
+          "author": "martinthomson",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Section 3.9?",
+          "createdAt": "2021-03-01T05:12:06Z",
+          "updatedAt": "2021-03-01T05:12:06Z"
         }
       ],
       "reviews": [
