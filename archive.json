@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-03-02T00:24:16.954675+00:00",
+  "timestamp": "2021-03-07T00:31:00.774756+00:00",
   "repo": "tlswg/tls13-spec",
   "labels": [
     {
@@ -11704,6 +11704,37 @@
           "body": "How's https://github.com/tlswg/tls13-spec/pull/1220?",
           "createdAt": "2021-02-24T19:18:22Z",
           "updatedAt": "2021-02-24T19:18:22Z"
+        }
+      ]
+    },
+    {
+      "number": 1221,
+      "id": "MDU6SXNzdWU4MjM3Nzc2MzI=",
+      "title": "Unsolicited extensions",
+      "url": "https://github.com/tlswg/tls13-spec/issues/1221",
+      "state": "OPEN",
+      "author": "ekr",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Per @kaduk:\r\nApparently Johnathan Hoyland thinks that the current text allows for unsolicited non-request-response extensions unless specifically forbidden (e.g., for HRR), but Ekr and I think they are forbidden. Perhaps this should be clarified.",
+      "createdAt": "2021-03-06T23:24:40Z",
+      "updatedAt": "2021-03-06T23:55:29Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "This text seems pretty clear:\r\n```Implementations MUST NOT send extension responses\r\nif the remote endpoint did not send the corresponding extension requests,\r\nwith the exception of the \"cookie\" extension in the HelloRetryRequest.\r\nUpon receiving such an extension, an endpoint MUST abort the handshake with an\r\n\"unsupported_extension\" alert.\r\n```\r\n\r\nTrying and failing to recall the argument for why it's not.",
+          "createdAt": "2021-03-06T23:32:13Z",
+          "updatedAt": "2021-03-06T23:32:13Z"
+        },
+        {
+          "author": "kaduk",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "IIRC (noting that I'm not sure I ever fully understood it) the argument here is that for a one-way extension that has no response, there is no \"corresponding extension request\" and so the prohibition here does not apply.",
+          "createdAt": "2021-03-06T23:55:29Z",
+          "updatedAt": "2021-03-06T23:55:29Z"
         }
       ]
     }
@@ -60885,7 +60916,7 @@
       "labels": [],
       "body": "Does not \"require\" a PRNG, a TRNG works as well.\r\n\r\nSince TLS 1.3 was published, CFRG has published RFC 8937. I think RFC 8937 is a great idea. I think it would be good if TLS 1.3 pointed implementors to that. Given the history of Dual EC, tls extended random, and that several different signal intelligence agencies have been controlling hardware security companies like Crypto AG in secret I think it is essential to not trust a single of randomness.\r\n\r\nhttps://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjN39aenfvuAhWvtIsKHQ-wArgQFjABegQIAxAD&url=https%3A%2F%2Fwww.washingtonpost.com%2Fgraphics%2F2020%2Fworld%2Fnational-security%2Fcia-crypto-encryption-machines-espionage%2F&usg=AOvVaw0gGtw_W1_z-DVSlMSqi9Zr",
       "createdAt": "2021-02-21T15:21:50Z",
-      "updatedAt": "2021-02-24T19:47:45Z",
+      "updatedAt": "2021-03-06T23:12:17Z",
       "baseRepository": "tlswg/tls13-spec",
       "baseRefName": "main",
       "baseRefOid": "0cdd4602ea6e732f9a65eb1592521c35a9b538bc",
@@ -60926,31 +60957,54 @@
           "updatedAt": "2021-02-24T19:47:45Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjA1Nzk0OTg5",
+          "commit": {
+            "abbreviatedOid": "7f03b1f"
+          },
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-03-06T23:12:13Z",
+          "updatedAt": "2021-03-06T23:12:17Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "```suggestion\r\nor a true random number generator (TRNG).\r\n```\r\n\r\nI suggest we remove this piece. The rest makes sense.",
+              "createdAt": "2021-03-06T23:12:13Z",
+              "updatedAt": "2021-03-06T23:12:17Z"
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 1218,
       "id": "MDExOlB1bGxSZXF1ZXN0NTc3MTMwNjEx",
       "title": "Recommending deterministic ECDSA for IoT devices without any security\u2026",
       "url": "https://github.com/tlswg/tls13-spec/pull/1218",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "emanjon",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "\u2026 considerations is not good.\r\n\r\nDeterministic ECDSA is good in many cases but may not be the best case in accesable IoT devices.\r\n\r\nIn the last 5 years, there has been a large amount of academic papers showing that purely deterministic ECC algorithms in accesable IoT devices suffers from side-channel and fault injection attacks. For a list of papers see e.g. Section 1 of https://tools.ietf.org/html/draft-mattsson-cfrg-det-sigs-with-noise-02\r\n\r\nRecommending deterministic ECDSA for IoT devices without any security considerations is not good...\r\n\r\nWould be good with some further guidance. Section 1 of https://tools.ietf.org/html/draft-mattsson-cfrg-det-sigs-with-noise-02 is probably the best overview but it is a draft. Any of the paper references there would do. No standardized solutions yet.",
       "createdAt": "2021-02-21T15:33:51Z",
-      "updatedAt": "2021-02-24T18:49:42Z",
+      "updatedAt": "2021-03-06T23:11:35Z",
       "baseRepository": "tlswg/tls13-spec",
       "baseRefName": "main",
       "baseRefOid": "0cdd4602ea6e732f9a65eb1592521c35a9b538bc",
       "headRepository": "emanjon/tls13-spec",
       "headRefName": "patch-6",
       "headRefOid": "55a175ca6c0d5484f637fd60246c476f63e5250e",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2021-03-06T23:11:35Z",
+      "mergedAt": "2021-03-06T23:11:35Z",
+      "mergedBy": "ekr",
+      "mergeCommit": {
+        "oid": "9219c0a5f1f746fb2b6a32b69bcb15eebbaa17eb"
+      },
       "comments": [
         {
           "author": "tomato42",
