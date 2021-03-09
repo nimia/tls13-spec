@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-03-07T00:31:00.774756+00:00",
+  "timestamp": "2021-03-09T00:29:19.224862+00:00",
   "repo": "tlswg/tls13-spec",
   "labels": [
     {
@@ -11331,7 +11331,7 @@
       "labels": [],
       "body": "John Mattsson writes:\r\n\r\nI think Section 6.1 Closure Alerts is a bit unclear:\r\n\r\n> First it is stated the user_canceled SHOULD be followed by close_notify\r\n> \r\n>    \"This alert SHOULD be followed by a \"close_notify\".\"\r\n> \r\n> Then it is stated that it MUST be followed by close_notify\r\n> \r\n>    \"Each party MUST send a \"close_notify\" alert before closing its write side of the connection,\r\n>    unless it has already sent some error alert.\"\r\n> \r\n> And in the same section is is stated that any data folloing user_canceled MUST be ignored.\r\n> \r\n>    \"Any data received after a closure alert has been received MUST be ignored.\"\r\n> \r\n> This seems quite contradicting to me. I don't know what the correct behavior would be,\r\n> but unless I misunderstood something, it looks like it should be addressed in rfc8446bis.\r\n\r\nI think this is a remnant of when we transitioned alerts to error by default. ",
       "createdAt": "2021-01-29T14:47:50Z",
-      "updatedAt": "2021-02-19T22:44:55Z",
+      "updatedAt": "2021-03-08T17:15:32Z",
       "closedAt": null,
       "comments": [
         {
@@ -11368,6 +11368,13 @@
           "body": "IIRC, they send user_cancelled followed by close_notify, as a non-standard signal to JDKs on the other side to do bidirectional close instead of unidirectional close? But I could be misremembering.\r\n\r\nI think that means ignoring it is probably the right plan.",
           "createdAt": "2021-02-19T22:44:55Z",
           "updatedAt": "2021-02-19T22:44:55Z"
+        },
+        {
+          "author": "chris-wood",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Discussed in 110: Preference is to ignore this.",
+          "createdAt": "2021-03-08T17:15:32Z",
+          "updatedAt": "2021-03-08T17:15:32Z"
         }
       ]
     },
@@ -11407,7 +11414,7 @@
       "labels": [],
       "body": "Some other protocols have a rule to override a specific error with a generic error. It would be nice to define such a rule for TLS 1.3. For instance, `internal_error` MAY be used on any cases where a specific alert is sent.",
       "createdAt": "2021-02-12T00:47:55Z",
-      "updatedAt": "2021-02-18T16:23:56Z",
+      "updatedAt": "2021-03-08T17:15:59Z",
       "closedAt": null,
       "comments": [
         {
@@ -11514,6 +11521,13 @@
           "body": "I don't have anything worthwhile to add.  We bring different sets of experiences; you like specfic alerts, I don't.",
           "createdAt": "2021-02-18T16:23:56Z",
           "updatedAt": "2021-02-18T16:23:56Z"
+        },
+        {
+          "author": "chris-wood",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Discussed in 110: Encourage specificity, but allow a general alert.",
+          "createdAt": "2021-03-08T17:15:59Z",
+          "updatedAt": "2021-03-08T17:15:59Z"
         }
       ]
     },
@@ -11529,7 +11543,7 @@
       "labels": [],
       "body": "There has been a bunch of discussion about what we should do with the Recommended Column\r\n\r\nSee, especially:\r\nhttps://mailarchive.ietf.org/arch/msg/tls/_1fPsfy6kkQwFAtX3eKeIkRKK4E/\r\n\r\nThis is a placeholder issue to workshop an approach.\r\n",
       "createdAt": "2021-02-19T19:00:31Z",
-      "updatedAt": "2021-02-23T20:35:19Z",
+      "updatedAt": "2021-03-08T20:04:14Z",
       "closedAt": null,
       "comments": [
         {
@@ -11615,6 +11629,41 @@
           "body": "On Mon, Feb 22, 2021 at 10:24 PM kaduk <notifications@github.com> wrote:\n\n> Say some extension document says \"compute ABC by passing XYZ into the\n> chosen cipher suite's AEAD\". If some non-recommended cipher suite isn't\n> even based on AEADs, the document shouldn't need to qualify the\n> instructions.\n>\n> (We almost ended up with something like that for DTLS record protection\n> schemes, but took a different route.)\n>\n> In Ekr's proposal from #1214 (comment)\n> <https://github.com/tlswg/tls13-spec/issues/1214#issuecomment-782373964>\n> there are four categories, two of which require standards-track RFCs and\n> thus are fairly straightforward to figure out how to get classified into,\n> procedurally wise. For the other two categories, davidben rightly notes\n> that some classification procedure is needed. The most natural procedure is\n> \"just let the DEs decide, but that lacks the imprimateur of the WG or the\n> IETF as a whole. One could perhaps say that the DEs have to consult the WG\n> list, but it gets pretty awkward if we don't leave the decision in the\n> hands of the DEs (which would include, say, having the WG chairs judge WG\n> consensus). I'm pretty wary of anything that puts more IETF process in the\n> way of external registrations than the current specification-required\n> review, due to the risk of being too high a bar to get used in practice.\n>\nAgreed. However, note that it's possible to reclassify something, too. I\nwould suggest that we leave it in the hands of the DEs with the potential\nof appeal to the WG if you don't like that answer. You'd have your\nregistration in any case, so these could proceed in parallel.\n\n-Ekr\n",
           "createdAt": "2021-02-23T20:35:18Z",
           "updatedAt": "2021-02-23T20:35:18Z"
+        },
+        {
+          "author": "chris-wood",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "@seanturner confirming your comment during IETF 110: this is a problem for RFC8447, right?",
+          "createdAt": "2021-03-08T17:18:23Z",
+          "updatedAt": "2021-03-08T17:18:23Z"
+        },
+        {
+          "author": "dkg",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Recommended/Not Recommended/Discouraged map neatly into implementation's client or server API:  recommended is enabled by default, implemented-but-not recommended can be enabled explicitly by the user of the API; and discouraged cannot be enabled at all (probably should not be included in any production implementation).\r\n\r\n\"conditionally recommended\" is problematic from an API perspective though, because the range of conditions could be so vast.\r\n\r\nIt's easy to imagine an implementer just lumping \"conditionally recommended\" in with \"recommended\", which would be a bad outcome because they should not be enabled by default.  A better outcome would be to have them lumped in with \"not recommended\".\r\n\r\nGiven that it's hard to see a functional difference, do we actually need the \"conditionally recommended\" status?  or can we just go with recommended/not recommended/discouraged?  that would result in a simpler IANA registry.",
+          "createdAt": "2021-03-08T18:13:52Z",
+          "updatedAt": "2021-03-08T18:16:26Z"
+        },
+        {
+          "author": "richsalz",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I like your mapping, @dkg.  I think \"conditionally\" is ifdef in the source.",
+          "createdAt": "2021-03-08T18:26:30Z",
+          "updatedAt": "2021-03-08T18:26:30Z"
+        },
+        {
+          "author": "dkg",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "@richsalz `ifdef` in the source sounds good to me for \"conditionally recommended\" -- but it's not sufficient.  if the `#define` is set, should the algorithm in question be enabled by default?  or should a runtime switch still be required?\r\n\r\nif the answer is that a runtime switch is still required, that puts \"conditionally recommended\" in some sense *below* \"not recommended\" -- because it needs to be explicitly enabled both at build and runtime, whereas not recommended might only need the runtime switch.  OTOH, if the answer is that no runtime switch is required, then you're going to have distributed binary TLS stacks that automatically enable things that might be inappropriate for their application.",
+          "createdAt": "2021-03-08T19:51:58Z",
+          "updatedAt": "2021-03-08T19:51:58Z"
+        },
+        {
+          "author": "richsalz",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I'm thinking like an OpenSSL developer, you're thinking like an application developer.  I think.",
+          "createdAt": "2021-03-08T20:04:14Z",
+          "updatedAt": "2021-03-08T20:04:14Z"
         }
       ]
     },
@@ -11712,15 +11761,15 @@
       "id": "MDU6SXNzdWU4MjM3Nzc2MzI=",
       "title": "Unsolicited extensions",
       "url": "https://github.com/tlswg/tls13-spec/issues/1221",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "ekr",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Per @kaduk:\r\nApparently Johnathan Hoyland thinks that the current text allows for unsolicited non-request-response extensions unless specifically forbidden (e.g., for HRR), but Ekr and I think they are forbidden. Perhaps this should be clarified.",
       "createdAt": "2021-03-06T23:24:40Z",
-      "updatedAt": "2021-03-06T23:55:29Z",
-      "closedAt": null,
+      "updatedAt": "2021-03-08T14:45:12Z",
+      "closedAt": "2021-03-08T14:45:12Z",
       "comments": [
         {
           "author": "ekr",
@@ -11735,8 +11784,89 @@
           "body": "IIRC (noting that I'm not sure I ever fully understood it) the argument here is that for a one-way extension that has no response, there is no \"corresponding extension request\" and so the prohibition here does not apply.",
           "createdAt": "2021-03-06T23:55:29Z",
           "updatedAt": "2021-03-06T23:55:29Z"
+        },
+        {
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I see. I don't think that's correct. @jhoyla?",
+          "createdAt": "2021-03-07T00:48:32Z",
+          "updatedAt": "2021-03-07T00:48:32Z"
+        },
+        {
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I.e., we just don't allow those in the response messages, and if you want one, you need an empty extension in the request to allow it.",
+          "createdAt": "2021-03-07T00:59:53Z",
+          "updatedAt": "2021-03-07T00:59:53Z"
+        },
+        {
+          "author": "richsalz",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "> and if you want one, you need an empty extension in the request to allow it.\r\n\r\ni agree.  I thought we had at least one of those (certstatus?) but I can't recall details without looking at the RFC.  I also think the 'bitmask\" doc from Yoav was intended to help address this kind of thing.",
+          "createdAt": "2021-03-07T14:51:16Z",
+          "updatedAt": "2021-03-07T14:51:16Z"
+        },
+        {
+          "author": "jhoyla",
+          "authorAssociation": "NONE",
+          "body": "The text doesn't explicitly disallow extensions that don't follow a request / response pattern, so I don't think it's clear why someone couldn't define an extension that _only_ appears in the Encrypted Extensions say. The cookie extension, IIUC is a request / response style extension, so the exception text makes sense. It doesn't let you draw conclusions about strictly signalling extensions, for example. \r\nAnything that's not explicitly disallowed is, to my mind, valid. It doesn't make it a good idea, or likely to be adopted, but it's not prima facie invalid. ",
+          "createdAt": "2021-03-07T23:30:35Z",
+          "updatedAt": "2021-03-07T23:30:35Z"
+        },
+        {
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "OK. I see how you get that out of the text, but I also don't think it is what was intended. Rather, indications are just requests without responses and so are subject to the same rules. Do you want to speak up for your interpretation as being good, or are you just arguing that the text isn't clear.\r\n\r\n\r\n\r\n\r\n\r\n",
+          "createdAt": "2021-03-07T23:59:40Z",
+          "updatedAt": "2021-03-08T00:00:23Z"
+        },
+        {
+          "author": "jhoyla",
+          "authorAssociation": "NONE",
+          "body": "The latter, the text isn't clear. Not obvious to me why the restriction is necessary though. The client can just ignore extensions it doesn't understand, no?",
+          "createdAt": "2021-03-08T14:07:54Z",
+          "updatedAt": "2021-03-08T14:07:54Z"
+        },
+        {
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "It could, but that's just not how things are specified..\n\nOn Mon, Mar 8, 2021 at 6:08 AM jhoyla <notifications@github.com> wrote:\n\n> The latter, the text isn't clear. Not obvious to me why the restriction is\n> necessary though. The client can just ignore extensions it doesn't\n> understand, no?\n>\n> \u2014\n> You are receiving this because you authored the thread.\n> Reply to this email directly, view it on GitHub\n> <https://github.com/tlswg/tls13-spec/issues/1221#issuecomment-792779024>,\n> or unsubscribe\n> <https://github.com/notifications/unsubscribe-auth/AAIPLIMVKOJGTDGRJNSP4OTTCTK4TANCNFSM4YXG3DTA>\n> .\n>\n",
+          "createdAt": "2021-03-08T14:44:52Z",
+          "updatedAt": "2021-03-08T14:44:52Z"
         }
       ]
+    },
+    {
+      "number": 1223,
+      "id": "MDU6SXNzdWU4MjQ3OTUxOTQ=",
+      "title": "HRR consistency requirements are too strict",
+      "url": "https://github.com/tlswg/tls13-spec/issues/1223",
+      "state": "OPEN",
+      "author": "davidben",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "We ran into this with ECH over in https://github.com/tlswg/draft-ietf-tls-esni/issues/358. RFC8446, section 4.1.2 says:\r\n\r\n> The client will also send a ClientHello when the server has responded to its ClientHello with a HelloRetryRequest. In that case, the client MUST send the same ClientHello without modification, except as follows:\r\n>\r\n> * If a \"key_share\" extension was supplied in the HelloRetryRequest, replacing the list of shares with a list containing a single KeyShareEntry from the indicated group.\r\n>\r\n> * Removing the \"early_data\" extension (Section 4.2.10) if one was present.  Early data is not permitted after a HelloRetryRequest.\r\n>\r\n> * Including a \"cookie\" extension if one was provided in the HelloRetryRequest.\r\n>\r\n> * Updating the \"pre_shared_key\" extension if present by recomputing the \"obfuscated_ticket_age\" and binder values and (optionally) removing any PSKs which are incompatible with the server's indicated cipher suite.\r\n>\r\n> * Optionally adding, removing, or changing the length of the \"padding\" extension [RFC7685].\r\n>\r\n> * Other modifications that may be allowed by an extension defined in the future *and present in the HelloRetryRequest*. [emphasis mine]\r\n\r\nhttps://tools.ietf.org/html/rfc8446#section-4.1.2\r\n\r\nI think this last rule was perhaps a little too strict. ECH as it is currently written violates this rule. If we adopt something like https://github.com/tlswg/draft-ietf-tls-esni/issues/374, we'll avoid this, but this text was perhaps too strict. It precludes us defining any other extension that needs to change on all HRRs. Indeed, it's a little telling that, of the five changeable extensions currently defined, only two (key_share and cookie) meet the text's own general rule!\r\n\r\nOne thing of note is that, while the text only includes rules for the client, not the server, at least one implementation (LibreSSL) interpreted this to mean they should enforce strict consistency. So if we change this, they'll need to be updated. (Relatedly, I think we under-describe HRR handling on the server in general, but I'll file a separate ticket to track that.)",
+      "createdAt": "2021-03-08T17:40:43Z",
+      "updatedAt": "2021-03-08T17:40:43Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 1224,
+      "id": "MDU6SXNzdWU4MjQ4MTMxMzk=",
+      "title": "HRR server behavior is underspecified",
+      "url": "https://github.com/tlswg/tls13-spec/issues/1224",
+      "state": "OPEN",
+      "author": "davidben",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "There's probably room here to describe HRR server behavior more specifically. Although the client is required to align the first and second ClientHello (see https://github.com/tlswg/tls13-spec/issues/1223), there is no text saying how the server. Even so, depending on how the server implements HRR, it may need to check some subset of consistency between the two.\r\n\r\nWhen you make each decision is also tricky. Do you look at the first ClientHello? The second? Both, checking that you came to the right answer? Which binders do you check? Depending on implementation properties (stateful vs. stateless, APIs to allow the caller to inspect the ClientHello, psk_ke linking the PSK and key_share decisions together, etc.), you may need to pick different options here.\r\n\r\nThis is probably worth some text to describe the space of valid implementation decisions.",
+      "createdAt": "2021-03-08T18:02:10Z",
+      "updatedAt": "2021-03-08T18:02:10Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -61184,6 +61314,74 @@
               "updatedAt": "2021-02-26T21:18:48Z"
             }
           ]
+        }
+      ]
+    },
+    {
+      "number": 1222,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTg2MzU2MDk0",
+      "title": "Clarify that indications are just requests with no response. Fixes #1221",
+      "url": "https://github.com/tlswg/tls13-spec/pull/1222",
+      "state": "MERGED",
+      "author": "ekr",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2021-03-08T00:05:22Z",
+      "updatedAt": "2021-03-08T14:45:11Z",
+      "baseRepository": "tlswg/tls13-spec",
+      "baseRefName": "main",
+      "baseRefOid": "9219c0a5f1f746fb2b6a32b69bcb15eebbaa17eb",
+      "headRepository": "ekr/tls13-spec",
+      "headRefName": "issue1221_extension_indications",
+      "headRefOid": "ec6412aae451d1b33874be0d079d9e7cb9f3ca8d",
+      "closedAt": "2021-03-08T14:45:11Z",
+      "mergedAt": "2021-03-08T14:45:11Z",
+      "mergedBy": "ekr",
+      "mergeCommit": {
+        "oid": "bee46547e4b2b5000a2cb72d6404fb95157b99d9"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjA1OTAzNTMy",
+          "commit": {
+            "abbreviatedOid": "ec6412a"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-03-08T00:25:39Z",
+          "updatedAt": "2021-03-08T00:25:39Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjA1OTA3NDc5",
+          "commit": {
+            "abbreviatedOid": "ec6412a"
+          },
+          "author": "kaduk",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-03-08T00:53:54Z",
+          "updatedAt": "2021-03-08T00:53:54Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjA2MjI2NDgw",
+          "commit": {
+            "abbreviatedOid": "ec6412a"
+          },
+          "author": "tomato42",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-03-08T12:11:39Z",
+          "updatedAt": "2021-03-08T12:11:39Z",
+          "comments": []
         }
       ]
     }
