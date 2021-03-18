@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-03-11T00:29:26.440507+00:00",
+  "timestamp": "2021-03-18T00:30:01.566619+00:00",
   "repo": "tlswg/tls13-spec",
   "labels": [
     {
@@ -11909,6 +11909,44 @@
           "body": "Since this came up in #1223, some scenarios where things get messy:\r\n\r\n---\r\n\r\n**server_name-dependent preferences**\r\n\r\nSuppose the server has different cipher suite or curve preferences based on server_name. That means it cannot make the HRR decision without looking at the server_name. Such a server must dispatch on the server_name. If it ignores or checks the second server_name, that's fine. But it cannot redispatch or risk getting itself in an inconsistent state.\r\n\r\n**psk_ke**\r\n\r\nSuppose the server implements psk_ke (please don't) and only implements X25519. Now suppose it gets the following ClientHello:\r\n* PSK: 12345\r\n* supported_groups: P-256, X25519\r\n* key_share: P-256\r\n\r\nIf the server does not resume, it must HRR to request a different curve. If it does resume, it must _not_ request a second curve. That means the server _must_ make and commit to the resumption decision on the first ClientHello.\r\n\r\n**ClientHello inspection**\r\n\r\nSuppose the server is stateful and offers the application a chance to [inspect the ClientHello](https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_client_hello_cb.html) and reconfigure the connection. There is an implicit promise to the application: the ClientHello you saw is the one that will be used. Such a server then has two choices:\r\n\r\n1. Make _all_ decisions on the first ClientHello. The second ClientHello is merely an inefficient ClientKeyExchange.\r\n2. Tell both ClientHellos to the application and hope it figures it out. This is fragile since HRRs are rare, so applications may not handle it. It also may is not backwards-compatible if the API predates TLS 1.3.\r\n\r\n**PSK binders**\r\n\r\nSuppose the server makes most decisions on the first ClientHello. Must it still re-check the second PSK binder? Probably, but I don't think we ever wrote it down anywhere.\r\n\r\n**Stateless**\r\n\r\nSuppose the server is stateless. Now some things are reversed and others aren't. The ClientHello inspection issue _now_ points to option (2) because a truly stateless HRR API will interpret the two ClientHellos as independent connections. Moreover, making decisions on or even looking at the first ClientHello is tricky because they must be pickled into the HRR cookie.)\r\n\r\nAt the same time, the protocol considerations still apply, so some decisions must be made on the first ClientHello. Those must be recomputed and rechecked on the second ClientHello. Note even a strict ClientHello consistency check is insufficient for a stateless server because a stateless server may have changed its configuration between the two connections.\r\n\r\n---\r\n\r\nThe specification doesn't go into any of this, so we're left with a wide space of HRR handling, some of which are more risky than others. I think we should decide more clearly what the HRR rules are and offer more concrete guidance here. (And then redo this for TLS 1.4 because I think this design was clearly too complex to manage. :-) )",
           "createdAt": "2021-03-09T16:04:40Z",
           "updatedAt": "2021-03-09T16:04:40Z"
+        }
+      ]
+    },
+    {
+      "number": 1225,
+      "id": "MDU6SXNzdWU4MzMxMTczMTI=",
+      "title": "Cache timing warning",
+      "url": "https://github.com/tlswg/tls13-spec/issues/1225",
+      "state": "OPEN",
+      "author": "ekr",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Ben Schwartz writes:\r\n\r\n> RFC8446 (and bis) currently describe a \"cache timing\" attack on use of Early Data:\r\n>\r\n>   *  Exploiting cache timing behavior to discover the content of 0-RTT\r\n>     messages by replaying a 0-RTT message to a different cache node\r\n>      and then using a separate connection to measure request latency,\r\n>      to see if the two requests address the same resource.\r\n>\r\n> In fact, many users of TLS (e.g. HTTPS, DNS-over-TLS) are even more vulnerable to cache-based attacks:\r\n>* The attacker can probe the cache without triggering a cache fill (Cache-Control: only-if-cached, RD=0)\r\n>* The attacker can observe the remaining cache lifetime, which indicates when cache fill occurred (coincident with the > replay or not), and when a resource will expire out of the cache (best time to try the attack).\r\n>\r\n> I think we should probably broaden the attack description. e.g.\r\n>\r\n>      *  Exploiting cache behavior to discover the content of 0-RTT messages\r\n>         by locating a cache node that does not have a resource of interest\r\n>        cached, replaying a 0-RTT message to it, and then using a separate\r\n>         connection to check if the resource was added to the cache.\r\n>\r\n> I also wonder if we should strengthen the advice about replay defenses.",
+      "createdAt": "2021-03-16T19:11:11Z",
+      "updatedAt": "2021-03-16T19:26:04Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "davidben",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "This isn't strictly specific to 0-RTT. A network attacker can already direct the client's connection to any one cache node and then observe side effects. The main thing enabled by replayability is trying the attack multiple times (up to allowed ticket_age skew) for more reliable signal.",
+          "createdAt": "2021-03-16T19:16:26Z",
+          "updatedAt": "2021-03-16T19:16:39Z"
+        },
+        {
+          "author": "bemasc",
+          "authorAssociation": "NONE",
+          "body": "True, and worth clarifying.  A really strong network attacker could even prevent all other access to that cache node, likely giving them several minutes to enumerate different resources, looking for the one the user requested before it expires.",
+          "createdAt": "2021-03-16T19:23:18Z",
+          "updatedAt": "2021-03-16T19:23:18Z"
+        },
+        {
+          "author": "davidben",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I guess, conversely, a weak network attacker that can see the traffic, but not interfere with it, might not be able to redirect the client's connection, but 0-RTT would enable them to replay it elsewhere.",
+          "createdAt": "2021-03-16T19:26:04Z",
+          "updatedAt": "2021-03-16T19:26:04Z"
         }
       ]
     }
