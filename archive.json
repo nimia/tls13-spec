@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-04-18T00:50:15.173660+00:00",
+  "timestamp": "2021-04-22T00:50:22.066562+00:00",
   "repo": "tlswg/tls13-spec",
   "labels": [
     {
@@ -11962,9 +11962,24 @@
       "labels": [],
       "body": "I came across this argument: while 4.6.1 currently says:\r\n\r\n> At any time after the server has received the client Finished message, it MAY send a NewSessionTicket message.\r\n\r\nit is possible that the server already has sufficient information to construct a session ticket, when it sends the server Finished message, and thus it could send NST along with the first Application Data without waiting for the client Finished message.\r\n\r\nI am wondering if this behavior has any security implication, or the above statement could be relaxed to:\r\n\r\n> At any time after the server has sent the server Finished message, it MAY send a NewSessionTicket message.\r\n\r\n?",
       "createdAt": "2021-04-15T09:48:15Z",
-      "updatedAt": "2021-04-15T09:48:15Z",
+      "updatedAt": "2021-04-19T15:54:28Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "martinthomson",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Good question.  We know that - absent extensions - some servers are able to predict the client Finished and therefore construct the necessary information needed to construct a ticket.  Servers that don't use state offload can even send tickets prior to receiving the client Finished even when they require client authentication.  In both cases, this uses 0.5-RTT data for sending the ticket and as 0.5-RTT is often under-utilized that can be a fairly large performance gain.  I'd support the proposed change.",
+          "createdAt": "2021-04-19T04:21:39Z",
+          "updatedAt": "2021-04-19T04:21:39Z"
+        },
+        {
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I think this *precise* change is a little problematic because it leaves the implementor confused about whether this is possible.\r\n\r\nCombined with a description of the situation (an expanded version of what @martinthomson has here) I agree this would be valuable.\r\n",
+          "createdAt": "2021-04-19T15:54:28Z",
+          "updatedAt": "2021-04-19T15:54:28Z"
+        }
+      ]
     }
   ],
   "pulls": [
