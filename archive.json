@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-04-22T00:50:22.066562+00:00",
+  "timestamp": "2021-06-03T01:47:24.779716+00:00",
   "repo": "tlswg/tls13-spec",
   "labels": [
     {
@@ -11980,6 +11980,22 @@
           "updatedAt": "2021-04-19T15:54:28Z"
         }
       ]
+    },
+    {
+      "number": 1227,
+      "id": "MDU6SXNzdWU5MDk5MzYwMjY=",
+      "title": "PSK binder hash function is ambiguously-specified and potentially simplifiable",
+      "url": "https://github.com/tlswg/tls13-spec/issues/1227",
+      "state": "OPEN",
+      "author": "davidben",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The `Transcript-Hash` function is defined using a function `Hash`.\r\nhttps://tlswg.org/tls13-spec/draft-ietf-tls-rfc8446bis.html#name-the-transcript-hash\r\n\r\nThis is presumably the KDF hash of the cipher suite, but this doesn't seem to be written down anywhere. The Key Schedule section says:\r\n\r\nhttps://tlswg.org/tls13-spec/draft-ietf-tls-rfc8446bis.html#name-key-schedule\r\n> The Hash function used by Transcript-Hash and HKDF is the cipher suite hash algorithm. \r\n\r\nI can't find corresponding text in the various other calls. We could define this globally in the Transcript Hash section, and indeed that fits with the claim that \"In general, implementations can implement the transcript by keeping a running transcript hash value based on the negotiated hash.\"\r\n\r\nBut then we have another problem...\r\n\r\nThe PSK binder is also defined in terms of Transcript-Hash. Like the other text, it does not define what Hash is.\r\nhttps://tlswg.org/tls13-spec/draft-ietf-tls-rfc8446bis.html#name-psk-binder\r\n\r\nBut the default definition doesn't work for the client, in two different ways:\r\n\r\n* At the first ClientHello, the cipher suite hash algorithm isn't even known yet, so we cannot possibly use that one.\r\n* At the second ClientHello, we have a cipher suite hash algorithm, but it may not necessarily match the PSK's one.\r\n\r\nTo keep all everything injective, both need to be the PSK hash. Though this results in another subtlety which, while not ambiguous, maybe we should change:\r\n\r\nAt the second ClientHello, there are two uses of Hash. There's the overall hash, which is stuck being the PSK one, and there's the funny [message_hash transformation](https://tlswg.org/tls13-spec/draft-ietf-tls-rfc8446bis.html#the-transcript-hash). That one being the PSK's hash breaks the whole notion of the transcript being this append-only thing and is a huge pain. To compensate, we allowed the second ClientHello to [drop any mismatched PSKs](https://tlswg.org/tls13-spec/draft-ietf-tls-rfc8446bis.html#name-client-hello).\r\n\r\nThat works, but it's a pretty weird edge case and easily a source of bugs. What if we changed it to be the negotiated hash? It won't affect interop, since this PSK is guaranteed not to be negotiated. The client may as well fill in all zeros for the binder. It's also still injective, as long as everyone agrees that's the one we use. The transcript includes an unhashed HelloRetryRequest immediately after message_hash, so that fixes the choice of hash. (Plus we only have two hashes right now and they're different sizes...)",
+      "createdAt": "2021-06-02T22:32:29Z",
+      "updatedAt": "2021-06-02T22:33:23Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
