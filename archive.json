@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-06-06T01:02:56.174086+00:00",
+  "timestamp": "2021-06-20T00:40:26.251159+00:00",
   "repo": "tlswg/tls13-spec",
   "labels": [
     {
@@ -61633,6 +61633,46 @@
       "mergeCommit": null,
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 1233,
+      "id": "MDExOlB1bGxSZXF1ZXN0NjcyNjk0NjY4",
+      "title": "Correct NST extensions length",
+      "url": "https://github.com/tlswg/tls13-spec/pull/1233",
+      "state": "OPEN",
+      "author": "mattcaswell",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "All other extensions blocks have a max length of 2^16-1 except this one which was 2^16-2.",
+      "createdAt": "2021-06-17T14:31:36Z",
+      "updatedAt": "2021-06-17T15:19:47Z",
+      "baseRepository": "tlswg/tls13-spec",
+      "baseRefName": "main",
+      "baseRefOid": "bee46547e4b2b5000a2cb72d6404fb95157b99d9",
+      "headRepository": "mattcaswell/tls13-spec",
+      "headRefName": "sessionticklen",
+      "headRefOid": "2206939c4136dff02e803f53959c6a3283c74060",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3Njg2NDUyNzUw",
+          "commit": {
+            "abbreviatedOid": "2206939"
+          },
+          "author": "tomato42",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-06-17T15:19:47Z",
+          "updatedAt": "2021-06-17T15:19:47Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
