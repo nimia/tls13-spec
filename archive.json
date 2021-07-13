@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-06-20T00:40:26.251159+00:00",
+  "timestamp": "2021-07-13T00:41:45.346079+00:00",
   "repo": "tlswg/tls13-spec",
   "labels": [
     {
@@ -11962,7 +11962,7 @@
       "labels": [],
       "body": "I came across this argument: while 4.6.1 currently says:\r\n\r\n> At any time after the server has received the client Finished message, it MAY send a NewSessionTicket message.\r\n\r\nit is possible that the server already has sufficient information to construct a session ticket, when it sends the server Finished message, and thus it could send NST along with the first Application Data without waiting for the client Finished message.\r\n\r\nI am wondering if this behavior has any security implication, or the above statement could be relaxed to:\r\n\r\n> At any time after the server has sent the server Finished message, it MAY send a NewSessionTicket message.\r\n\r\n?",
       "createdAt": "2021-04-15T09:48:15Z",
-      "updatedAt": "2021-04-19T15:54:28Z",
+      "updatedAt": "2021-07-11T14:42:59Z",
       "closedAt": null,
       "comments": [
         {
@@ -11978,6 +11978,13 @@
           "body": "I think this *precise* change is a little problematic because it leaves the implementor confused about whether this is possible.\r\n\r\nCombined with a description of the situation (an expanded version of what @martinthomson has here) I agree this would be valuable.\r\n",
           "createdAt": "2021-04-19T15:54:28Z",
           "updatedAt": "2021-04-19T15:54:28Z"
+        },
+        {
+          "author": "ueno",
+          "authorAssociation": "NONE",
+          "body": "Sorry, I didn't realize that it is already covered by the Notes in the same section: \"Note: Although the resumption master secret depends on the client's second flight, a server which does not request client authentication MAY compute the remainder of the transcript independently and then send a NewSessionTicket immediately upon sending its Finished rather than waiting for the client Finished.\" I wonder if it is still worthwhile to mention the stateful case as pointed by @martinthomson.",
+          "createdAt": "2021-07-11T14:42:59Z",
+          "updatedAt": "2021-07-11T14:42:59Z"
         }
       ]
     },
