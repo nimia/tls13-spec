@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-07-13T00:41:45.346079+00:00",
+  "timestamp": "2021-07-22T00:40:18.460474+00:00",
   "repo": "tlswg/tls13-spec",
   "labels": [
     {
@@ -61678,6 +61678,93 @@
           "createdAt": "2021-06-17T15:19:47Z",
           "updatedAt": "2021-06-17T15:19:47Z",
           "comments": []
+        }
+      ]
+    },
+    {
+      "number": 1234,
+      "id": "MDExOlB1bGxSZXF1ZXN0NjkzNjIxNDYy",
+      "title": "Fix a couple references to sig_algs/sig_algs_cert.",
+      "url": "https://github.com/tlswg/tls13-spec/pull/1234",
+      "state": "OPEN",
+      "author": "davidben",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The discussion about root certificates should mention signature_algorithms_cert. The discussion about what algorithms the key must support signing with should not, as that's the TLS signature.\r\n\r\n(CC @sleevi)",
+      "createdAt": "2021-07-20T16:30:23Z",
+      "updatedAt": "2021-07-20T17:28:50Z",
+      "baseRepository": "tlswg/tls13-spec",
+      "baseRefName": "main",
+      "baseRefOid": "bee46547e4b2b5000a2cb72d6404fb95157b99d9",
+      "headRepository": "davidben/tls13-spec",
+      "headRefName": "sig-algs-cert",
+      "headRefOid": "6ba74aa5b923e19fafe04d01e58d9f10fc17f235",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NzEwODEzODM4",
+          "commit": {
+            "abbreviatedOid": "461df43"
+          },
+          "author": "kaduk",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-07-20T16:33:06Z",
+          "updatedAt": "2021-07-20T16:33:07Z",
+          "comments": [
+            {
+              "originalPosition": 16,
+              "body": "The lead-in here is \"certificates\" plural sent by the server, and I think this change only makes sense if the rules only apply to the EE cert.",
+              "createdAt": "2021-07-20T16:33:07Z",
+              "updatedAt": "2021-07-20T16:33:07Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NzEwODgxMDkw",
+          "commit": {
+            "abbreviatedOid": "461df43"
+          },
+          "author": "sleevi",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-07-20T17:20:01Z",
+          "updatedAt": "2021-07-20T17:20:02Z",
+          "comments": [
+            {
+              "originalPosition": 16,
+              "body": "The existing language also only makes sense if it applies to the EE cert (`digitalSignature` is for EEs, we'd expect `keyCertSign` for the CA certificates).\r\n\r\nI believe \"the certificate\" referenced in the lead-in here is in reference to the previous bullet point (\"the server's end entity certificate\"), but perhaps that same language could/should just be repeated here for this bullet?",
+              "createdAt": "2021-07-20T17:20:02Z",
+              "updatedAt": "2021-07-20T17:20:02Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NzEwODg4OTc5",
+          "commit": {
+            "abbreviatedOid": "461df43"
+          },
+          "author": "davidben",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-07-20T17:28:50Z",
+          "updatedAt": "2021-07-20T17:28:50Z",
+          "comments": [
+            {
+              "originalPosition": 16,
+              "body": "Ah yeah there are a few odd things here. I've added the word \"end-entity\". I've also merged in the bullet point above, since it's really talking about the same thing. It's also weird that the second bullet point believes we've already selected a signature algorithm, while the third believes we haven't yet. I didn't carry over \"server's\" from the second bullet point because that's already implicit from the whole section.\r\n\r\n(I suspect that second bullet point was originally talking about the cipher suite, but we've taken the auth portions out of the cipher suites.)",
+              "createdAt": "2021-07-20T17:28:50Z",
+              "updatedAt": "2021-07-20T17:28:51Z"
+            }
+          ]
         }
       ]
     }
