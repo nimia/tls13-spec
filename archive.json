@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-07-22T00:40:18.460474+00:00",
+  "timestamp": "2021-07-27T00:41:49.732335+00:00",
   "repo": "tlswg/tls13-spec",
   "labels": [
     {
@@ -11955,15 +11955,15 @@
       "id": "MDU6SXNzdWU4NTg3MDQ5MDk=",
       "title": "Timing of sending NST from the server",
       "url": "https://github.com/tlswg/tls13-spec/issues/1226",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "ueno",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "I came across this argument: while 4.6.1 currently says:\r\n\r\n> At any time after the server has received the client Finished message, it MAY send a NewSessionTicket message.\r\n\r\nit is possible that the server already has sufficient information to construct a session ticket, when it sends the server Finished message, and thus it could send NST along with the first Application Data without waiting for the client Finished message.\r\n\r\nI am wondering if this behavior has any security implication, or the above statement could be relaxed to:\r\n\r\n> At any time after the server has sent the server Finished message, it MAY send a NewSessionTicket message.\r\n\r\n?",
       "createdAt": "2021-04-15T09:48:15Z",
-      "updatedAt": "2021-07-11T14:42:59Z",
-      "closedAt": null,
+      "updatedAt": "2021-07-26T13:16:57Z",
+      "closedAt": "2021-07-26T13:16:57Z",
       "comments": [
         {
           "author": "martinthomson",
