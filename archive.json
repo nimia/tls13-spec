@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-07-27T00:41:49.732335+00:00",
+  "timestamp": "2021-08-03T00:44:21.059247+00:00",
   "repo": "tlswg/tls13-spec",
   "labels": [
     {
@@ -12017,6 +12017,22 @@
       "body": "I think it would be good with an informal reference to the new standard track document RFC 8879 \"TLS Certificate Compression\" just to inform the reader that this important mechanism exists.\r\n\r\nA reference could be inserted in one or more of these places:\r\n\r\n- Section 1.2. \"Major Differences from TLS 1.2\" where the document talks about the removal of compression.\r\n- Section 4.4.2. \"Certificate\" where the Certificate message is defined.\r\n- Appendix C.3. \"Implementation Pitfalls\" where the document states that \"Certificate and\r\n     CertificateRequest handshake messages can be large enough to require fragmentation.\"",
       "createdAt": "2021-06-05T09:18:56Z",
       "updatedAt": "2021-06-05T09:18:56Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 1235,
+      "id": "MDU6SXNzdWU5NTg1MDg2ODQ=",
+      "title": "Not clear why 0-RTT doesn't provide perfect forward secrecy",
+      "url": "https://github.com/tlswg/tls13-spec/issues/1235",
+      "state": "OPEN",
+      "author": "cbartle891",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Section 2.3 states that \"This [0-RTT] data is not forward secret, as it is encrypted solely under keys derived using the offered PSK.\"\r\n\r\nHowever, Section 8.1 states \"If the tickets are not self-contained but rather are database keys, and the corresponding PSKs are deleted upon use, then connections established using PSKs enjoy forward secrecy. This improves security for all 0-RTT data.\"\r\n\r\nWhat does \"improves security\" mean here? Does it mean that the 0-RTT data is forward secret in this case? If not, why not?",
+      "createdAt": "2021-08-02T21:08:08Z",
+      "updatedAt": "2021-08-02T21:08:08Z",
       "closedAt": null,
       "comments": []
     }
